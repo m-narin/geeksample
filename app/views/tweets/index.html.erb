@@ -28,7 +28,7 @@
             <%= link_to "詳細", tweet_path(t.id) %>
             <% if user_signed_in? && current_user.id == t.user_id %>  
                 <%= link_to "編集する", edit_tweet_path(t.id) %>
-                <%= button_to "削除する", tweet_path(t.id), method: :delete %>
+                <%= link_to "削除する", tweet_path(t.id), method: :delete %>
             <% end %>
             <% if user_signed_in? %>
             <% if current_user.already_liked?(t) %>
