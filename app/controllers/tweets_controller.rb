@@ -2,8 +2,12 @@ class TweetsController < ApplicationController
 
     before_action :authenticate_user!, only: [:new, :create, :edit, :update, :destroy]
 
+    def top
+    end
+    
     def index
         @tweets = params[:tag_id].present? ? Tag.find(params[:tag_id]).tweets : Tweet.all
+        @rank_tweets = Tweet.all.sort {|a,b| b.liked_users.count <=> a.liked_users.count}
     end
 
     def new
@@ -11,9 +15,9 @@ class TweetsController < ApplicationController
     end
 
     def create
-        @tweet = Tweet.new(tweet_params)
-        @tweet.user_id = current_user.id
-        if @tweet.save
+        tweet = Tweet.new(tweet_params)
+        tweet.user_id = current_user.id
+        if tweet.save
             redirect_to :action => "index"
         else
             redirect_to :action => "new"
@@ -31,8 +35,8 @@ class TweetsController < ApplicationController
     end
 
     def update
-        @tweet = Tweet.find(params[:id])
-        if @tweet.update(tweet_params)
+        ttweet = Tweet.find(params[:id])
+        if ttweet.update(tweet_params)
             redirect_to :action => "show", :id => @tweet.id
         else
             redirect_to :action => "new"
@@ -47,7 +51,7 @@ class TweetsController < ApplicationController
     
     private
     def tweet_params
-    params.require(:tweet).permit(:body, tag_ids: [])
+    params.require(:tweet).permit(:body, :image, tag_ids: [])
     end
     
 end
