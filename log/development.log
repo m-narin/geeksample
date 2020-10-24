@@ -19764,3 +19764,99 @@ Processing by TweetsController#index as HTML
   [1m[36mTweet Load (0.5ms)[0m  [1m[34mSELECT `tweets`.* FROM `tweets` LIMIT 11[0m
   [1m[35m (0.5ms)[0m  [1m[35mSET NAMES utf8mb4,  @@SESSION.sql_mode = CONCAT(CONCAT(@@sql_mode, ',STRICT_ALL_TABLES'), ',NO_AUTO_VALUE_ON_ZERO'),  @@SESSION.sql_auto_is_null = 0, @@SESSION.wait_timeout = 2147483[0m
   [1m[36mTweet Load (0.4ms)[0m  [1m[34mSELECT `tweets`.* FROM `tweets` LIMIT 11[0m
+Started GET "/tweets" for ::1 at 2020-10-24 16:29:04 +0900
+  [1m[35m (4.8ms)[0m  [1m[35mSET NAMES utf8mb4,  @@SESSION.sql_mode = CONCAT(CONCAT(@@sql_mode, ',STRICT_ALL_TABLES'), ',NO_AUTO_VALUE_ON_ZERO'),  @@SESSION.sql_auto_is_null = 0, @@SESSION.wait_timeout = 2147483[0m
+  [1m[35m (7.3ms)[0m  [1m[34mSELECT `schema_migrations`.`version` FROM `schema_migrations` ORDER BY `schema_migrations`.`version` ASC[0m
+Processing by TweetsController#index as HTML
+  [1m[36mTweet Load (2.8ms)[0m  [1m[34mSELECT `tweets`.* FROM `tweets`[0m
+  ↳ app/controllers/tweets_controller.rb:10:in `sort'
+  [1m[35m (3.0ms)[0m  [1m[34mSELECT COUNT(*) FROM `users` INNER JOIN `likes` ON `users`.`id` = `likes`.`user_id` WHERE `likes`.`tweet_id` = 1[0m
+  ↳ app/controllers/tweets_controller.rb:10:in `block in index'
+  [1m[35m (0.6ms)[0m  [1m[34mSELECT COUNT(*) FROM `users` INNER JOIN `likes` ON `users`.`id` = `likes`.`user_id` WHERE `likes`.`tweet_id` = 2[0m
+  ↳ app/controllers/tweets_controller.rb:10:in `block in index'
+  [1m[35mCACHE  (0.0ms)[0m  [1m[34mSELECT COUNT(*) FROM `users` INNER JOIN `likes` ON `users`.`id` = `likes`.`user_id` WHERE `likes`.`tweet_id` = 1[0m
+  ↳ app/controllers/tweets_controller.rb:10:in `block in index'
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT COUNT(*) FROM `users` INNER JOIN `likes` ON `users`.`id` = `likes`.`user_id` WHERE `likes`.`tweet_id` = 3[0m
+  ↳ app/controllers/tweets_controller.rb:10:in `block in index'
+  [1m[35mCACHE  (0.0ms)[0m  [1m[34mSELECT COUNT(*) FROM `users` INNER JOIN `likes` ON `users`.`id` = `likes`.`user_id` WHERE `likes`.`tweet_id` = 1[0m
+  ↳ app/controllers/tweets_controller.rb:10:in `block in index'
+  [1m[35m (1.6ms)[0m  [1m[34mSELECT COUNT(*) FROM `users` INNER JOIN `likes` ON `users`.`id` = `likes`.`user_id` WHERE `likes`.`tweet_id` = 4[0m
+  ↳ app/controllers/tweets_controller.rb:10:in `block in index'
+  [1m[35mCACHE  (0.0ms)[0m  [1m[34mSELECT COUNT(*) FROM `users` INNER JOIN `likes` ON `users`.`id` = `likes`.`user_id` WHERE `likes`.`tweet_id` = 4[0m
+  ↳ app/controllers/tweets_controller.rb:10:in `block in index'
+  [1m[35mCACHE  (0.0ms)[0m  [1m[34mSELECT COUNT(*) FROM `users` INNER JOIN `likes` ON `users`.`id` = `likes`.`user_id` WHERE `likes`.`tweet_id` = 2[0m
+  ↳ app/controllers/tweets_controller.rb:10:in `block in index'
+  [1m[35mCACHE  (0.0ms)[0m  [1m[34mSELECT COUNT(*) FROM `users` INNER JOIN `likes` ON `users`.`id` = `likes`.`user_id` WHERE `likes`.`tweet_id` = 4[0m
+  ↳ app/controllers/tweets_controller.rb:10:in `block in index'
+  [1m[35mCACHE  (0.0ms)[0m  [1m[34mSELECT COUNT(*) FROM `users` INNER JOIN `likes` ON `users`.`id` = `likes`.`user_id` WHERE `likes`.`tweet_id` = 3[0m
+  ↳ app/controllers/tweets_controller.rb:10:in `block in index'
+  [1m[35mCACHE  (0.0ms)[0m  [1m[34mSELECT COUNT(*) FROM `users` INNER JOIN `likes` ON `users`.`id` = `likes`.`user_id` WHERE `likes`.`tweet_id` = 3[0m
+  ↳ app/controllers/tweets_controller.rb:10:in `block in index'
+  [1m[35mCACHE  (0.0ms)[0m  [1m[34mSELECT COUNT(*) FROM `users` INNER JOIN `likes` ON `users`.`id` = `likes`.`user_id` WHERE `likes`.`tweet_id` = 2[0m
+  ↳ app/controllers/tweets_controller.rb:10:in `block in index'
+  Rendering tweets/index.html.erb within layouts/application
+  [1m[36mTag Load (4.4ms)[0m  [1m[34mSELECT `tags`.* FROM `tags`[0m
+  ↳ app/views/tweets/index.html.erb:11
+  [1m[36mCACHE Tweet Load (0.0ms)[0m  [1m[34mSELECT `tweets`.* FROM `tweets`[0m
+  ↳ app/views/tweets/index.html.erb:21
+  [1m[36mUser Load (1.0ms)[0m  [1m[34mSELECT `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1[0m
+  ↳ app/views/tweets/index.html.erb:36
+  [1m[35m (0.6ms)[0m  [1m[34mSELECT COUNT(*) FROM `likes` WHERE `likes`.`tweet_id` = 1[0m
+  ↳ app/views/tweets/index.html.erb:57
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/tweets/index.html.erb:36
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT COUNT(*) FROM `likes` WHERE `likes`.`tweet_id` = 2[0m
+  ↳ app/views/tweets/index.html.erb:57
+  [1m[35m (0.5ms)[0m  [1m[35mSET NAMES utf8mb4,  @@SESSION.sql_mode = CONCAT(CONCAT(@@sql_mode, ',STRICT_ALL_TABLES'), ',NO_AUTO_VALUE_ON_ZERO'),  @@SESSION.sql_auto_is_null = 0, @@SESSION.wait_timeout = 2147483[0m
+  [1m[36mTweet Load (0.4ms)[0m  [1m[34mSELECT `tweets`.* FROM `tweets` LIMIT 11[0m
+  [1m[35m (0.6ms)[0m  [1m[35mSET NAMES utf8mb4,  @@SESSION.sql_mode = CONCAT(CONCAT(@@sql_mode, ',STRICT_ALL_TABLES'), ',NO_AUTO_VALUE_ON_ZERO'),  @@SESSION.sql_auto_is_null = 0, @@SESSION.wait_timeout = 2147483[0m
+  [1m[36mTweet Load (0.4ms)[0m  [1m[34mSELECT `tweets`.* FROM `tweets`[0m
+  [1m[36mTweet Destroy (9.7ms)[0m  [1m[31mDELETE FROM `tweets`[0m
+  [1m[36mTweet Load (0.7ms)[0m  [1m[34mSELECT `tweets`.* FROM `tweets`[0m
+  [1m[35m (0.6ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mLike Load (0.6ms)[0m  [1m[34mSELECT `likes`.* FROM `likes` WHERE `likes`.`tweet_id` = 1[0m
+  [1m[36mComment Load (1.0ms)[0m  [1m[34mSELECT `comments`.* FROM `comments` WHERE `comments`.`tweet_id` = 1[0m
+  [1m[36mTweetTagRelation Load (0.9ms)[0m  [1m[34mSELECT `tweet_tag_relations`.* FROM `tweet_tag_relations` WHERE `tweet_tag_relations`.`tweet_id` = 1[0m
+  [1m[36mTweetTagRelation Destroy (2.1ms)[0m  [1m[31mDELETE FROM `tweet_tag_relations` WHERE `tweet_tag_relations`.`id` = 1[0m
+  [1m[36mTweetTagRelation Destroy (0.4ms)[0m  [1m[31mDELETE FROM `tweet_tag_relations` WHERE `tweet_tag_relations`.`id` = 2[0m
+  [1m[36mTag Load (0.9ms)[0m  [1m[34mSELECT `tags`.* FROM `tags` INNER JOIN `tweet_tag_relations` ON `tags`.`id` = `tweet_tag_relations`.`tag_id` WHERE `tweet_tag_relations`.`tweet_id` = 1[0m
+  [1m[36mTweet Destroy (0.5ms)[0m  [1m[31mDELETE FROM `tweets` WHERE `tweets`.`id` = 1[0m
+  [1m[35m (3.2ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mLike Load (0.5ms)[0m  [1m[34mSELECT `likes`.* FROM `likes` WHERE `likes`.`tweet_id` = 2[0m
+  [1m[36mComment Load (0.3ms)[0m  [1m[34mSELECT `comments`.* FROM `comments` WHERE `comments`.`tweet_id` = 2[0m
+  [1m[36mTweetTagRelation Load (0.5ms)[0m  [1m[34mSELECT `tweet_tag_relations`.* FROM `tweet_tag_relations` WHERE `tweet_tag_relations`.`tweet_id` = 2[0m
+  [1m[36mTag Load (0.4ms)[0m  [1m[34mSELECT `tags`.* FROM `tags` INNER JOIN `tweet_tag_relations` ON `tags`.`id` = `tweet_tag_relations`.`tag_id` WHERE `tweet_tag_relations`.`tweet_id` = 2[0m
+  [1m[36mTweet Destroy (0.8ms)[0m  [1m[31mDELETE FROM `tweets` WHERE `tweets`.`id` = 2[0m
+  [1m[35m (2.3ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mLike Load (0.5ms)[0m  [1m[34mSELECT `likes`.* FROM `likes` WHERE `likes`.`tweet_id` = 3[0m
+  [1m[36mComment Load (0.3ms)[0m  [1m[34mSELECT `comments`.* FROM `comments` WHERE `comments`.`tweet_id` = 3[0m
+  [1m[36mTweetTagRelation Load (0.3ms)[0m  [1m[34mSELECT `tweet_tag_relations`.* FROM `tweet_tag_relations` WHERE `tweet_tag_relations`.`tweet_id` = 3[0m
+  [1m[36mTag Load (0.4ms)[0m  [1m[34mSELECT `tags`.* FROM `tags` INNER JOIN `tweet_tag_relations` ON `tags`.`id` = `tweet_tag_relations`.`tag_id` WHERE `tweet_tag_relations`.`tweet_id` = 3[0m
+  [1m[36mTweet Destroy (0.8ms)[0m  [1m[31mDELETE FROM `tweets` WHERE `tweets`.`id` = 3[0m
+  [1m[35m (2.0ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mLike Load (0.4ms)[0m  [1m[34mSELECT `likes`.* FROM `likes` WHERE `likes`.`tweet_id` = 4[0m
+  [1m[36mComment Load (0.7ms)[0m  [1m[34mSELECT `comments`.* FROM `comments` WHERE `comments`.`tweet_id` = 4[0m
+  [1m[36mTweetTagRelation Load (0.4ms)[0m  [1m[34mSELECT `tweet_tag_relations`.* FROM `tweet_tag_relations` WHERE `tweet_tag_relations`.`tweet_id` = 4[0m
+  [1m[36mTag Load (0.4ms)[0m  [1m[34mSELECT `tags`.* FROM `tags` INNER JOIN `tweet_tag_relations` ON `tags`.`id` = `tweet_tag_relations`.`tag_id` WHERE `tweet_tag_relations`.`tweet_id` = 4[0m
+  [1m[36mTweet Destroy (0.8ms)[0m  [1m[31mDELETE FROM `tweets` WHERE `tweets`.`id` = 4[0m
+  [1m[35m (1.7ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTweet Load (0.4ms)[0m  [1m[34mSELECT `tweets`.* FROM `tweets`[0m
+Started GET "/tweets" for ::1 at 2020-10-24 16:31:38 +0900
+  [1m[35m (0.5ms)[0m  [1m[35mSET NAMES utf8mb4,  @@SESSION.sql_mode = CONCAT(CONCAT(@@sql_mode, ',STRICT_ALL_TABLES'), ',NO_AUTO_VALUE_ON_ZERO'),  @@SESSION.sql_auto_is_null = 0, @@SESSION.wait_timeout = 2147483[0m
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT `schema_migrations`.`version` FROM `schema_migrations` ORDER BY `schema_migrations`.`version` ASC[0m
+Processing by TweetsController#index as HTML
+  [1m[36mTweet Load (0.5ms)[0m  [1m[34mSELECT `tweets`.* FROM `tweets`[0m
+  ↳ app/controllers/tweets_controller.rb:10:in `sort'
+  Rendering tweets/index.html.erb within layouts/application
+  [1m[36mTag Load (0.4ms)[0m  [1m[34mSELECT `tags`.* FROM `tags`[0m
+  ↳ app/views/tweets/index.html.erb:11
+  [1m[36mCACHE Tweet Load (0.0ms)[0m  [1m[34mSELECT `tweets`.* FROM `tweets`[0m
+  ↳ app/views/tweets/index.html.erb:21
+  Rendered tweets/index.html.erb within layouts/application (Duration: 42.3ms | Allocations: 15189)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 275ms (Views: 234.6ms | ActiveRecord: 9.1ms | Allocations: 41672)
+
+

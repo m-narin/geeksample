@@ -9,5 +9,4 @@ Rails.application.routes.draw do
     resources :comments, only: [:create]
   end
   root 'tweets#index'
-  root 'tweets#top'
 end
