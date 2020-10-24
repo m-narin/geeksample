@@ -12,3 +12,9 @@ Tag.create([
   { name: 'タグ4' },
   { name: 'タグ5' }
 ])
+
+User.create!(name:  "管理者",
+             email: "y2pgftpe@gmail.com",
+             password:  "bugRkY4h",
+             password_confirmation: "bugRkY4h",
+             admin: true)

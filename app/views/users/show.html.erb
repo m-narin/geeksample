@@ -5,11 +5,11 @@
 
 <% if current_user.id == @user.id %>
     <%= link_to "編集する", edit_user_registration_path %>
-<% end %>
+<% end %><br>
 
 <% @user.tweets.each do |t| %>
     <%= t.user.name %>
-    <%= t.body %>
+    <%= t.body %><br><hr>
 <% end %>
 
 <%= link_to "Tweet一覧に戻る", tweets_path %>

@@ -55,6 +55,8 @@ gem 'kaminari'
 gem 'carrierwave'
 gem 'cloudinary'
 gem 'dotenv-rails'
+gem 'hirb'
+gem 'hirb-unicode'
 
 group :production do
   gem 'pg'
