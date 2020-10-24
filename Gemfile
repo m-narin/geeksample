@@ -57,6 +57,7 @@ gem 'cloudinary'
 gem 'dotenv-rails'
 gem 'hirb'
 gem 'hirb-unicode'
+gem 'twitter-bootstrap-rails'
 
 group :production do
   gem 'pg'
