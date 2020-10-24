@@ -36,7 +36,7 @@ end
 group :development do
   # Access an interactive console on exception pages or by calling 'console' anywhere in the code.
   gem 'web-console', '>= 3.3.0'
-  gem 'mysql2'
+  gem 'mysql2'　
 end
 
 group :test do
@@ -57,7 +57,6 @@ gem 'cloudinary'
 gem 'dotenv-rails'
 gem 'hirb'
 gem 'hirb-unicode'
-gem 'twitter-bootstrap-rails'
 
 group :production do
   gem 'pg'
