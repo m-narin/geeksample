@@ -57,7 +57,6 @@ gem 'cloudinary'
 gem 'dotenv-rails'
 gem 'hirb'
 gem 'hirb-unicode'
-gem 'fog'
 
 group :production do
   gem 'pg'
