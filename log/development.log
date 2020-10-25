@@ -20551,3 +20551,257 @@ Processing by TweetsController#index as HTML
 Completed 200 OK in 77ms (Views: 67.6ms | ActiveRecord: 2.7ms | Allocations: 12733)
 
 
+Started GET "/tweets" for 127.0.0.1 at 2020-10-25 22:08:58 +0900
+  [1m[35m (0.5ms)[0m  [1m[35mSET NAMES utf8mb4,  @@SESSION.sql_mode = CONCAT(CONCAT(@@sql_mode, ',STRICT_ALL_TABLES'), ',NO_AUTO_VALUE_ON_ZERO'),  @@SESSION.sql_auto_is_null = 0, @@SESSION.wait_timeout = 2147483[0m
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT `schema_migrations`.`version` FROM `schema_migrations` ORDER BY `schema_migrations`.`version` ASC[0m
+Processing by TweetsController#index as HTML
+  [1m[36mTweet Load (0.5ms)[0m  [1m[34mSELECT `tweets`.* FROM `tweets`[0m
+  ↳ app/controllers/tweets_controller.rb:10:in `sort'
+  Rendering tweets/index.html.erb within layouts/application
+  [1m[36mTag Load (0.5ms)[0m  [1m[34mSELECT `tags`.* FROM `tags`[0m
+  ↳ app/views/tweets/index.html.erb:11
+  [1m[36mCACHE Tweet Load (0.0ms)[0m  [1m[34mSELECT `tweets`.* FROM `tweets`[0m
+  ↳ app/views/tweets/index.html.erb:21
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1[0m
+  ↳ app/views/tweets/index.html.erb:36
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT COUNT(*) FROM `likes` WHERE `likes`.`tweet_id` = 1[0m
+  ↳ app/views/tweets/index.html.erb:57
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/tweets/index.html.erb:86
+  [1m[35mCACHE  (0.0ms)[0m  [1m[34mSELECT COUNT(*) FROM `likes` WHERE `likes`.`tweet_id` = 1[0m
+  ↳ app/views/tweets/index.html.erb:107
+  Rendered tweets/index.html.erb within layouts/application (Duration: 138.3ms | Allocations: 29973)
+Completed 500 Internal Server Error in 220ms (ActiveRecord: 22.1ms | Allocations: 46816)
+
+
+  
+ActionView::SyntaxErrorInTemplate (Encountered a syntax error while rendering template: check <!DOCTYPE html>
+<html>
+  <head>
+    <title>Geektwitter</title>
+    <%= csrf_meta_tags %>
+    <%= csp_meta_tag %>
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.14.0/css/all.css">
+    <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%=#javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
+  </head>
+
+  <body>
+    <header>
+      <h1>GeekTwitter</h1>
+      <div class="header-list">
+      <ul>
+        <% if user_signed_in? %>
+          <li><%= link_to "新規投稿", new_tweet_path %></li>
+          <li><%= link_to 'ログアウト', destroy_user_session_path, method: :delete %></li>
+          <li><%= link_to "マイページ", user_path(current_user.id) %></li>
+        <% else %>
+          <li><%= link_to "新規登録", new_user_registration_path %></li>
+          <li><%= link_to "ログイン", new_user_session_path %></li>
+        <% end %>
+      </ul>
+      </div>
+    </header>
+    <main>
+      <%= yield %>
+    </main>
+    <footer>
+      <p>Copyright © GeekSalon All Rights Reserved.</p>
+    </footer>
+  </body>
+</html>
+):
+1:    <!DOCTYPE html>
+2:    <html>
+3:      <head>
+4:        <title>Geektwitter</title>
+5:        <%= csrf_meta_tags %>
+6:        <%= csp_meta_tag %>
+7:        <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.14.0/css/all.css">
+8:        <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+9:        <%=#javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
+10:      </head>
+11:    
+12:      <body>
+13:        <header>
+14:          <h1>GeekTwitter</h1>
+15:          <div class="header-list">
+16:          <ul>
+17:            <% if user_signed_in? %>
+18:              <li><%= link_to "新規投稿", new_tweet_path %></li>
+19:              <li><%= link_to 'ログアウト', destroy_user_session_path, method: :delete %></li>
+20:              <li><%= link_to "マイページ", user_path(current_user.id) %></li>
+21:            <% else %>
+22:              <li><%= link_to "新規登録", new_user_registration_path %></li>
+23:              <li><%= link_to "ログイン", new_user_session_path %></li>
+24:            <% end %>
+25:          </ul>
+26:          </div>
+27:        </header>
+28:        <main>
+29:          <%= yield %>
+30:        </main>
+31:        <footer>
+32:          <p>Copyright © GeekSalon All Rights Reserved.</p>
+33:        </footer>
+34:      </body>
+35:    </html>
+  
+app/views/layouts/application.html.erb:10: syntax error, unexpected '<'
+app/views/layouts/application.html.erb:14: unknown regexp option - h
+app/views/layouts/application.html.erb:14: syntax error, unexpected tINTEGER, expecting ')'
+app/views/layouts/application.html.erb:16: syntax error, unexpected '<'
+app/views/layouts/application.html.erb:19: unknown regexp option - l
+app/views/layouts/application.html.erb:20: syntax error, unexpected '<'
+app/views/layouts/application.html.erb:22: unknown regexp option - l
+app/views/layouts/application.html.erb:23: syntax error, unexpected '<'
+app/views/layouts/application.html.erb:25: unknown regexp option - l
+app/views/layouts/application.html.erb:26: syntax error, unexpected '<'
+app/views/layouts/application.html.erb:27: unknown regexp options - hadr
+app/views/layouts/application.html.erb:28: syntax error, unexpected '<'
+app/views/layouts/application.html.erb:30: syntax error, unexpected '<', expecting ')'
+app/views/layouts/application.html.erb:32: unknown regexp option - p
+app/views/layouts/application.html.erb:33: syntax error, unexpected '<'
+app/views/layouts/application.html.erb:34: unknown regexp options - bdy
+app/views/layouts/application.html.erb:35: syntax error, unexpected '<'
+app/views/layouts/application.html.erb:37: unterminated regexp meets end of file
+app/views/layouts/application.html.erb:37: syntax error, unexpected end-of-input, expecting ')'
+app/views/layouts/application.html.erb:10: syntax error, unexpected '<'
+app/views/layouts/application.html.erb:14: unknown regexp option - h
+app/views/layouts/application.html.erb:14: syntax error, unexpected tINTEGER, expecting ')'
+app/views/layouts/application.html.erb:16: syntax error, unexpected '<'
+app/views/layouts/application.html.erb:19: unknown regexp option - l
+app/views/layouts/application.html.erb:20: syntax error, unexpected '<'
+app/views/layouts/application.html.erb:22: unknown regexp option - l
+app/views/layouts/application.html.erb:23: syntax error, unexpected '<'
+app/views/layouts/application.html.erb:25: unknown regexp option - l
+app/views/layouts/application.html.erb:26: syntax error, unexpected '<'
+app/views/layouts/application.html.erb:27: unknown regexp options - hadr
+app/views/layouts/application.html.erb:28: syntax error, unexpected '<'
+app/views/layouts/application.html.erb:30: syntax error, unexpected '<', expecting ')'
+app/views/layouts/application.html.erb:32: unknown regexp option - p
+app/views/layouts/application.html.erb:33: syntax error, unexpected '<'
+app/views/layouts/application.html.erb:34: unknown regexp options - bdy
+app/views/layouts/application.html.erb:35: syntax error, unexpected '<'
+app/views/layouts/application.html.erb:37: unterminated regexp meets end of file
+app/views/layouts/application.html.erb:37: syntax error, unexpected end-of-input, expecting ')'
+app/views/layouts/application.html.erb:10: syntax error, unexpected '<'
+app/views/layouts/application.html.erb:14: unknown regexp option - h
+app/views/layouts/application.html.erb:14: syntax error, unexpected tINTEGER, expecting ')'
+app/views/layouts/application.html.erb:16: syntax error, unexpected '<'
+app/views/layouts/application.html.erb:19: unknown regexp option - l
+app/views/layouts/application.html.erb:20: syntax error, unexpected '<'
+app/views/layouts/application.html.erb:22: unknown regexp option - l
+app/views/layouts/application.html.erb:23: syntax error, unexpected '<'
+app/views/layouts/application.html.erb:25: unknown regexp option - l
+app/views/layouts/application.html.erb:26: syntax error, unexpected '<'
+app/views/layouts/application.html.erb:27: unknown regexp options - hadr
+app/views/layouts/application.html.erb:28: syntax error, unexpected '<'
+app/views/layouts/application.html.erb:30: syntax error, unexpected '<', expecting ')'
+app/views/layouts/application.html.erb:32: unknown regexp option - p
+app/views/layouts/application.html.erb:33: syntax error, unexpected '<'
+app/views/layouts/application.html.erb:34: unknown regexp options - bdy
+app/views/layouts/application.html.erb:35: syntax error, unexpected '<'
+app/views/layouts/application.html.erb:37: unterminated regexp meets end of file
+app/views/layouts/application.html.erb:37: syntax error, unexpected end-of-input, expecting ')'
+app/views/layouts/application.html.erb:10: syntax error, unexpected '<'
+app/views/layouts/application.html.erb:14: unknown regexp option - h
+app/views/layouts/application.html.erb:14: syntax error, unexpected tINTEGER, expecting ')'
+app/views/layouts/application.html.erb:16: syntax error, unexpected '<'
+app/views/layouts/application.html.erb:19: unknown regexp option - l
+app/views/layouts/application.html.erb:20: syntax error, unexpected '<'
+app/views/layouts/application.html.erb:22: unknown regexp option - l
+app/views/layouts/application.html.erb:23: syntax error, unexpected '<'
+app/views/layouts/application.html.erb:25: unknown regexp option - l
+app/views/layouts/application.html.erb:26: syntax error, unexpected '<'
+app/views/layouts/application.html.erb:27: unknown regexp options - hadr
+app/views/layouts/application.html.erb:28: syntax error, unexpected '<'
+app/views/layouts/application.html.erb:30: syntax error, unexpected '<', expecting ')'
+app/views/layouts/application.html.erb:32: unknown regexp option - p
+app/views/layouts/application.html.erb:33: syntax error, unexpected '<'
+app/views/layouts/application.html.erb:34: unknown regexp options - bdy
+app/views/layouts/application.html.erb:35: syntax error, unexpected '<'
+app/views/layouts/application.html.erb:37: unterminated regexp meets end of file
+app/views/layouts/application.html.erb:37: syntax error, unexpected end-of-input, expecting ')'
+app/views/layouts/application.html.erb:10: syntax error, unexpected '<'
+app/views/layouts/application.html.erb:14: unknown regexp option - h
+app/views/layouts/application.html.erb:14: syntax error, unexpected tINTEGER, expecting ')'
+app/views/layouts/application.html.erb:16: syntax error, unexpected '<'
+app/views/layouts/application.html.erb:19: unknown regexp option - l
+app/views/layouts/application.html.erb:20: syntax error, unexpected '<'
+app/views/layouts/application.html.erb:22: unknown regexp option - l
+app/views/layouts/application.html.erb:23: syntax error, unexpected '<'
+app/views/layouts/application.html.erb:25: unknown regexp option - l
+app/views/layouts/application.html.erb:26: syntax error, unexpected '<'
+app/views/layouts/application.html.erb:27: unknown regexp options - hadr
+app/views/layouts/application.html.erb:28: syntax error, unexpected '<'
+app/views/layouts/application.html.erb:30: syntax error, unexpected '<', expecting ')'
+app/views/layouts/application.html.erb:32: unknown regexp option - p
+app/views/layouts/application.html.erb:33: syntax error, unexpected '<'
+app/views/layouts/application.html.erb:34: unknown regexp options - bdy
+app/views/layouts/application.html.erb:35: syntax error, unexpected '<'
+app/views/layouts/application.html.erb:37: unterminated regexp meets end of file
+app/views/layouts/application.html.erb:37: syntax error, unexpected end-of-input, expecting ')'
+app/views/layouts/application.html.erb:10: syntax error, unexpected '<'
+app/views/layouts/application.html.erb:14: unknown regexp option - h
+app/views/layouts/application.html.erb:14: syntax error, unexpected tINTEGER, expecting ')'
+app/views/layouts/application.html.erb:16: syntax error, unexpected '<'
+app/views/layouts/application.html.erb:19: unknown regexp option - l
+app/views/layouts/application.html.erb:20: syntax error, unexpected '<'
+app/views/layouts/application.html.erb:22: unknown regexp option - l
+app/views/layouts/application.html.erb:23: syntax error, unexpected '<'
+app/views/layouts/application.html.erb:25: unknown regexp option - l
+app/views/layouts/application.html.erb:26: syntax error, unexpected '<'
+app/views/layouts/application.html.erb:27: unknown regexp options - hadr
+app/views/layouts/application.html.erb:28: syntax error, unexpected '<'
+app/views/layouts/application.html.erb:30: syntax error, unexpected '<', expecting ')'
+app/views/layouts/application.html.erb:32: unknown regexp option - p
+app/views/layouts/application.html.erb:33: syntax error, unexpected '<'
+app/views/layouts/application.html.erb:34: unknown regexp options - bdy
+app/views/layouts/application.html.erb:35: syntax error, unexpected '<'
+app/views/layouts/application.html.erb:37: unterminated regexp meets end of file
+app/views/layouts/application.html.erb:37: syntax error, unexpected end-of-input, expecting ')'
+Started GET "/tweets" for 127.0.0.1 at 2020-10-25 22:09:24 +0900
+Processing by TweetsController#index as HTML
+  [1m[36mTweet Load (0.4ms)[0m  [1m[34mSELECT `tweets`.* FROM `tweets`[0m
+  ↳ app/controllers/tweets_controller.rb:10:in `sort'
+  Rendering tweets/index.html.erb within layouts/application
+  [1m[36mTag Load (0.4ms)[0m  [1m[34mSELECT `tags`.* FROM `tags`[0m
+  ↳ app/views/tweets/index.html.erb:11
+  [1m[36mCACHE Tweet Load (0.0ms)[0m  [1m[34mSELECT `tweets`.* FROM `tweets`[0m
+  ↳ app/views/tweets/index.html.erb:21
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1[0m
+  ↳ app/views/tweets/index.html.erb:36
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT COUNT(*) FROM `likes` WHERE `likes`.`tweet_id` = 1[0m
+  ↳ app/views/tweets/index.html.erb:57
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/tweets/index.html.erb:86
+  [1m[35mCACHE  (0.0ms)[0m  [1m[34mSELECT COUNT(*) FROM `likes` WHERE `likes`.`tweet_id` = 1[0m
+  ↳ app/views/tweets/index.html.erb:107
+  Rendered tweets/index.html.erb within layouts/application (Duration: 18.1ms | Allocations: 7840)
+Completed 200 OK in 37ms (Views: 31.8ms | ActiveRecord: 1.6ms | Allocations: 13286)
+
+
+Started GET "/tweets" for ::1 at 2020-10-25 22:09:42 +0900
+  [1m[35m (0.5ms)[0m  [1m[35mSET NAMES utf8mb4,  @@SESSION.sql_mode = CONCAT(CONCAT(@@sql_mode, ',STRICT_ALL_TABLES'), ',NO_AUTO_VALUE_ON_ZERO'),  @@SESSION.sql_auto_is_null = 0, @@SESSION.wait_timeout = 2147483[0m
+  [1m[35m (0.6ms)[0m  [1m[34mSELECT `schema_migrations`.`version` FROM `schema_migrations` ORDER BY `schema_migrations`.`version` ASC[0m
+Processing by TweetsController#index as HTML
+  [1m[36mTweet Load (0.5ms)[0m  [1m[34mSELECT `tweets`.* FROM `tweets`[0m
+  ↳ app/controllers/tweets_controller.rb:10:in `sort'
+  Rendering tweets/index.html.erb within layouts/application
+  [1m[36mTag Load (0.4ms)[0m  [1m[34mSELECT `tags`.* FROM `tags`[0m
+  ↳ app/views/tweets/index.html.erb:11
+  [1m[36mCACHE Tweet Load (0.0ms)[0m  [1m[34mSELECT `tweets`.* FROM `tweets`[0m
+  ↳ app/views/tweets/index.html.erb:21
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1[0m
+  ↳ app/views/tweets/index.html.erb:36
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT COUNT(*) FROM `likes` WHERE `likes`.`tweet_id` = 1[0m
+  ↳ app/views/tweets/index.html.erb:57
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/tweets/index.html.erb:86
+  [1m[35mCACHE  (0.0ms)[0m  [1m[34mSELECT COUNT(*) FROM `likes` WHERE `likes`.`tweet_id` = 1[0m
+  ↳ app/views/tweets/index.html.erb:107
+  Rendered tweets/index.html.erb within layouts/application (Duration: 140.7ms | Allocations: 29973)
+Completed 200 OK in 205ms (Views: 148.5ms | ActiveRecord: 20.3ms | Allocations: 48380)
+
+
