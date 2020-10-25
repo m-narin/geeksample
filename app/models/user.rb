@@ -9,6 +9,8 @@ class User < ApplicationRecord
   has_many :liked_tweets, through: :likes, source: :tweet
   has_many :comments, dependent: :destroy
 
+  is_impressionable counter_cache: true
+
   def already_liked?(tweet)
     self.likes.exists?(tweet_id: tweet.id)
   end

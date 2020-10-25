@@ -5,6 +5,8 @@ class Tweet < ApplicationRecord
     has_many :comments, dependent: :destroy
     
     mount_uploader :image, ImageUploader
+    
+    is_impressionable counter_cache: true
 
     #Articlesテーブルから中間テーブルに対する関連付け
     has_many :tweet_tag_relations, dependent: :destroy

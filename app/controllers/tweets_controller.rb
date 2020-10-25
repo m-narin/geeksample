@@ -26,6 +26,7 @@ class TweetsController < ApplicationController
 
     def show
         @tweet = Tweet.find(params[:id])
+        impressionist(@tweet, nil, unique: [:ip_address]) 
         @comments = @tweet.comments
         @comment = Comment.new
     end

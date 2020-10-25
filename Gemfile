@@ -57,6 +57,7 @@ gem 'cloudinary'
 gem 'dotenv-rails'
 gem 'hirb'
 gem 'hirb-unicode'
+gem 'impressionist', '~>1.6.1'
 
 group :production do
   gem 'pg'
