@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_10_25_105847) do
+ActiveRecord::Schema.define(version: 2020_10_26_144139) do
 
   create_table "comments", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4", force: :cascade do |t|
     t.string "content"
@@ -80,6 +80,7 @@ ActiveRecord::Schema.define(version: 2020_10_25_105847) do
     t.string "image"
     t.integer "star"
     t.integer "impressions_count", default: 0
+    t.string "video"
   end
 
   create_table "users", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4", force: :cascade do |t|

@@ -21,6 +21,7 @@
     <div class="tweet">
         <div class="main-box">
             <div class="left-container">
+                <%=  video_tag t.video_url, size: "250x200" ,:controls => true if t.video?%>
                 <%= image_tag t.image_url, size: "250x200" if t.image? %>
                 <%= t.body %>
             </div>
