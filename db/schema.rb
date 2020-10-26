@@ -77,7 +77,6 @@ ActiveRecord::Schema.define(version: 2020_10_26_144139) do
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.integer "user_id"
-    t.string "image"
     t.integer "star"
     t.integer "impressions_count", default: 0
     t.string "video"
