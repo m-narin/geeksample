@@ -1,115 +1,116 @@
 <%= stylesheet_link_tag 'index', :media => "all" %>
-
 <h3>投稿を検索</h3>
-    <%= form_tag({controller:"tweets",action:"index"}, method: :get) do %>
-    <%= text_field_tag :search %>
-    <%= submit_tag '検索する'  %>
+<%= form_tag({controller:"tweets",action:"index"}, method: :get) do %>
+<%= text_field_tag :search %>
+<%= submit_tag '検索する'  %>
 <% end %>
 
 <%= form_tag tweets_path, method: :get, class: 'boards__searchForm' do %>
-    <%= select_tag :tag_id,
-                   options_from_collection_for_select(Tag.all, :id, :name, params[:tag_id]),
-                   {
-                     prompt: 'タグで絞り込み検索',
-                     onchange: 'submit(this.form);'
-                   }
+<%= select_tag :tag_id,
+                options_from_collection_for_select(Tag.all, :id, :name, params[:tag_id]),
+                {
+                    prompt: 'タグで絞り込み検索',
+                    onchange: 'submit(this.form);'
+                }
     %>
 <% end %>
 
 <div class="tweets-container">
-<h3>Tweet一覧</h3>
+    <h3>Tweet一覧</h3>
     <% @tweets.each do |t| %>
-        <div class="tweet">
-            <div class="main-box">
-                <div class="left-container">
-                    <%= image_tag t.image_url, size: "250x200" if t.image? %>
-                    <%= t.body %>
-                </div>
-
-                <div class="star-bar">
-                    <% for i in 1..t.star do %>
-                        ★
-                    <% end %>
-                </div>
-
-                <div class="right-container">
-                    <%= t.user.name %>
-                    <%= link_to "詳細", tweet_path(t.id) %>
-
-                    <% if user_signed_in? %>
-                        <% if current_user.id == t.user_id || current_user.admin? %>  
-                            <%= link_to "編集する", edit_tweet_path(t.id) %>
-                            <%= link_to "削除する", tweet_path(t.id), method: :delete %>
-                        <% end %>
-                    <% end %>
-
-                    <% if user_signed_in? %>
-                        <% if current_user.already_liked?(t) %>
-                            <%= link_to tweet_like_path(id: t.id, tweet_id: t.id), method: :delete do %>
-                                <i class="fas fa-heart"></i><%= t.likes.count %>
-                            <% end %>
-                        <% else %>
-                            <%= link_to tweet_likes_path(id: t.id, tweet_id: t.id), method: :post do %>
-                                <i class="far fa-heart"></i><%= t.likes.count %>
-                            <% end %>
-                        <% end %>
-                    <% else %>
-                        <i class="far fa-heart"></i><%= t.likes.count %>
-                    <% end %>
-                </div>
-            </div>
-            <p class="time"><%= t.created_at %></p>
-            <p class="view-count"><%= t.impressions_count %></p>
-        </div>
-    <% end %>
-</div>
-
-<br><br><br>
-
-<div class="tweets-container">
-<h3>いいねランキング</h3>
-    <% @rank_tweets.each do |t| %>
-        <div class="tweet">
-            <div class="main-box">
+    <div class="tweet">
+        <div class="main-box">
             <div class="left-container">
                 <%= image_tag t.image_url, size: "250x200" if t.image? %>
                 <%= t.body %>
             </div>
-
+            <% if t.star? %>
             <div class="star-bar">
                 <% for i in 1..t.star do %>
-                    ★
+                ★
                 <% end %>
             </div>
+            <% end %>
 
             <div class="right-container">
                 <%= t.user.name %>
                 <%= link_to "詳細", tweet_path(t.id) %>
 
                 <% if user_signed_in? %>
-                    <% if current_user.id == t.user_id || current_user.admin? %>  
-                        <%= link_to "編集する", edit_tweet_path(t.id) %>
-                        <%= link_to "削除する", tweet_path(t.id), method: :delete %>
-                    <% end %>
+                <% if current_user.id == t.user_id || current_user.admin? %>
+                <%= link_to "編集する", edit_tweet_path(t.id) %>
+                <%= link_to "削除する", tweet_path(t.id), method: :delete %>
+                <% end %>
                 <% end %>
 
                 <% if user_signed_in? %>
                 <% if current_user.already_liked?(t) %>
                 <%= link_to tweet_like_path(id: t.id, tweet_id: t.id), method: :delete do %>
-                    <i class="fas fa-heart"></i><%= t.likes.count %>
+                <i class="fas fa-heart"></i><%= t.likes.count %>
                 <% end %>
                 <% else %>
                 <%= link_to tweet_likes_path(id: t.id, tweet_id: t.id), method: :post do %>
-                    <i class="far fa-heart"></i><%= t.likes.count %>
-                <% end %>
-                <% end %>
-            <% else %>
                 <i class="far fa-heart"></i><%= t.likes.count %>
-            <% end %>
+                <% end %>
+                <% end %>
+                <% else %>
+                <i class="far fa-heart"></i><%= t.likes.count %>
+                <% end %>
             </div>
-            </div>
-            <p class="time"><%= t.created_at %></p>
         </div>
+        <p class="time"><%= t.created_at %></p>
+        <p class="view-count">閲覧数 = <%= t.impressions_count %></p>
+    </div>
+    <% end %>
+</div>
+
+<br><br><br>
+
+<div class="tweets-container">
+    <h3>いいねランキング</h3>
+    <% @rank_tweets.each do |t| %>
+    <div class="tweet">
+        <div class="main-box">
+            <div class="left-container">
+                <%= image_tag t.image_url, size: "250x200" if t.image? %>
+                <%= t.body %>
+            </div>
+            <% if t.star? %>
+            <div class="star-bar">
+                <% for i in 1..t.star do %>
+                ★
+                <% end %>
+            </div>
+            <% end %>
+
+            <div class="right-container">
+                <%= t.user.name %>
+                <%= link_to "詳細", tweet_path(t.id) %>
+
+                <% if user_signed_in? %>
+                <% if current_user.id == t.user_id || current_user.admin? %>
+                <%= link_to "編集する", edit_tweet_path(t.id) %>
+                <%= link_to "削除する", tweet_path(t.id), method: :delete %>
+                <% end %>
+                <% end %>
+
+                <% if user_signed_in? %>
+                <% if current_user.already_liked?(t) %>
+                <%= link_to tweet_like_path(id: t.id, tweet_id: t.id), method: :delete do %>
+                <i class="fas fa-heart"></i><%= t.likes.count %>
+                <% end %>
+                <% else %>
+                <%= link_to tweet_likes_path(id: t.id, tweet_id: t.id), method: :post do %>
+                <i class="far fa-heart"></i><%= t.likes.count %>
+                <% end %>
+                <% end %>
+                <% else %>
+                <i class="far fa-heart"></i><%= t.likes.count %>
+                <% end %>
+            </div>
+        </div>
+        <p class="time"><%= t.created_at %></p>
+    </div>
     <% end %>
 </div>
 </div>

@@ -14,7 +14,7 @@ Tag.create([
 ])
 
 User.create!(name:  "管理者",
-             email: "y2pgftpe@gmail.com",
-             password:  "bugRkY4h",
-             password_confirmation: "bugRkY4h",
-             admin: true)
+            email: "y2pgftpe@gmail.com",
+            password:  "bugRkY4h",
+            password_confirmation: "bugRkY4h",
+            admin: true)

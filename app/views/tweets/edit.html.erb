@@ -1,5 +1,41 @@
-<%= form_for @tweet do |f| %>
-    <%= f.label :body %>
-    <%= f.text_field :body, :size => 140 %> 
-    <%= f.submit "編集する" %>
-<% end %>
+<%= stylesheet_link_tag 'new', :media => "all" %>
+
+<div class="post-container">
+    <p class="title">投稿編集</p>
+    <%= form_for(@tweet, :url => { controller:'tweets', action:'create'})do |f| %>
+        <div class = "field>
+            <%= f.label :投稿内容 %>
+            <%= f.text_area :body, size: "50x3" %>
+        </div>
+
+        <div class="field">
+            <%= f.label:image %>
+            <%= f.file_field :image %>
+        </div>
+
+        <p>
+        星５評価：
+            <label><%= f.radio_button :star, 1 %> 1</label>
+            <label><%= f.radio_button :star, 2 %> 2</label>
+            <label><%= f.radio_button :star, 3 %> 3</label>
+            <label><%= f.radio_button :star, 4 %> 4</label>
+            <label><%= f.radio_button :star, 5 %> 5</label>
+        </p>
+    
+
+        <br>
+        
+        <div class='form-group'>
+        <%= f.collection_check_boxes(:tag_ids, Tag.all, :id, :name) do |tag| %>
+            <div class='form-check'>
+                <%= tag.label class: 'form-check-label' do %>
+                    <%= tag.check_box class: 'form-check-input' %>
+                    <%= tag.text %>
+                <% end %>
+            </div>
+        <% end %>
+    </div>
+    <%= f.submit "送信"%>
+    <br>
+    <% end %>
+</div>

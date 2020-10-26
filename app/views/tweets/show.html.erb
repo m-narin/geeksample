@@ -5,6 +5,15 @@
     <p><%= @tweet.user.email %></p>
     <h3><%= @tweet.body %></h3>
     <p><%= @tweet.created_at %></p>
+    <p>閲覧数 = <%= @tweet.impressions_count %></p>
+
+    <% if @tweet.star? %>
+        <div class="star-bar">
+            <% for i in 1..@tweet.star do %>
+                ★
+            <% end %>
+        </div>
+    <% end %>
 
 <% if user_signed_in? %>
     <% if current_user.already_liked?(@tweet) %>
