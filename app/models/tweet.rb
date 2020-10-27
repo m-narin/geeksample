@@ -4,7 +4,7 @@ class Tweet < ApplicationRecord
     has_many :liked_users, through: :likes, source: :user
     has_many :comments, dependent: :destroy
 
-    mount_uploader :video, VideoUploader
+    mount_uploader :audio, AudioUploader
     
     is_impressionable counter_cache: true
 

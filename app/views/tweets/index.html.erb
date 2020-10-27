@@ -21,7 +21,7 @@
     <div class="tweet">
         <div class="main-box">
             <div class="left-container">
-                <%= video_tag t.video_url, size: "250x200" ,:controls => true if t.video? %>
+                <%= audio_tag t.audio_url, size: "250x200" ,:controls => true if t.audio? %>
                 <%= t.body %>
             </div>
             <% if t.star? %>
