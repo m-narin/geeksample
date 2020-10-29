@@ -33,9 +33,14 @@ header {
 header a {
     color: white; 
     text-decoration: none; 
+    transition: transform .3s;
+}
+
+header a:hover{
+    color: gold;
+    transform: scale(1.1);
 }
 header h1 {
-    color: white;
     margin-left: 20px;
 }
 .header-list {
