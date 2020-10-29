@@ -59,8 +59,7 @@ gem 'hirb'
 gem 'hirb-unicode'
 gem 'impressionist', '~>1.6.1'
 gem 'audiojs-rails'
-gem 'omniauth-facebook'
-gem 'omniauth-twitter'
+gem 'omniauth'
 gem 'omniauth-google-oauth2'
 
 group :production do
