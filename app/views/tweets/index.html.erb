@@ -21,7 +21,7 @@
     <div class="tweet">
         <div class="main-box">
             <div class="left-container">
-                <%= audio_tag t.audio_url, size: "250x200" ,:controls => true if t.audio? %>
+                <%= audio_tag t.audio_url, :autoplay => true, :controls => true if t.audio? %>
                 <%= t.body %>
             </div>
             <% if t.star? %>

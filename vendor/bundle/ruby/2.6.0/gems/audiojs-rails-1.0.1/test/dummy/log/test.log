@@ -1,0 +1,57 @@
+---------------------------------------
+AudiojsRailsTest: test_engine_is_loaded
+---------------------------------------
+--------------------------------------
+AudiojsRailsTest: test_flash_is_served
+--------------------------------------
+Started GET "/assets/audiojs.swf" for 127.0.0.1 at 2014-11-12 09:10:10 +0700
+--------------------------------------
+AudiojsRailsTest: test_image_is_served
+--------------------------------------
+Started GET "/assets/audiojs-player-graphics.gif" for 127.0.0.1 at 2014-11-12 09:10:10 +0700
+----------------------------------------------------------------------------------
+AudiojsRailsTest: test_javascript_contain_references_to_graphics_(image_and_flash)
+----------------------------------------------------------------------------------
+Started GET "/assets/audiojs.js" for 127.0.0.1 at 2014-11-12 09:10:10 +0700
+-------------------------------------------
+AudiojsRailsTest: test_javascript_is_served
+-------------------------------------------
+Started GET "/assets/audiojs.js" for 127.0.0.1 at 2014-11-12 09:10:10 +0700
+---------------------------------------
+AudiojsRailsTest: test_engine_is_loaded
+---------------------------------------
+--------------------------------------
+AudiojsRailsTest: test_flash_is_served
+--------------------------------------
+Started GET "/assets/audiojs.swf" for 127.0.0.1 at 2014-11-12 09:10:57 +0700
+--------------------------------------
+AudiojsRailsTest: test_image_is_served
+--------------------------------------
+Started GET "/assets/audiojs-player-graphics.gif" for 127.0.0.1 at 2014-11-12 09:10:57 +0700
+----------------------------------------------------------------------------------
+AudiojsRailsTest: test_javascript_contain_references_to_graphics_(image_and_flash)
+----------------------------------------------------------------------------------
+Started GET "/assets/audiojs.js" for 127.0.0.1 at 2014-11-12 09:10:57 +0700
+-------------------------------------------
+AudiojsRailsTest: test_javascript_is_served
+-------------------------------------------
+Started GET "/assets/audiojs.js" for 127.0.0.1 at 2014-11-12 09:10:57 +0700
+---------------------------------------
+AudiojsRailsTest: test_engine_is_loaded
+---------------------------------------
+--------------------------------------
+AudiojsRailsTest: test_flash_is_served
+--------------------------------------
+Started GET "/assets/audiojs.swf" for 127.0.0.1 at 2014-11-12 09:33:49 +0700
+--------------------------------------
+AudiojsRailsTest: test_image_is_served
+--------------------------------------
+Started GET "/assets/audiojs-player-graphics.gif" for 127.0.0.1 at 2014-11-12 09:33:49 +0700
+----------------------------------------------------------------------------------
+AudiojsRailsTest: test_javascript_contain_references_to_graphics_(image_and_flash)
+----------------------------------------------------------------------------------
+Started GET "/assets/audiojs.js" for 127.0.0.1 at 2014-11-12 09:33:49 +0700
+-------------------------------------------
+AudiojsRailsTest: test_javascript_is_served
+-------------------------------------------
+Started GET "/assets/audiojs.js" for 127.0.0.1 at 2014-11-12 09:33:49 +0700

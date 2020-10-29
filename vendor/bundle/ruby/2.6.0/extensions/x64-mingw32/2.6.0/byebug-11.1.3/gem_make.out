@@ -1,0 +1,23 @@
+current directory: C:/Users/naren/Desktop/sample/vendor/bundle/ruby/2.6.0/gems/byebug-11.1.3/ext/byebug
+C:/Ruby26-x64/bin/ruby.exe -I C:/Ruby26-x64/lib/ruby/2.6.0 -r ./siteconf20201029-12208-1yfbocd.rb extconf.rb
+creating Makefile
+
+current directory: C:/Users/naren/Desktop/sample/vendor/bundle/ruby/2.6.0/gems/byebug-11.1.3/ext/byebug
+make "DESTDIR=" clean
+bash.exe: warning: could not find /tmp, please create!
+
+current directory: C:/Users/naren/Desktop/sample/vendor/bundle/ruby/2.6.0/gems/byebug-11.1.3/ext/byebug
+make "DESTDIR="
+generating byebug-x64-mingw32.def
+bash.exe: warning: could not find /tmp, please create!
+compiling breakpoint.c
+compiling byebug.c
+compiling context.c
+compiling locker.c
+compiling threads.c
+linking shared-object byebug/byebug.so
+
+current directory: C:/Users/naren/Desktop/sample/vendor/bundle/ruby/2.6.0/gems/byebug-11.1.3/ext/byebug
+make "DESTDIR=" install
+bash.exe: warning: could not find /tmp, please create!
+/usr/bin/install -c -m 0755 byebug.so ./.gem.20201029-12208-xqzdtf/byebug
