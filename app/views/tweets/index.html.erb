@@ -5,6 +5,8 @@
 <%= submit_tag '検索する'  %>
 <% end %>
 
+<p><%= link_to "Google map", maps_path %></p>
+
 <%= form_tag tweets_path, method: :get, class: 'boards__searchForm' do %>
 <%= select_tag :tag_id,
                 options_from_collection_for_select(Tag.all, :id, :name, params[:tag_id]),

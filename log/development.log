@@ -24160,3 +24160,928 @@ Processing by TweetsController#index as HTML
 Completed 200 OK in 57ms (Views: 52.3ms | ActiveRecord: 2.8ms | Allocations: 15494)
 
 
+Started GET "/" for ::1 at 2020-10-30 00:22:07 +0900
+  [1m[35m (1.4ms)[0m  [1m[35mSET NAMES utf8mb4,  @@SESSION.sql_mode = CONCAT(CONCAT(@@sql_mode, ',STRICT_ALL_TABLES'), ',NO_AUTO_VALUE_ON_ZERO'),  @@SESSION.sql_auto_is_null = 0, @@SESSION.wait_timeout = 2147483[0m
+  [1m[35m (0.9ms)[0m  [1m[34mSELECT `schema_migrations`.`version` FROM `schema_migrations` ORDER BY `schema_migrations`.`version` ASC[0m
+Processing by TweetsController#index as HTML
+  [1m[36mTweet Load (0.4ms)[0m  [1m[34mSELECT `tweets`.* FROM `tweets`[0m
+  ↳ app/controllers/tweets_controller.rb:10:in `sort'
+  Rendering tweets/index.html.erb within layouts/application
+  [1m[36mTag Load (0.4ms)[0m  [1m[34mSELECT `tags`.* FROM `tags`[0m
+  ↳ app/views/tweets/index.html.erb:10
+  [1m[36mCACHE Tweet Load (0.0ms)[0m  [1m[34mSELECT `tweets`.* FROM `tweets`[0m
+  ↳ app/views/tweets/index.html.erb:20
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1[0m
+  ↳ app/views/tweets/index.html.erb:36
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT `users`.* FROM `users` WHERE `users`.`id` = 2 ORDER BY `users`.`id` ASC LIMIT 1[0m
+  ↳ app/views/tweets/index.html.erb:39
+  [1m[36mLike Exists? (0.4ms)[0m  [1m[34mSELECT 1 AS one FROM `likes` WHERE `likes`.`user_id` = 2 AND `likes`.`tweet_id` = 1 LIMIT 1[0m
+  ↳ app/models/user.rb:27:in `already_liked?'
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT COUNT(*) FROM `likes` WHERE `likes`.`tweet_id` = 1[0m
+  ↳ app/views/tweets/index.html.erb:53
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/tweets/index.html.erb:86
+  [1m[36mCACHE Like Exists? (0.0ms)[0m  [1m[34mSELECT 1 AS one FROM `likes` WHERE `likes`.`user_id` = 2 AND `likes`.`tweet_id` = 1 LIMIT 1[0m
+  ↳ app/models/user.rb:27:in `already_liked?'
+  [1m[35mCACHE  (0.0ms)[0m  [1m[34mSELECT COUNT(*) FROM `likes` WHERE `likes`.`tweet_id` = 1[0m
+  ↳ app/views/tweets/index.html.erb:103
+  Rendered tweets/index.html.erb within layouts/application (Duration: 335.8ms | Allocations: 51965)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 432ms (Views: 379.6ms | ActiveRecord: 19.9ms | Allocations: 72513)
+
+
+Started DELETE "/users/sign_out" for ::1 at 2020-10-30 00:22:09 +0900
+Processing by Devise::SessionsController#destroy as HTML
+  Parameters: {"authenticity_token"=>"PbijerQCkwFuEwQbHsDVJvHshTif0TpLuSG8fCrB2Y2c2Yj+s+qAsTIgN5byEd86duQu7Iv9V83TagAj/S1YNg=="}
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT `users`.* FROM `users` WHERE `users`.`id` = 2 ORDER BY `users`.`id` ASC LIMIT 1[0m
+Redirected to http://localhost:3000/
+Completed 302 Found in 33ms (ActiveRecord: 0.4ms | Allocations: 8529)
+
+
+Started GET "/" for ::1 at 2020-10-30 00:22:09 +0900
+Processing by TweetsController#index as HTML
+  [1m[36mTweet Load (0.3ms)[0m  [1m[34mSELECT `tweets`.* FROM `tweets`[0m
+  ↳ app/controllers/tweets_controller.rb:10:in `sort'
+  Rendering tweets/index.html.erb within layouts/application
+  [1m[36mTag Load (0.3ms)[0m  [1m[34mSELECT `tags`.* FROM `tags`[0m
+  ↳ app/views/tweets/index.html.erb:10
+  [1m[36mCACHE Tweet Load (0.0ms)[0m  [1m[34mSELECT `tweets`.* FROM `tweets`[0m
+  ↳ app/views/tweets/index.html.erb:20
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1[0m
+  ↳ app/views/tweets/index.html.erb:36
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT COUNT(*) FROM `likes` WHERE `likes`.`tweet_id` = 1[0m
+  ↳ app/views/tweets/index.html.erb:57
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/tweets/index.html.erb:86
+  [1m[35mCACHE  (0.0ms)[0m  [1m[34mSELECT COUNT(*) FROM `likes` WHERE `likes`.`tweet_id` = 1[0m
+  ↳ app/views/tweets/index.html.erb:107
+  Rendered tweets/index.html.erb within layouts/application (Duration: 24.5ms | Allocations: 6838)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 72ms (Views: 67.7ms | ActiveRecord: 1.5ms | Allocations: 13008)
+
+
+Started GET "/users/sign_up" for ::1 at 2020-10-30 00:22:11 +0900
+Processing by Devise::RegistrationsController#new as HTML
+  Rendering users/registrations/new.html.erb within layouts/application
+  Rendered users/shared/_error_messages.html.erb (Duration: 0.5ms | Allocations: 211)
+  Rendered users/shared/_links.html.erb (Duration: 0.8ms | Allocations: 631)
+  Rendered users/registrations/new.html.erb within layouts/application (Duration: 37.2ms | Allocations: 4140)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 87ms (Views: 84.8ms | ActiveRecord: 0.0ms | Allocations: 11376)
+
+
+Started GET "/users/auth/google_oauth2" for ::1 at 2020-10-30 00:22:12 +0900
+Started GET "/users/auth/google_oauth2" for ::1 at 2020-10-30 00:22:12 +0900
+Started GET "/users/auth/google_oauth2/callback?state=681527885e988488a6a9092d52b7d70f08a411fd3486721e&code=4%2F0AfDhmrgzIMM65WQWwWQs4hPo__XGsgxE-Mpa5USd44cTNSFv9DxJTce6BGNalncB2WsyLQ&scope=email+profile+https%3A%2F%2Fwww.googleapis.com%2Fauth%2Fuserinfo.email+https%3A%2F%2Fwww.googleapis.com%2Fauth%2Fuserinfo.profile+openid&authuser=0&prompt=consent" for ::1 at 2020-10-30 00:22:15 +0900
+Processing by Users::OmniauthCallbacksController#google_oauth2 as HTML
+  Parameters: {"state"=>"681527885e988488a6a9092d52b7d70f08a411fd3486721e", "code"=>"4/0AfDhmrgzIMM65WQWwWQs4hPo__XGsgxE-Mpa5USd44cTNSFv9DxJTce6BGNalncB2WsyLQ", "scope"=>"email profile https://www.googleapis.com/auth/userinfo.email https://www.googleapis.com/auth/userinfo.profile openid", "authuser"=>"0", "prompt"=>"consent"}
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT `users`.* FROM `users` WHERE `users`.`provider` = 'google_oauth2' AND `users`.`uid` = '103264702162167309603' ORDER BY `users`.`id` ASC LIMIT 1[0m
+  ↳ app/models/user.rb:10:in `from_omniauth'
+  [1m[35m (0.4ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/models/user.rb:10:in `from_omniauth'
+  [1m[36mUser Exists? (3.1ms)[0m  [1m[34mSELECT 1 AS one FROM `users` WHERE `users`.`email` = BINARY 'y2pgftpe@gmail.com' LIMIT 1[0m
+  ↳ app/models/user.rb:10:in `from_omniauth'
+  [1m[35m (1.0ms)[0m  [1m[31mROLLBACK[0m
+  ↳ app/models/user.rb:10:in `from_omniauth'
+Redirected to http://localhost:3000/
+Completed 302 Found in 267ms (ActiveRecord: 4.9ms | Allocations: 6506)
+
+
+Started GET "/" for ::1 at 2020-10-30 00:22:16 +0900
+Processing by TweetsController#index as HTML
+  [1m[36mTweet Load (0.8ms)[0m  [1m[34mSELECT `tweets`.* FROM `tweets`[0m
+  ↳ app/controllers/tweets_controller.rb:10:in `sort'
+  Rendering tweets/index.html.erb within layouts/application
+  [1m[36mTag Load (0.3ms)[0m  [1m[34mSELECT `tags`.* FROM `tags`[0m
+  ↳ app/views/tweets/index.html.erb:10
+  [1m[36mCACHE Tweet Load (0.0ms)[0m  [1m[34mSELECT `tweets`.* FROM `tweets`[0m
+  ↳ app/views/tweets/index.html.erb:20
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1[0m
+  ↳ app/views/tweets/index.html.erb:36
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT `users`.* FROM `users` WHERE `users`.`id` IS NULL ORDER BY `users`.`id` ASC LIMIT 1[0m
+  ↳ app/views/tweets/index.html.erb:39
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT COUNT(*) FROM `likes` WHERE `likes`.`tweet_id` = 1[0m
+  ↳ app/views/tweets/index.html.erb:57
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/tweets/index.html.erb:86
+  [1m[35mCACHE  (0.0ms)[0m  [1m[34mSELECT COUNT(*) FROM `likes` WHERE `likes`.`tweet_id` = 1[0m
+  ↳ app/views/tweets/index.html.erb:107
+  Rendered tweets/index.html.erb within layouts/application (Duration: 23.2ms | Allocations: 7733)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 61ms (Views: 55.6ms | ActiveRecord: 2.1ms | Allocations: 13938)
+
+
+Started GET "/users/sign_in" for ::1 at 2020-10-30 00:22:23 +0900
+Processing by Devise::SessionsController#new as HTML
+  Rendering users/sessions/new.html.erb within layouts/application
+  Rendered users/shared/_links.html.erb (Duration: 0.6ms | Allocations: 285)
+  Rendered users/sessions/new.html.erb within layouts/application (Duration: 7.7ms | Allocations: 1439)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 65ms (Views: 63.9ms | ActiveRecord: 0.0ms | Allocations: 8170)
+
+
+Started GET "/users/auth/google_oauth2" for ::1 at 2020-10-30 00:22:24 +0900
+Started GET "/users/auth/google_oauth2" for ::1 at 2020-10-30 00:22:24 +0900
+Started GET "/users/auth/google_oauth2/callback?state=8eb18feaba3a51f6e5ec8f6d98a4d05a1fc20ac8d914b4c6&code=4/0AfDhmriTSn0UL_p6bgwazw9a7-CIDA59pG5WWl21I8eAfpjVkFWeoTq4jcSGwdMwc3MDPw&scope=email%20profile%20https://www.googleapis.com/auth/userinfo.email%20https://www.googleapis.com/auth/userinfo.profile%20openid&authuser=1&hd=keio.jp&prompt=none" for ::1 at 2020-10-30 00:22:26 +0900
+Processing by Users::OmniauthCallbacksController#google_oauth2 as HTML
+  Parameters: {"state"=>"8eb18feaba3a51f6e5ec8f6d98a4d05a1fc20ac8d914b4c6", "code"=>"4/0AfDhmriTSn0UL_p6bgwazw9a7-CIDA59pG5WWl21I8eAfpjVkFWeoTq4jcSGwdMwc3MDPw", "scope"=>"email profile https://www.googleapis.com/auth/userinfo.email https://www.googleapis.com/auth/userinfo.profile openid", "authuser"=>"1", "hd"=>"keio.jp", "prompt"=>"none"}
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT `users`.* FROM `users` WHERE `users`.`provider` = 'google_oauth2' AND `users`.`uid` = '106409334398779068043' ORDER BY `users`.`id` ASC LIMIT 1[0m
+  ↳ app/models/user.rb:10:in `from_omniauth'
+Redirected to http://localhost:3000/
+Completed 302 Found in 4ms (ActiveRecord: 0.5ms | Allocations: 1214)
+
+
+Started GET "/" for ::1 at 2020-10-30 00:22:27 +0900
+Processing by TweetsController#index as HTML
+  [1m[36mTweet Load (0.4ms)[0m  [1m[34mSELECT `tweets`.* FROM `tweets`[0m
+  ↳ app/controllers/tweets_controller.rb:10:in `sort'
+  Rendering tweets/index.html.erb within layouts/application
+  [1m[36mTag Load (0.4ms)[0m  [1m[34mSELECT `tags`.* FROM `tags`[0m
+  ↳ app/views/tweets/index.html.erb:10
+  [1m[36mCACHE Tweet Load (0.0ms)[0m  [1m[34mSELECT `tweets`.* FROM `tweets`[0m
+  ↳ app/views/tweets/index.html.erb:20
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1[0m
+  ↳ app/views/tweets/index.html.erb:36
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT `users`.* FROM `users` WHERE `users`.`id` = 2 ORDER BY `users`.`id` ASC LIMIT 1[0m
+  ↳ app/views/tweets/index.html.erb:39
+  [1m[36mLike Exists? (0.3ms)[0m  [1m[34mSELECT 1 AS one FROM `likes` WHERE `likes`.`user_id` = 2 AND `likes`.`tweet_id` = 1 LIMIT 1[0m
+  ↳ app/models/user.rb:27:in `already_liked?'
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT COUNT(*) FROM `likes` WHERE `likes`.`tweet_id` = 1[0m
+  ↳ app/views/tweets/index.html.erb:53
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/tweets/index.html.erb:86
+  [1m[36mCACHE Like Exists? (0.0ms)[0m  [1m[34mSELECT 1 AS one FROM `likes` WHERE `likes`.`user_id` = 2 AND `likes`.`tweet_id` = 1 LIMIT 1[0m
+  ↳ app/models/user.rb:27:in `already_liked?'
+  [1m[35mCACHE  (0.0ms)[0m  [1m[34mSELECT COUNT(*) FROM `likes` WHERE `likes`.`tweet_id` = 1[0m
+  ↳ app/views/tweets/index.html.erb:103
+  Rendered tweets/index.html.erb within layouts/application (Duration: 24.0ms | Allocations: 9314)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 59ms (Views: 54.8ms | ActiveRecord: 2.4ms | Allocations: 15513)
+
+
+Started GET "/users/2" for ::1 at 2020-10-30 00:22:29 +0900
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT `users`.* FROM `users` WHERE `users`.`id` = 2 LIMIT 1[0m
+  ↳ app/controllers/users_controller.rb:3:in `show'
+  Rendering users/show.html.erb within layouts/application
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT `users`.* FROM `users` WHERE `users`.`id` = 2 ORDER BY `users`.`id` ASC LIMIT 1[0m
+  ↳ app/views/users/show.html.erb:6
+  [1m[36mTweet Load (0.4ms)[0m  [1m[34mSELECT `tweets`.* FROM `tweets` WHERE `tweets`.`user_id` = 2[0m
+  ↳ app/views/users/show.html.erb:10
+  Rendered users/show.html.erb within layouts/application (Duration: 6.9ms | Allocations: 2865)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 50ms (Views: 46.3ms | ActiveRecord: 1.3ms | Allocations: 10064)
+
+
+Started GET "/users/edit" for ::1 at 2020-10-30 00:22:32 +0900
+Processing by Devise::RegistrationsController#edit as HTML
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT `users`.* FROM `users` WHERE `users`.`id` = 2 ORDER BY `users`.`id` ASC LIMIT 1[0m
+  Rendering users/registrations/edit.html.erb within layouts/application
+  Rendered users/shared/_error_messages.html.erb (Duration: 0.0ms | Allocations: 15)
+  Rendered users/registrations/edit.html.erb within layouts/application (Duration: 13.4ms | Allocations: 2554)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 55ms (Views: 52.0ms | ActiveRecord: 0.4ms | Allocations: 10009)
+
+
+Started DELETE "/users" for ::1 at 2020-10-30 00:22:34 +0900
+Processing by Devise::RegistrationsController#destroy as HTML
+  Parameters: {"authenticity_token"=>"CZwUn791hx0GkbkLGFegDbRq3GplCi45pIEwT5wBeXSDrlTO0DrfJs5qNdKJPzUWYFm8Pp2xvUjTJMGYdqHOrQ=="}
+  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT `users`.* FROM `users` WHERE `users`.`id` = 2 ORDER BY `users`.`id` ASC LIMIT 1[0m
+  [1m[35m (0.4ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mTweet Load (0.3ms)[0m  [1m[34mSELECT `tweets`.* FROM `tweets` WHERE `tweets`.`user_id` = 2[0m
+  [1m[36mLike Load (0.3ms)[0m  [1m[34mSELECT `likes`.* FROM `likes` WHERE `likes`.`user_id` = 2[0m
+  [1m[36mComment Load (3.4ms)[0m  [1m[34mSELECT `comments`.* FROM `comments` WHERE `comments`.`user_id` = 2[0m
+  [1m[36mImpression Destroy (4.2ms)[0m  [1m[31mDELETE FROM `impressions` WHERE `impressions`.`impressionable_id` = 2 AND `impressions`.`impressionable_type` = 'User'[0m
+  [1m[36mUser Destroy (2.0ms)[0m  [1m[31mDELETE FROM `users` WHERE `users`.`id` = 2[0m
+  [1m[35m (2.1ms)[0m  [1m[35mCOMMIT[0m
+Redirected to http://localhost:3000/
+Completed 302 Found in 46ms (ActiveRecord: 24.3ms | Allocations: 15712)
+
+
+Started GET "/" for ::1 at 2020-10-30 00:22:34 +0900
+Processing by TweetsController#index as HTML
+  [1m[36mTweet Load (0.4ms)[0m  [1m[34mSELECT `tweets`.* FROM `tweets`[0m
+  ↳ app/controllers/tweets_controller.rb:10:in `sort'
+  Rendering tweets/index.html.erb within layouts/application
+  [1m[36mTag Load (0.4ms)[0m  [1m[34mSELECT `tags`.* FROM `tags`[0m
+  ↳ app/views/tweets/index.html.erb:10
+  [1m[36mCACHE Tweet Load (0.0ms)[0m  [1m[34mSELECT `tweets`.* FROM `tweets`[0m
+  ↳ app/views/tweets/index.html.erb:20
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1[0m
+  ↳ app/views/tweets/index.html.erb:36
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT COUNT(*) FROM `likes` WHERE `likes`.`tweet_id` = 1[0m
+  ↳ app/views/tweets/index.html.erb:57
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/tweets/index.html.erb:86
+  [1m[35mCACHE  (0.0ms)[0m  [1m[34mSELECT COUNT(*) FROM `likes` WHERE `likes`.`tweet_id` = 1[0m
+  ↳ app/views/tweets/index.html.erb:107
+  Rendered tweets/index.html.erb within layouts/application (Duration: 13.2ms | Allocations: 6826)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 59ms (Views: 55.2ms | ActiveRecord: 1.5ms | Allocations: 13030)
+
+
+Started GET "/users/sign_up" for ::1 at 2020-10-30 00:22:36 +0900
+Processing by Devise::RegistrationsController#new as HTML
+  Rendering users/registrations/new.html.erb within layouts/application
+  Rendered users/shared/_error_messages.html.erb (Duration: 0.0ms | Allocations: 15)
+  Rendered users/shared/_links.html.erb (Duration: 0.2ms | Allocations: 158)
+  Rendered users/registrations/new.html.erb within layouts/application (Duration: 2.0ms | Allocations: 1355)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 39ms (Views: 37.8ms | ActiveRecord: 0.0ms | Allocations: 7277)
+
+
+Started GET "/users/auth/google_oauth2" for ::1 at 2020-10-30 00:22:37 +0900
+Started GET "/users/auth/google_oauth2" for ::1 at 2020-10-30 00:22:37 +0900
+Started GET "/users/auth/google_oauth2/callback?state=027de8cf623a8441c2d1dc3e4c8b01b9480dd5cff59720b0&code=4/5wEFa5jrEqhceIdm6MnPgX_MqxfLMG5mGRbr-OgLDvmr9lY09nYIz_LnK7SLHc-jlT1_yPLuiwepXZbgqCn-Mb0&scope=email%20profile%20https://www.googleapis.com/auth/userinfo.email%20https://www.googleapis.com/auth/userinfo.profile%20openid&authuser=1&hd=keio.jp&prompt=none" for ::1 at 2020-10-30 00:22:42 +0900
+Processing by Users::OmniauthCallbacksController#google_oauth2 as HTML
+  Parameters: {"state"=>"027de8cf623a8441c2d1dc3e4c8b01b9480dd5cff59720b0", "code"=>"4/5wEFa5jrEqhceIdm6MnPgX_MqxfLMG5mGRbr-OgLDvmr9lY09nYIz_LnK7SLHc-jlT1_yPLuiwepXZbgqCn-Mb0", "scope"=>"email profile https://www.googleapis.com/auth/userinfo.email https://www.googleapis.com/auth/userinfo.profile openid", "authuser"=>"1", "hd"=>"keio.jp", "prompt"=>"none"}
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT `users`.* FROM `users` WHERE `users`.`provider` = 'google_oauth2' AND `users`.`uid` = '106409334398779068043' ORDER BY `users`.`id` ASC LIMIT 1[0m
+  ↳ app/models/user.rb:10:in `from_omniauth'
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/models/user.rb:10:in `from_omniauth'
+  [1m[36mUser Exists? (0.4ms)[0m  [1m[34mSELECT 1 AS one FROM `users` WHERE `users`.`email` = BINARY 'y2pgftpe@keio.jp' LIMIT 1[0m
+  ↳ app/models/user.rb:10:in `from_omniauth'
+  [1m[36mUser Create (1.7ms)[0m  [1m[32mINSERT INTO `users` (`email`, `encrypted_password`, `created_at`, `updated_at`, `name`, `provider`, `uid`) VALUES ('y2pgftpe@keio.jp', '$2a$12$OABLkikh2kZzh3VKIzucZ.1DX6Z5YarFYULb1sH20XeACp/mWFFV.', '2020-10-29 15:22:43.002282', '2020-10-29 15:22:43.002282', '那仁満徳', 'google_oauth2', '106409334398779068043')[0m
+  ↳ app/models/user.rb:10:in `from_omniauth'
+  [1m[35m (1.8ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/models/user.rb:10:in `from_omniauth'
+Redirected to http://localhost:3000/
+Completed 302 Found in 251ms (ActiveRecord: 4.7ms | Allocations: 5420)
+
+
+Started GET "/" for ::1 at 2020-10-30 00:22:43 +0900
+Processing by TweetsController#index as HTML
+  [1m[36mTweet Load (0.8ms)[0m  [1m[34mSELECT `tweets`.* FROM `tweets`[0m
+  ↳ app/controllers/tweets_controller.rb:10:in `sort'
+  Rendering tweets/index.html.erb within layouts/application
+  [1m[36mTag Load (0.4ms)[0m  [1m[34mSELECT `tags`.* FROM `tags`[0m
+  ↳ app/views/tweets/index.html.erb:10
+  [1m[36mCACHE Tweet Load (0.0ms)[0m  [1m[34mSELECT `tweets`.* FROM `tweets`[0m
+  ↳ app/views/tweets/index.html.erb:20
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1[0m
+  ↳ app/views/tweets/index.html.erb:36
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT `users`.* FROM `users` WHERE `users`.`id` = 3 ORDER BY `users`.`id` ASC LIMIT 1[0m
+  ↳ app/views/tweets/index.html.erb:39
+  [1m[36mLike Exists? (0.3ms)[0m  [1m[34mSELECT 1 AS one FROM `likes` WHERE `likes`.`user_id` = 3 AND `likes`.`tweet_id` = 1 LIMIT 1[0m
+  ↳ app/models/user.rb:27:in `already_liked?'
+  [1m[35m (0.8ms)[0m  [1m[34mSELECT COUNT(*) FROM `likes` WHERE `likes`.`tweet_id` = 1[0m
+  ↳ app/views/tweets/index.html.erb:53
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/tweets/index.html.erb:86
+  [1m[36mCACHE Like Exists? (0.0ms)[0m  [1m[34mSELECT 1 AS one FROM `likes` WHERE `likes`.`user_id` = 3 AND `likes`.`tweet_id` = 1 LIMIT 1[0m
+  ↳ app/models/user.rb:27:in `already_liked?'
+  [1m[35mCACHE  (0.0ms)[0m  [1m[34mSELECT COUNT(*) FROM `likes` WHERE `likes`.`tweet_id` = 1[0m
+  ↳ app/views/tweets/index.html.erb:103
+  Rendered tweets/index.html.erb within layouts/application (Duration: 21.0ms | Allocations: 9302)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 59ms (Views: 52.4ms | ActiveRecord: 3.0ms | Allocations: 15497)
+
+
+Started GET "/users/3" for ::1 at 2020-10-30 00:24:27 +0900
+  [1m[35m (0.5ms)[0m  [1m[35mSET NAMES utf8mb4,  @@SESSION.sql_mode = CONCAT(CONCAT(@@sql_mode, ',STRICT_ALL_TABLES'), ',NO_AUTO_VALUE_ON_ZERO'),  @@SESSION.sql_auto_is_null = 0, @@SESSION.wait_timeout = 2147483[0m
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT `schema_migrations`.`version` FROM `schema_migrations` ORDER BY `schema_migrations`.`version` ASC[0m
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"3"}
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT `users`.* FROM `users` WHERE `users`.`id` = 3 LIMIT 1[0m
+  ↳ app/controllers/users_controller.rb:3:in `show'
+  Rendering users/show.html.erb within layouts/application
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT `users`.* FROM `users` WHERE `users`.`id` = 3 ORDER BY `users`.`id` ASC LIMIT 1[0m
+  ↳ app/views/users/show.html.erb:6
+  [1m[36mTweet Load (0.4ms)[0m  [1m[34mSELECT `tweets`.* FROM `tweets` WHERE `tweets`.`user_id` = 3[0m
+  ↳ app/views/users/show.html.erb:10
+  Rendered users/show.html.erb within layouts/application (Duration: 55.6ms | Allocations: 11694)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 168ms (Views: 123.5ms | ActiveRecord: 11.1ms | Allocations: 39459)
+
+
+Started GET "/users/edit" for ::1 at 2020-10-30 00:24:29 +0900
+Processing by Devise::RegistrationsController#edit as HTML
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT `users`.* FROM `users` WHERE `users`.`id` = 3 ORDER BY `users`.`id` ASC LIMIT 1[0m
+  Rendering users/registrations/edit.html.erb within layouts/application
+  Rendered users/shared/_error_messages.html.erb (Duration: 0.5ms | Allocations: 206)
+  Rendered users/registrations/edit.html.erb within layouts/application (Duration: 46.3ms | Allocations: 9245)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 104ms (Views: 98.4ms | ActiveRecord: 0.5ms | Allocations: 18233)
+
+
+Started PUT "/users" for ::1 at 2020-10-30 00:24:32 +0900
+Processing by Devise::RegistrationsController#update as HTML
+  Parameters: {"authenticity_token"=>"DbQYiAPm+7IZbY+OCGKOWyxYAAmZ5wMhUcqEiK5r+dtELEoJKfssuIrCuOXxnNRecGz3USTGp97Lg3sUyPuC1Q==", "user"=>{"email"=>"y2pgftpe@keio.jp", "name"=>"那仁満徳", "profile"=>"aaaaaaa", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]", "current_password"=>"[FILTERED]"}, "commit"=>"Update"}
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT `users`.* FROM `users` WHERE `users`.`id` = 3 ORDER BY `users`.`id` ASC LIMIT 1[0m
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT `users`.* FROM `users` WHERE `users`.`id` = 3 LIMIT 1[0m
+  Rendering users/registrations/edit.html.erb within layouts/application
+  Rendered users/shared/_error_messages.html.erb (Duration: 0.4ms | Allocations: 246)
+  Rendered users/registrations/edit.html.erb within layouts/application (Duration: 3.3ms | Allocations: 2033)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 325ms (Views: 54.2ms | ActiveRecord: 0.7ms | Allocations: 15552)
+
+
+Started GET "/" for ::1 at 2020-10-30 00:24:35 +0900
+Processing by TweetsController#index as HTML
+  [1m[36mTweet Load (0.5ms)[0m  [1m[34mSELECT `tweets`.* FROM `tweets`[0m
+  ↳ app/controllers/tweets_controller.rb:10:in `sort'
+  Rendering tweets/index.html.erb within layouts/application
+  [1m[36mTag Load (0.4ms)[0m  [1m[34mSELECT `tags`.* FROM `tags`[0m
+  ↳ app/views/tweets/index.html.erb:10
+  [1m[36mCACHE Tweet Load (0.0ms)[0m  [1m[34mSELECT `tweets`.* FROM `tweets`[0m
+  ↳ app/views/tweets/index.html.erb:20
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1[0m
+  ↳ app/views/tweets/index.html.erb:36
+  [1m[36mUser Load (0.8ms)[0m  [1m[34mSELECT `users`.* FROM `users` WHERE `users`.`id` = 3 ORDER BY `users`.`id` ASC LIMIT 1[0m
+  ↳ app/views/tweets/index.html.erb:39
+  [1m[36mLike Exists? (0.7ms)[0m  [1m[34mSELECT 1 AS one FROM `likes` WHERE `likes`.`user_id` = 3 AND `likes`.`tweet_id` = 1 LIMIT 1[0m
+  ↳ app/models/user.rb:27:in `already_liked?'
+  [1m[35m (0.6ms)[0m  [1m[34mSELECT COUNT(*) FROM `likes` WHERE `likes`.`tweet_id` = 1[0m
+  ↳ app/views/tweets/index.html.erb:53
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/tweets/index.html.erb:86
+  [1m[36mCACHE Like Exists? (0.0ms)[0m  [1m[34mSELECT 1 AS one FROM `likes` WHERE `likes`.`user_id` = 3 AND `likes`.`tweet_id` = 1 LIMIT 1[0m
+  ↳ app/models/user.rb:27:in `already_liked?'
+  [1m[35mCACHE  (0.0ms)[0m  [1m[34mSELECT COUNT(*) FROM `likes` WHERE `likes`.`tweet_id` = 1[0m
+  ↳ app/views/tweets/index.html.erb:103
+  Rendered tweets/index.html.erb within layouts/application (Duration: 74.9ms | Allocations: 18525)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 148ms (Views: 120.6ms | ActiveRecord: 10.7ms | Allocations: 30544)
+
+
+Started GET "/" for 127.0.0.1 at 2020-10-30 21:42:33 +0900
+  [1m[35m (8.0ms)[0m  [1m[35mSET NAMES utf8mb4,  @@SESSION.sql_mode = CONCAT(CONCAT(@@sql_mode, ',STRICT_ALL_TABLES'), ',NO_AUTO_VALUE_ON_ZERO'),  @@SESSION.sql_auto_is_null = 0, @@SESSION.wait_timeout = 2147483[0m
+  [1m[35m (6.4ms)[0m  [1m[34mSELECT `schema_migrations`.`version` FROM `schema_migrations` ORDER BY `schema_migrations`.`version` ASC[0m
+Processing by TweetsController#index as HTML
+  [1m[36mTweet Load (6.8ms)[0m  [1m[34mSELECT `tweets`.* FROM `tweets`[0m
+  ↳ app/controllers/tweets_controller.rb:10:in `sort'
+  Rendering tweets/index.html.erb within layouts/application
+  [1m[36mTag Load (4.4ms)[0m  [1m[34mSELECT `tags`.* FROM `tags`[0m
+  ↳ app/views/tweets/index.html.erb:10
+  [1m[36mCACHE Tweet Load (0.0ms)[0m  [1m[34mSELECT `tweets`.* FROM `tweets`[0m
+  ↳ app/views/tweets/index.html.erb:20
+  [1m[36mUser Load (1.3ms)[0m  [1m[34mSELECT `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1[0m
+  ↳ app/views/tweets/index.html.erb:36
+  [1m[35m (3.3ms)[0m  [1m[34mSELECT COUNT(*) FROM `likes` WHERE `likes`.`tweet_id` = 1[0m
+  ↳ app/views/tweets/index.html.erb:57
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/tweets/index.html.erb:86
+  [1m[35mCACHE  (0.0ms)[0m  [1m[34mSELECT COUNT(*) FROM `likes` WHERE `likes`.`tweet_id` = 1[0m
+  ↳ app/views/tweets/index.html.erb:107
+  Rendered tweets/index.html.erb within layouts/application (Duration: 543.3ms | Allocations: 58569)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 682ms (Views: 607.1ms | ActiveRecord: 35.3ms | Allocations: 87846)
+
+
+Started GET "/maps" for 127.0.0.1 at 2020-10-30 21:42:46 +0900
+Processing by MapsController#index as HTML
+  Rendering maps/index.html.erb within layouts/application
+  Rendered maps/index.html.erb within layouts/application (Duration: 0.4ms | Allocations: 122)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 51ms (Views: 46.9ms | ActiveRecord: 0.0ms | Allocations: 6872)
+
+
+Started GET "/maps" for ::1 at 2020-10-30 21:43:08 +0900
+Processing by MapsController#index as HTML
+  Rendering maps/index.html.erb within layouts/application
+  Rendered maps/index.html.erb within layouts/application (Duration: 0.0ms | Allocations: 5)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 47ms (Views: 46.8ms | ActiveRecord: 0.0ms | Allocations: 5905)
+
+
+Started GET "/maps" for ::1 at 2020-10-30 21:52:18 +0900
+  [1m[35m (0.4ms)[0m  [1m[35mSET NAMES utf8mb4,  @@SESSION.sql_mode = CONCAT(CONCAT(@@sql_mode, ',STRICT_ALL_TABLES'), ',NO_AUTO_VALUE_ON_ZERO'),  @@SESSION.sql_auto_is_null = 0, @@SESSION.wait_timeout = 2147483[0m
+Processing by MapsController#index as HTML
+  Rendering maps/index.html.erb within layouts/application
+  Rendered maps/index.html.erb within layouts/application (Duration: 0.0ms | Allocations: 5)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 54ms (Views: 52.5ms | ActiveRecord: 0.0ms | Allocations: 5910)
+
+
+Started GET "/maps" for ::1 at 2020-10-30 21:54:08 +0900
+Processing by MapsController#index as HTML
+  Rendering maps/index.html.erb within layouts/application
+  Rendered maps/index.html.erb within layouts/application (Duration: 0.5ms | Allocations: 157)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 45ms (Views: 43.0ms | ActiveRecord: 0.0ms | Allocations: 7341)
+
+
+Started GET "/maps" for ::1 at 2020-10-30 21:55:45 +0900
+Processing by MapsController#index as HTML
+  Rendering maps/index.html.erb within layouts/application
+  Rendered maps/index.html.erb within layouts/application (Duration: 0.5ms | Allocations: 159)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 45ms (Views: 43.1ms | ActiveRecord: 0.0ms | Allocations: 7317)
+
+
+Started GET "/maps" for ::1 at 2020-10-30 21:56:32 +0900
+Processing by MapsController#index as HTML
+  Rendering maps/index.html.erb within layouts/application
+  Rendered maps/index.html.erb within layouts/application (Duration: 0.6ms | Allocations: 159)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 45ms (Views: 43.1ms | ActiveRecord: 0.0ms | Allocations: 7323)
+
+
+Started GET "/maps" for ::1 at 2020-10-30 21:56:49 +0900
+Processing by MapsController#index as HTML
+  Rendering maps/index.html.erb within layouts/application
+  Rendered maps/index.html.erb within layouts/application (Duration: 0.7ms | Allocations: 158)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 46ms (Views: 44.7ms | ActiveRecord: 0.0ms | Allocations: 7327)
+
+
+Started GET "/maps" for ::1 at 2020-10-30 21:58:26 +0900
+Processing by MapsController#index as HTML
+  Rendering maps/index.html.erb within layouts/application
+  Rendered maps/index.html.erb within layouts/application (Duration: 0.6ms | Allocations: 160)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 53ms (Views: 51.5ms | ActiveRecord: 0.0ms | Allocations: 7347)
+
+
+  [1m[35m (1.3ms)[0m  [1m[35mSET NAMES utf8mb4,  @@SESSION.sql_mode = CONCAT(CONCAT(@@sql_mode, ',STRICT_ALL_TABLES'), ',NO_AUTO_VALUE_ON_ZERO'),  @@SESSION.sql_auto_is_null = 0, @@SESSION.wait_timeout = 2147483[0m
+  [1m[35m (0.3ms)[0m  [1m[35mSET NAMES utf8mb4,  @@SESSION.sql_mode = CONCAT(CONCAT(@@sql_mode, ',STRICT_ALL_TABLES'), ',NO_AUTO_VALUE_ON_ZERO'),  @@SESSION.sql_auto_is_null = 0, @@SESSION.wait_timeout = 2147483[0m
+  [1m[35m (0.8ms)[0m  [1m[34mSELECT GET_LOCK('7395633852180811650', 0)[0m
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT `schema_migrations`.`version` FROM `schema_migrations` ORDER BY `schema_migrations`.`version` ASC[0m
+Migrating to CreateMaps (20201030130236)
+  [1m[35m (19.2ms)[0m  [1m[35mCREATE TABLE `maps` (`id` bigint NOT NULL AUTO_INCREMENT PRIMARY KEY, `address` varchar(255), `latitude` float(24), `longitude` float(24), `created_at` datetime(6) NOT NULL, `updated_at` datetime(6) NOT NULL)[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mprimary::SchemaMigration Create (0.5ms)[0m  [1m[32mINSERT INTO `schema_migrations` (`version`) VALUES ('20201030130236')[0m
+  [1m[35m (1.7ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.5ms)[0m  [1m[34mSELECT `ar_internal_metadata`.* FROM `ar_internal_metadata` WHERE `ar_internal_metadata`.`key` = 'environment' LIMIT 1[0m
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT RELEASE_LOCK('7395633852180811650')[0m
+  [1m[35m (0.5ms)[0m  [1m[35mSET NAMES utf8mb4,  @@SESSION.sql_mode = CONCAT(CONCAT(@@sql_mode, ',STRICT_ALL_TABLES'), ',NO_AUTO_VALUE_ON_ZERO'),  @@SESSION.sql_auto_is_null = 0, @@SESSION.wait_timeout = 2147483[0m
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT `schema_migrations`.`version` FROM `schema_migrations` ORDER BY `schema_migrations`.`version` ASC[0m
+Started GET "/maps" for ::1 at 2020-10-30 22:13:53 +0900
+  [1m[35m (0.7ms)[0m  [1m[35mSET NAMES utf8mb4,  @@SESSION.sql_mode = CONCAT(CONCAT(@@sql_mode, ',STRICT_ALL_TABLES'), ',NO_AUTO_VALUE_ON_ZERO'),  @@SESSION.sql_auto_is_null = 0, @@SESSION.wait_timeout = 2147483[0m
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT `schema_migrations`.`version` FROM `schema_migrations` ORDER BY `schema_migrations`.`version` ASC[0m
+Processing by MapsController#index as HTML
+  Rendering maps/index.html.erb within layouts/application
+  Rendered maps/index.html.erb within layouts/application (Duration: 9.4ms | Allocations: 2295)
+Completed 500 Internal Server Error in 45ms (ActiveRecord: 0.0ms | Allocations: 6230)
+
+
+  
+ActionView::Template::Error (undefined method `each' for nil:NilClass):
+    12:         });
+    13: 
+    14: 
+    15:         <% @maps.each do |m| %>
+    16:             (function(){
+    17:             var contentString = "住所：<%= m.address %>"; 
+    18: 
+  
+app/views/maps/index.html.erb:15
+  [1m[35m (1.6ms)[0m  [1m[35mSET NAMES utf8mb4,  @@SESSION.sql_mode = CONCAT(CONCAT(@@sql_mode, ',STRICT_ALL_TABLES'), ',NO_AUTO_VALUE_ON_ZERO'),  @@SESSION.sql_auto_is_null = 0, @@SESSION.wait_timeout = 2147483[0m
+  [1m[35m (1.0ms)[0m  [1m[34mSELECT `schema_migrations`.`version` FROM `schema_migrations` ORDER BY `schema_migrations`.`version` ASC[0m
+  [1m[35m (0.6ms)[0m  [1m[35mSET NAMES utf8mb4,  @@SESSION.sql_mode = CONCAT(CONCAT(@@sql_mode, ',STRICT_ALL_TABLES'), ',NO_AUTO_VALUE_ON_ZERO'),  @@SESSION.sql_auto_is_null = 0, @@SESSION.wait_timeout = 2147483[0m
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mTag Create (1.9ms)[0m  [1m[32mINSERT INTO `tags` (`name`, `created_at`, `updated_at`) VALUES ('タグ1', '2020-10-30 13:17:03.600540', '2020-10-30 13:17:03.600540')[0m
+  [1m[35m (2.2ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mTag Create (0.3ms)[0m  [1m[32mINSERT INTO `tags` (`name`, `created_at`, `updated_at`) VALUES ('タグ2', '2020-10-30 13:17:03.609603', '2020-10-30 13:17:03.609603')[0m
+  [1m[35m (1.3ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mTag Create (0.9ms)[0m  [1m[32mINSERT INTO `tags` (`name`, `created_at`, `updated_at`) VALUES ('タグ3', '2020-10-30 13:17:03.613844', '2020-10-30 13:17:03.613844')[0m
+  [1m[35m (1.4ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mTag Create (0.3ms)[0m  [1m[32mINSERT INTO `tags` (`name`, `created_at`, `updated_at`) VALUES ('タグ4', '2020-10-30 13:17:03.619553', '2020-10-30 13:17:03.619553')[0m
+  [1m[35m (1.5ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mTag Create (0.3ms)[0m  [1m[32mINSERT INTO `tags` (`name`, `created_at`, `updated_at`) VALUES ('タグ5', '2020-10-30 13:17:03.623989', '2020-10-30 13:17:03.623989')[0m
+  [1m[35m (1.4ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Exists? (1.9ms)[0m  [1m[34mSELECT 1 AS one FROM `users` WHERE `users`.`email` = BINARY 'y2pgftpe@gmail.com' LIMIT 1[0m
+  [1m[35m (0.3ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.4ms)[0m  [1m[35mSET NAMES utf8mb4,  @@SESSION.sql_mode = CONCAT(CONCAT(@@sql_mode, ',STRICT_ALL_TABLES'), ',NO_AUTO_VALUE_ON_ZERO'),  @@SESSION.sql_auto_is_null = 0, @@SESSION.wait_timeout = 2147483[0m
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT `schema_migrations`.`version` FROM `schema_migrations` ORDER BY `schema_migrations`.`version` ASC[0m
+  [1m[35m (0.3ms)[0m  [1m[35mSET NAMES utf8mb4,  @@SESSION.sql_mode = CONCAT(CONCAT(@@sql_mode, ',STRICT_ALL_TABLES'), ',NO_AUTO_VALUE_ON_ZERO'),  @@SESSION.sql_auto_is_null = 0, @@SESSION.wait_timeout = 2147483[0m
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mMap Create (1.5ms)[0m  [1m[32mINSERT INTO `maps` (`address`, `latitude`, `longitude`, `created_at`, `updated_at`) VALUES ('GeekSalon東京', 35.6454, 139.702, '2020-10-30 13:17:42.502107', '2020-10-30 13:17:42.502107')[0m
+  [1m[35m (1.8ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.5ms)[0m  [1m[35mSET NAMES utf8mb4,  @@SESSION.sql_mode = CONCAT(CONCAT(@@sql_mode, ',STRICT_ALL_TABLES'), ',NO_AUTO_VALUE_ON_ZERO'),  @@SESSION.sql_auto_is_null = 0, @@SESSION.wait_timeout = 2147483[0m
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT `schema_migrations`.`version` FROM `schema_migrations` ORDER BY `schema_migrations`.`version` ASC[0m
+  [1m[35m (0.4ms)[0m  [1m[35mSET NAMES utf8mb4,  @@SESSION.sql_mode = CONCAT(CONCAT(@@sql_mode, ',STRICT_ALL_TABLES'), ',NO_AUTO_VALUE_ON_ZERO'),  @@SESSION.sql_auto_is_null = 0, @@SESSION.wait_timeout = 2147483[0m
+  [1m[35m (0.8ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mMap Create (1.3ms)[0m  [1m[32mINSERT INTO `maps` (`address`, `latitude`, `longitude`, `created_at`, `updated_at`) VALUES ('GeekSalon東京', 35.6458437, 139.7046171, '2020-10-30 13:20:07.733250', '2020-10-30 13:20:07.733250')[0m
+  [1m[35m (2.2ms)[0m  [1m[35mCOMMIT[0m
+Started GET "/maps" for ::1 at 2020-10-30 22:20:40 +0900
+  [1m[35m (0.5ms)[0m  [1m[35mSET NAMES utf8mb4,  @@SESSION.sql_mode = CONCAT(CONCAT(@@sql_mode, ',STRICT_ALL_TABLES'), ',NO_AUTO_VALUE_ON_ZERO'),  @@SESSION.sql_auto_is_null = 0, @@SESSION.wait_timeout = 2147483[0m
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT `schema_migrations`.`version` FROM `schema_migrations` ORDER BY `schema_migrations`.`version` ASC[0m
+Processing by MapsController#index as HTML
+  Rendering maps/index.html.erb within layouts/application
+  Rendered maps/index.html.erb within layouts/application (Duration: 10.4ms | Allocations: 2295)
+Completed 500 Internal Server Error in 47ms (ActiveRecord: 0.0ms | Allocations: 6230)
+
+
+  
+ActionView::Template::Error (undefined method `each' for nil:NilClass):
+    12:         });
+    13: 
+    14: 
+    15:         <% @maps.each do |m| %>
+    16:             (function(){
+    17:             var contentString = "住所：<%= m.address %>"; 
+    18: 
+  
+app/views/maps/index.html.erb:15
+Started GET "/maps" for ::1 at 2020-10-30 22:21:26 +0900
+Processing by MapsController#index as HTML
+  Rendering maps/index.html.erb within layouts/application
+  [1m[36mMap Load (1.0ms)[0m  [1m[34mSELECT `maps`.* FROM `maps`[0m
+  ↳ app/views/maps/index.html.erb:15
+  Rendered maps/index.html.erb within layouts/application (Duration: 13.9ms | Allocations: 5253)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 112ms (Views: 89.1ms | ActiveRecord: 5.1ms | Allocations: 22912)
+
+
+Started GET "/maps" for ::1 at 2020-10-30 22:22:16 +0900
+Processing by MapsController#index as HTML
+  Rendering maps/index.html.erb within layouts/application
+  [1m[36mMap Load (0.4ms)[0m  [1m[34mSELECT `maps`.* FROM `maps`[0m
+  ↳ app/views/maps/index.html.erb:66
+  Rendered maps/index.html.erb within layouts/application (Duration: 2.6ms | Allocations: 992)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 47ms (Views: 44.7ms | ActiveRecord: 0.4ms | Allocations: 8188)
+
+
+Started GET "/maps" for ::1 at 2020-10-30 22:24:07 +0900
+Processing by MapsController#index as HTML
+  Rendering maps/index.html.erb within layouts/application
+  [1m[36mMap Load (0.5ms)[0m  [1m[34mSELECT `maps`.* FROM `maps`[0m
+  ↳ app/views/maps/index.html.erb:40
+  Rendered maps/index.html.erb within layouts/application (Duration: 3.7ms | Allocations: 1087)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 48ms (Views: 46.4ms | ActiveRecord: 0.5ms | Allocations: 8279)
+
+
+Started GET "/maps" for ::1 at 2020-10-30 22:27:34 +0900
+Processing by MapsController#index as HTML
+  Rendering maps/index.html.erb within layouts/application
+  Rendered maps/index.html.erb within layouts/application (Duration: 4.8ms | Allocations: 1314)
+Completed 500 Internal Server Error in 23ms (ActiveRecord: 0.0ms | Allocations: 4262)
+
+
+  
+ActionView::Template::Error (First argument in form cannot contain nil or be empty):
+    4: <input type="button" value="Encode" onclick="codeAddress()">
+    5: <div id="display">何かが表示される、、、、！</div>
+    6: 
+    7: <%= form_for(@map, :url => { controller:'maps', action:'create'})do |f| %>
+    8:     <%= f.text_area :address, size: "50x1" %>
+    9: <% end %>
+   10: 
+  
+app/views/maps/index.html.erb:7
+Started GET "/maps" for ::1 at 2020-10-30 22:27:57 +0900
+Processing by MapsController#index as HTML
+  Rendering maps/index.html.erb within layouts/application
+  [1m[36mMap Load (0.4ms)[0m  [1m[34mSELECT `maps`.* FROM `maps`[0m
+  ↳ app/views/maps/index.html.erb:44
+  Rendered maps/index.html.erb within layouts/application (Duration: 7.6ms | Allocations: 1928)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 67ms (Views: 43.6ms | ActiveRecord: 6.2ms | Allocations: 13911)
+
+
+Started GET "/maps" for ::1 at 2020-10-30 22:28:31 +0900
+Processing by MapsController#index as HTML
+  Rendering maps/index.html.erb within layouts/application
+  [1m[36mMap Load (0.5ms)[0m  [1m[34mSELECT `maps`.* FROM `maps`[0m
+  ↳ app/views/maps/index.html.erb:45
+  Rendered maps/index.html.erb within layouts/application (Duration: 4.8ms | Allocations: 1486)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 50ms (Views: 47.2ms | ActiveRecord: 0.5ms | Allocations: 8699)
+
+
+Started POST "/maps" for ::1 at 2020-10-30 22:29:02 +0900
+Processing by MapsController#create as HTML
+  Parameters: {"authenticity_token"=>"fvyyNzhUm18NvpHMizqXXkH+jbmJtbLxVAmX7SWB07LeGp67DgL53CmtnQ9XLHVow/IKY/WvVcpb2WCaDSQxwg==", "map"=>{"address"=>"GeekSalon"}, "commit"=>"送信"}
+Completed 500 Internal Server Error in 265ms (ActiveRecord: 0.0ms | Allocations: 142960)
+
+
+  
+NameError (undefined local variable or method `map_params' for #<MapsController:0x0000000008935bb8>
+Did you mean?  tmap_params):
+  
+app/controllers/maps_controller.rb:8:in `create'
+Started GET "/maps" for ::1 at 2020-10-30 22:30:38 +0900
+Processing by MapsController#index as HTML
+  Rendering maps/index.html.erb within layouts/application
+  [1m[36mMap Load (0.4ms)[0m  [1m[34mSELECT `maps`.* FROM `maps`[0m
+  ↳ app/views/maps/index.html.erb:45
+  Rendered maps/index.html.erb within layouts/application (Duration: 4.2ms | Allocations: 1766)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 72ms (Views: 44.1ms | ActiveRecord: 12.9ms | Allocations: 13411)
+
+
+Started GET "/maps" for ::1 at 2020-10-30 22:31:20 +0900
+Processing by MapsController#index as HTML
+  Rendering maps/index.html.erb within layouts/application
+  [1m[36mMap Load (0.4ms)[0m  [1m[34mSELECT `maps`.* FROM `maps`[0m
+  ↳ app/views/maps/index.html.erb:47
+  Rendered maps/index.html.erb within layouts/application (Duration: 3.7ms | Allocations: 1639)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 50ms (Views: 47.3ms | ActiveRecord: 0.4ms | Allocations: 8850)
+
+
+Started GET "/maps" for ::1 at 2020-10-30 22:32:24 +0900
+Processing by MapsController#index as HTML
+  Rendering maps/index.html.erb within layouts/application
+  [1m[36mMap Load (0.4ms)[0m  [1m[34mSELECT `maps`.* FROM `maps`[0m
+  ↳ app/views/maps/index.html.erb:53
+  Rendered maps/index.html.erb within layouts/application (Duration: 32.4ms | Allocations: 7780)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 77ms (Views: 75.1ms | ActiveRecord: 0.4ms | Allocations: 14959)
+
+
+Started GET "/maps" for ::1 at 2020-10-30 22:33:06 +0900
+Processing by MapsController#index as HTML
+  Rendering maps/index.html.erb within layouts/application
+  [1m[36mMap Load (0.4ms)[0m  [1m[34mSELECT `maps`.* FROM `maps`[0m
+  ↳ app/views/maps/index.html.erb:60
+  Rendered maps/index.html.erb within layouts/application (Duration: 4.0ms | Allocations: 2128)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 51ms (Views: 49.1ms | ActiveRecord: 0.4ms | Allocations: 9324)
+
+
+Started POST "/maps" for ::1 at 2020-10-30 22:33:27 +0900
+Processing by MapsController#create as HTML
+  Parameters: {"authenticity_token"=>"/lBz/EhifqRdnnAnVrolkaWUFWvVu/WyQQLtK+/W1Wdetl9wfjQcJ3mNfOSKrMenJ5iSsamhEolO0hpcx3M3Fw==", "map"=>{"address"=>"GeekSalon", "latitude"=>"35.0015719", "longitude"=>"135.767686"}, "commit"=>"送信"}
+  [1m[35m (0.5ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/maps_controller.rb:9:in `create'
+  [1m[36mMap Create (3.0ms)[0m  [1m[32mINSERT INTO `maps` (`address`, `latitude`, `longitude`, `created_at`, `updated_at`) VALUES ('GeekSalon', 32.0154099, -80.9844591, '2020-10-30 13:33:28.270008', '2020-10-30 13:33:28.270008')[0m
+  ↳ app/controllers/maps_controller.rb:9:in `create'
+  [1m[35m (2.1ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/maps_controller.rb:9:in `create'
+No template found for MapsController#create, rendering head :no_content
+Completed 204 No Content in 594ms (ActiveRecord: 5.7ms | Allocations: 7993)
+
+
+Started GET "/maps" for ::1 at 2020-10-30 22:33:56 +0900
+Processing by MapsController#index as HTML
+  Rendering maps/index.html.erb within layouts/application
+  [1m[36mMap Load (0.4ms)[0m  [1m[34mSELECT `maps`.* FROM `maps`[0m
+  ↳ app/views/maps/index.html.erb:60
+  Rendered maps/index.html.erb within layouts/application (Duration: 2.7ms | Allocations: 1637)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 39ms (Views: 38.2ms | ActiveRecord: 0.4ms | Allocations: 7565)
+
+
+Started POST "/maps" for ::1 at 2020-10-30 22:34:18 +0900
+Processing by MapsController#create as HTML
+  Parameters: {"authenticity_token"=>"2Qas4/5I3IKAo6Dxyi6Dw8oJzFM4tQkaINDyn7ZSvix54IBvyB6+AaSwrDIWOGH1SAVLiUSv7iEvAAXonvdcXA==", "map"=>{"address"=>"東京駅", "latitude"=>"35.68123620000001", "longitude"=>"139.7671248"}, "commit"=>"送信"}
+  [1m[35m (0.7ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/maps_controller.rb:9:in `create'
+  [1m[36mMap Create (1.1ms)[0m  [1m[32mINSERT INTO `maps` (`address`, `latitude`, `longitude`, `created_at`, `updated_at`) VALUES ('東京駅', 35.68123620000001, 139.7671248, '2020-10-30 13:34:18.801833', '2020-10-30 13:34:18.801833')[0m
+  ↳ app/controllers/maps_controller.rb:9:in `create'
+  [1m[35m (2.2ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/maps_controller.rb:9:in `create'
+No template found for MapsController#create, rendering head :no_content
+Completed 204 No Content in 420ms (ActiveRecord: 4.0ms | Allocations: 4726)
+
+
+Started GET "/maps" for ::1 at 2020-10-30 22:34:47 +0900
+Processing by MapsController#index as HTML
+  Rendering maps/index.html.erb within layouts/application
+  [1m[36mMap Load (0.4ms)[0m  [1m[34mSELECT `maps`.* FROM `maps`[0m
+  ↳ app/views/maps/index.html.erb:60
+  Rendered maps/index.html.erb within layouts/application (Duration: 4.5ms | Allocations: 2394)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 73ms (Views: 55.9ms | ActiveRecord: 6.0ms | Allocations: 14004)
+
+
+Started GET "/maps" for ::1 at 2020-10-30 22:34:58 +0900
+Processing by MapsController#index as HTML
+  Rendering maps/index.html.erb within layouts/application
+  [1m[36mMap Load (0.6ms)[0m  [1m[34mSELECT `maps`.* FROM `maps`[0m
+  ↳ app/views/maps/index.html.erb:60
+  Rendered maps/index.html.erb within layouts/application (Duration: 4.6ms | Allocations: 1678)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 53ms (Views: 50.9ms | ActiveRecord: 0.6ms | Allocations: 7595)
+
+
+Started GET "/maps" for ::1 at 2020-10-30 22:35:19 +0900
+Processing by MapsController#index as HTML
+  Rendering maps/index.html.erb within layouts/application
+  [1m[36mMap Load (0.4ms)[0m  [1m[34mSELECT `maps`.* FROM `maps`[0m
+  ↳ app/views/maps/index.html.erb:60
+  Rendered maps/index.html.erb within layouts/application (Duration: 4.1ms | Allocations: 2218)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 51ms (Views: 48.2ms | ActiveRecord: 0.4ms | Allocations: 9409)
+
+
+Started GET "/maps" for ::1 at 2020-10-30 22:36:44 +0900
+Processing by MapsController#index as HTML
+  Rendering maps/index.html.erb within layouts/application
+  [1m[36mMap Load (0.4ms)[0m  [1m[34mSELECT `maps`.* FROM `maps`[0m
+  ↳ app/views/maps/index.html.erb:60
+  Rendered maps/index.html.erb within layouts/application (Duration: 5.1ms | Allocations: 3109)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 68ms (Views: 49.3ms | ActiveRecord: 5.9ms | Allocations: 15837)
+
+
+Started DELETE "/maps/1" for ::1 at 2020-10-30 22:36:48 +0900
+Processing by MapsController#destroy as HTML
+  Parameters: {"authenticity_token"=>"9Akjq6M08wrJ54QocFOJo5/0242lVBZaHePJAjl+N1ZU7w8nlWKRie30iOusRWuVHfhcV9lO8WESMz51EdvVJg==", "id"=>"1"}
+  [1m[36mMap Load (0.4ms)[0m  [1m[34mSELECT `maps`.* FROM `maps` WHERE `maps`.`id` = 1 LIMIT 1[0m
+  ↳ app/controllers/maps_controller.rb:17:in `destroy'
+  [1m[35m (0.4ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/maps_controller.rb:18:in `destroy'
+  [1m[36mMap Destroy (5.2ms)[0m  [1m[31mDELETE FROM `maps` WHERE `maps`.`id` = 1[0m
+  ↳ app/controllers/maps_controller.rb:18:in `destroy'
+  [1m[35m (1.5ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/maps_controller.rb:18:in `destroy'
+Redirected to http://localhost:3000/maps
+Completed 302 Found in 25ms (ActiveRecord: 7.5ms | Allocations: 3804)
+
+
+Started GET "/maps" for ::1 at 2020-10-30 22:36:49 +0900
+Processing by MapsController#index as HTML
+  Rendering maps/index.html.erb within layouts/application
+  [1m[36mMap Load (0.4ms)[0m  [1m[34mSELECT `maps`.* FROM `maps`[0m
+  ↳ app/views/maps/index.html.erb:60
+  Rendered maps/index.html.erb within layouts/application (Duration: 4.3ms | Allocations: 1755)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 52ms (Views: 50.5ms | ActiveRecord: 0.4ms | Allocations: 7675)
+
+
+Started DELETE "/maps/2" for ::1 at 2020-10-30 22:37:47 +0900
+Processing by MapsController#destroy as HTML
+  Parameters: {"authenticity_token"=>"ZuMkjeCgBKPwtMfswqg2EpQpG9SKkDf3cjA0tvIc+bLGBQgB1vZmINSnyy8evtQkFiWcDvaK0Mx94MPB2rkbwg==", "id"=>"2"}
+  [1m[36mMap Load (0.6ms)[0m  [1m[34mSELECT `maps`.* FROM `maps` WHERE `maps`.`id` = 2 LIMIT 1[0m
+  ↳ app/controllers/maps_controller.rb:17:in `destroy'
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/maps_controller.rb:18:in `destroy'
+  [1m[36mMap Destroy (0.5ms)[0m  [1m[31mDELETE FROM `maps` WHERE `maps`.`id` = 2[0m
+  ↳ app/controllers/maps_controller.rb:18:in `destroy'
+  [1m[35m (3.5ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/maps_controller.rb:18:in `destroy'
+Redirected to http://localhost:3000/maps
+Completed 302 Found in 14ms (ActiveRecord: 4.8ms | Allocations: 3124)
+
+
+Started GET "/maps" for ::1 at 2020-10-30 22:37:47 +0900
+Processing by MapsController#index as HTML
+  Rendering maps/index.html.erb within layouts/application
+  [1m[36mMap Load (0.6ms)[0m  [1m[34mSELECT `maps`.* FROM `maps`[0m
+  ↳ app/views/maps/index.html.erb:60
+  Rendered maps/index.html.erb within layouts/application (Duration: 5.2ms | Allocations: 1667)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 45ms (Views: 43.3ms | ActiveRecord: 0.6ms | Allocations: 7604)
+
+
+Started DELETE "/maps/3" for ::1 at 2020-10-30 22:37:50 +0900
+Processing by MapsController#destroy as HTML
+  Parameters: {"authenticity_token"=>"xsLPGZYzuX2muzmF6DnsOLCqGfmYdv/QIvO8rwZZ4Y1mJOOVoGXb/oKoNUY0Lw4OMqaeI+RsGOstI0vYLvwD/Q==", "id"=>"3"}
+  [1m[36mMap Load (0.4ms)[0m  [1m[34mSELECT `maps`.* FROM `maps` WHERE `maps`.`id` = 3 LIMIT 1[0m
+  ↳ app/controllers/maps_controller.rb:17:in `destroy'
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/maps_controller.rb:18:in `destroy'
+  [1m[36mMap Destroy (0.5ms)[0m  [1m[31mDELETE FROM `maps` WHERE `maps`.`id` = 3[0m
+  ↳ app/controllers/maps_controller.rb:18:in `destroy'
+  [1m[35m (4.4ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/maps_controller.rb:18:in `destroy'
+Redirected to http://localhost:3000/maps
+Completed 302 Found in 15ms (ActiveRecord: 5.5ms | Allocations: 3131)
+
+
+Started GET "/maps" for ::1 at 2020-10-30 22:37:50 +0900
+Processing by MapsController#index as HTML
+  Rendering maps/index.html.erb within layouts/application
+  [1m[36mMap Load (0.6ms)[0m  [1m[34mSELECT `maps`.* FROM `maps`[0m
+  ↳ app/views/maps/index.html.erb:60
+  Rendered maps/index.html.erb within layouts/application (Duration: 6.3ms | Allocations: 1584)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 45ms (Views: 43.1ms | ActiveRecord: 0.6ms | Allocations: 7507)
+
+
+Started DELETE "/maps/4" for ::1 at 2020-10-30 22:37:52 +0900
+Processing by MapsController#destroy as HTML
+  Parameters: {"authenticity_token"=>"iGreIqIqz3WOx/t1fmZVhKpjwD4zEd9ud9gcq0nbL3wojPKulHyt9qrU97aicLeyKG9H5E8LOFV4COvcYX7NDA==", "id"=>"4"}
+  [1m[36mMap Load (0.6ms)[0m  [1m[34mSELECT `maps`.* FROM `maps` WHERE `maps`.`id` = 4 LIMIT 1[0m
+  ↳ app/controllers/maps_controller.rb:17:in `destroy'
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/maps_controller.rb:18:in `destroy'
+  [1m[36mMap Destroy (0.4ms)[0m  [1m[31mDELETE FROM `maps` WHERE `maps`.`id` = 4[0m
+  ↳ app/controllers/maps_controller.rb:18:in `destroy'
+  [1m[35m (2.6ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/maps_controller.rb:18:in `destroy'
+Redirected to http://localhost:3000/maps
+Completed 302 Found in 14ms (ActiveRecord: 4.0ms | Allocations: 3139)
+
+
+Started GET "/maps" for ::1 at 2020-10-30 22:37:52 +0900
+Processing by MapsController#index as HTML
+  Rendering maps/index.html.erb within layouts/application
+  [1m[36mMap Load (0.6ms)[0m  [1m[34mSELECT `maps`.* FROM `maps`[0m
+  ↳ app/views/maps/index.html.erb:60
+  Rendered maps/index.html.erb within layouts/application (Duration: 4.6ms | Allocations: 1501)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 39ms (Views: 37.3ms | ActiveRecord: 0.6ms | Allocations: 7424)
+
+
+Started POST "/maps" for ::1 at 2020-10-30 22:38:07 +0900
+Processing by MapsController#create as HTML
+  Parameters: {"authenticity_token"=>"NscTs27tRlPRM8hx4KcDD6FFsrb8N/k6BECERZvUrDCWIT8/WLsk0PUgxLI8seE5I0k1bIAtHgELkHMys3FOQA==", "map"=>{"address"=>"GeekSalon", "latitude"=>"35.0015719", "longitude"=>"135.767686"}, "commit"=>"送信"}
+  [1m[35m (0.4ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/maps_controller.rb:9:in `create'
+  [1m[36mMap Create (0.7ms)[0m  [1m[32mINSERT INTO `maps` (`address`, `latitude`, `longitude`, `created_at`, `updated_at`) VALUES ('GeekSalon', 32.0154099, -80.9844591, '2020-10-30 13:38:07.396016', '2020-10-30 13:38:07.396016')[0m
+  ↳ app/controllers/maps_controller.rb:9:in `create'
+  [1m[35m (3.0ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/maps_controller.rb:9:in `create'
+Redirected to http://localhost:3000/maps
+Completed 302 Found in 160ms (ActiveRecord: 4.2ms | Allocations: 4799)
+
+
+Started GET "/maps" for ::1 at 2020-10-30 22:38:07 +0900
+Processing by MapsController#index as HTML
+  Rendering maps/index.html.erb within layouts/application
+  [1m[36mMap Load (0.4ms)[0m  [1m[34mSELECT `maps`.* FROM `maps`[0m
+  ↳ app/views/maps/index.html.erb:60
+  Rendered maps/index.html.erb within layouts/application (Duration: 4.4ms | Allocations: 1584)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 53ms (Views: 51.8ms | ActiveRecord: 0.4ms | Allocations: 7499)
+
+
+Started POST "/maps" for ::1 at 2020-10-30 22:38:26 +0900
+Processing by MapsController#create as HTML
+  Parameters: {"authenticity_token"=>"S5nY2QjqFMcEYc6OSxRCIyC5WG9elq70kByb+ET/3I3rf/RVPrx2RCBywk2XAqAVorXftSKMSc+fzGyPbFo+/Q==", "map"=>{"address"=>"東京駅", "latitude"=>"35.68123620000001", "longitude"=>"139.7671248"}, "commit"=>"送信"}
+  [1m[35m (0.4ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/maps_controller.rb:9:in `create'
+  [1m[36mMap Create (0.8ms)[0m  [1m[32mINSERT INTO `maps` (`address`, `latitude`, `longitude`, `created_at`, `updated_at`) VALUES ('東京駅', 35.68123620000001, 139.7671248, '2020-10-30 13:38:26.267436', '2020-10-30 13:38:26.267436')[0m
+  ↳ app/controllers/maps_controller.rb:9:in `create'
+  [1m[35m (2.0ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/maps_controller.rb:9:in `create'
+Redirected to http://localhost:3000/maps
+Completed 302 Found in 164ms (ActiveRecord: 3.3ms | Allocations: 4704)
+
+
+Started GET "/maps" for ::1 at 2020-10-30 22:38:26 +0900
+Processing by MapsController#index as HTML
+  Rendering maps/index.html.erb within layouts/application
+  [1m[36mMap Load (0.6ms)[0m  [1m[34mSELECT `maps`.* FROM `maps`[0m
+  ↳ app/views/maps/index.html.erb:60
+  Rendered maps/index.html.erb within layouts/application (Duration: 5.7ms | Allocations: 1667)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 42ms (Views: 40.2ms | ActiveRecord: 0.6ms | Allocations: 7584)
+
+
+Started GET "/maps" for ::1 at 2020-10-30 22:39:04 +0900
+Processing by MapsController#index as HTML
+  Rendering maps/index.html.erb within layouts/application
+  [1m[36mMap Load (0.6ms)[0m  [1m[34mSELECT `maps`.* FROM `maps`[0m
+  ↳ app/views/maps/index.html.erb:60
+  Rendered maps/index.html.erb within layouts/application (Duration: 5.8ms | Allocations: 2224)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 62ms (Views: 59.3ms | ActiveRecord: 0.6ms | Allocations: 9405)
+
+
+Started GET "/maps" for ::1 at 2020-10-30 22:40:39 +0900
+  [1m[35m (0.5ms)[0m  [1m[35mSET NAMES utf8mb4,  @@SESSION.sql_mode = CONCAT(CONCAT(@@sql_mode, ',STRICT_ALL_TABLES'), ',NO_AUTO_VALUE_ON_ZERO'),  @@SESSION.sql_auto_is_null = 0, @@SESSION.wait_timeout = 2147483[0m
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT `schema_migrations`.`version` FROM `schema_migrations` ORDER BY `schema_migrations`.`version` ASC[0m
+Processing by MapsController#index as HTML
+  Rendering maps/index.html.erb within layouts/application
+  [1m[36mMap Load (0.5ms)[0m  [1m[34mSELECT `maps`.* FROM `maps`[0m
+  ↳ app/views/maps/index.html.erb:62
+  Rendered maps/index.html.erb within layouts/application (Duration: 29.7ms | Allocations: 8999)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 168ms (Views: 131.5ms | ActiveRecord: 4.4ms | Allocations: 33298)
+
+
+Started GET "/maps" for ::1 at 2020-10-30 22:40:55 +0900
+Processing by MapsController#index as HTML
+  Rendering maps/index.html.erb within layouts/application
+  [1m[36mMap Load (0.4ms)[0m  [1m[34mSELECT `maps`.* FROM `maps`[0m
+  ↳ app/views/maps/index.html.erb:62
+  Rendered maps/index.html.erb within layouts/application (Duration: 4.6ms | Allocations: 2279)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 53ms (Views: 50.5ms | ActiveRecord: 0.4ms | Allocations: 9483)
+
+
+Started GET "/tweets" for ::1 at 2020-10-30 22:40:57 +0900
+Processing by TweetsController#index as HTML
+  [1m[36mTweet Load (0.4ms)[0m  [1m[34mSELECT `tweets`.* FROM `tweets`[0m
+  ↳ app/controllers/tweets_controller.rb:10:in `sort'
+  Rendering tweets/index.html.erb within layouts/application
+  [1m[36mTag Load (0.4ms)[0m  [1m[34mSELECT `tags`.* FROM `tags`[0m
+  ↳ app/views/tweets/index.html.erb:12
+  [1m[36mCACHE Tweet Load (0.0ms)[0m  [1m[34mSELECT `tweets`.* FROM `tweets`[0m
+  ↳ app/views/tweets/index.html.erb:22
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1[0m
+  ↳ app/views/tweets/index.html.erb:38
+  [1m[35m (0.9ms)[0m  [1m[34mSELECT COUNT(*) FROM `likes` WHERE `likes`.`tweet_id` = 1[0m
+  ↳ app/views/tweets/index.html.erb:59
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/tweets/index.html.erb:88
+  [1m[35mCACHE  (0.0ms)[0m  [1m[34mSELECT COUNT(*) FROM `likes` WHERE `likes`.`tweet_id` = 1[0m
+  ↳ app/views/tweets/index.html.erb:109
+  Rendered tweets/index.html.erb within layouts/application (Duration: 140.1ms | Allocations: 28151)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 215ms (Views: 163.4ms | ActiveRecord: 19.2ms | Allocations: 45617)
+
+
+Started GET "/maps" for ::1 at 2020-10-30 22:40:59 +0900
+Processing by MapsController#index as HTML
+  Rendering maps/index.html.erb within layouts/application
+  [1m[36mMap Load (0.4ms)[0m  [1m[34mSELECT `maps`.* FROM `maps`[0m
+  ↳ app/views/maps/index.html.erb:62
+  Rendered maps/index.html.erb within layouts/application (Duration: 4.4ms | Allocations: 1711)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 42ms (Views: 40.3ms | ActiveRecord: 0.4ms | Allocations: 7646)
+
+

@@ -105,6 +105,7 @@ GEM
       multipart-post (>= 1.2, < 3)
       ruby2_keywords
     ffi (1.13.1-x64-mingw32)
+    geocoder (1.6.4)
     globalid (0.4.2)
       activesupport (>= 4.2.0)
     hashie (4.1.0)
@@ -297,6 +298,7 @@ DEPENDENCIES
   cloudinary
   devise
   dotenv-rails
+  geocoder
   hirb
   hirb-unicode
   impressionist (~> 1.6.1)

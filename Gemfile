@@ -61,6 +61,7 @@ gem 'impressionist', '~>1.6.1'
 gem 'audiojs-rails'
 gem 'omniauth'
 gem 'omniauth-google-oauth2'
+gem 'geocoder'
 
 group :production do
   gem 'pg'

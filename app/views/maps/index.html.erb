@@ -1,0 +1,109 @@
+<h2>gmap</h2>
+
+<p><%= link_to "Tweet一覧に戻る", tweets_path %></p>
+
+<input id="address" type="textbox" value="">
+<input type="button" value="Encode" onclick="codeAddress()">
+<div id="display">緯度経度が表示されるよ！</div>
+
+<%= form_for(@map, :url => { controller:'maps', action:'create'})do |f| %>
+    
+    <p>
+    <%= f.label :address %>
+    <%= f.text_field :address, size: "50x1" %>
+    </p>
+
+    <p>
+    <%= f.label :latitude %>
+    <%= f.text_field :latitude, size: "50x1" %>
+    </p>
+
+    <p>
+    <%= f.label :longitude %>
+    <%= f.text_field :longitude, size: "50x1" %>
+    </p>
+
+    <%= f.submit "送信"%>
+<% end %>
+
+<div id='map'></div>
+
+<style>
+    #map {
+        height: 400px;
+        width: 400px;
+    }
+</style>
+
+<script>
+    let map
+
+    const display = document.getElementById('display')
+
+    function initMap() {
+        geocoder = new google.maps.Geocoder()
+
+        map = new google.maps.Map(document.getElementById('map'), {
+            center: {
+                lat: 35.6458437,
+                lng: 139.7046171
+            },
+            zoom: 12,
+        });
+
+        marker = new google.maps.Marker({
+            position: {
+                lat: 35.6458437,
+                lng: 139.7046171
+            },
+            map: map
+        });
+
+        <% @maps.each do |m| %>
+            (function(){
+            var contentString = "住所：<%= m.address %>"; 
+
+            var marker = new google.maps.Marker({
+                position:{lat: <%= m.latitude %>, lng: <%= m.longitude %>},
+                map: map,
+                title: contentString
+            });
+
+            })();
+        <% end %>
+    }
+
+    let geocoder
+
+    function codeAddress() {
+        let inputAddress = document.getElementById('address').value;
+
+        geocoder.geocode({
+            'address': inputAddress
+        }, function (results, status) {
+            if (status == 'OK') {
+                map.setCenter(results[0].geometry.location);
+                var marker = new google.maps.Marker({
+                    map: map,
+                    position: results[0].geometry.location
+                });
+
+            display.textContent = "検索結果：" + results[ 0 ].geometry.location
+            } else {
+                alert('該当する結果がありませんでした：' + status);
+            }
+        });
+    }
+</script>
+<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCzgXFddQxU2sdAh0AEGLDYhdL_RpOzdF0&callback=initMap" async
+    defer></script>
+
+<% @maps.each do |t| %>
+    <p>住所 : <%= t.address %></p>
+    <p>緯度 : <%= t.latitude %></p>
+    <p>経度 : <%= t.longitude %></p>
+    <p><%= link_to "削除する", map_path(t.id), method: :delete %></p>
+    <hr>
+<% end %>
+
+<br><br><br>
