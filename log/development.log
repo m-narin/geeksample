@@ -25414,3 +25414,606 @@ Did you mean?  tweets_path
     5: <h3>投稿を検索</h3>
   
 app/views/tweets/index.html.erb:2
+Started GET "/" for ::1 at 2020-10-31 22:55:00 +0900
+  [1m[35m (7.3ms)[0m  [1m[35mSET NAMES utf8mb4,  @@SESSION.sql_mode = CONCAT(CONCAT(@@sql_mode, ',STRICT_ALL_TABLES'), ',NO_AUTO_VALUE_ON_ZERO'),  @@SESSION.sql_auto_is_null = 0, @@SESSION.wait_timeout = 2147483[0m
+  [1m[35m (7.0ms)[0m  [1m[34mSELECT `schema_migrations`.`version` FROM `schema_migrations` ORDER BY `schema_migrations`.`version` ASC[0m
+Processing by TweetsController#index as HTML
+  [1m[36mTweet Load (9.4ms)[0m  [1m[34mSELECT `tweets`.* FROM `tweets`[0m
+  ↳ app/controllers/tweets_controller.rb:10:in `sort'
+  Rendering tweets/index.html.erb within layouts/application
+  [1m[36mTweet Load (1.0ms)[0m  [1m[34mSELECT `tweets`.* FROM `tweets` LIMIT 11[0m
+  [1m[36mCACHE Tweet Load (0.0ms)[0m  [1m[34mSELECT `tweets`.* FROM `tweets` LIMIT 11[0m
+  [1m[36mCACHE Tweet Load (0.0ms)[0m  [1m[34mSELECT `tweets`.* FROM `tweets` LIMIT 11[0m
+  [1m[36mCACHE Tweet Load (0.0ms)[0m  [1m[34mSELECT `tweets`.* FROM `tweets` LIMIT 11[0m
+  [1m[36mCACHE Tweet Load (0.0ms)[0m  [1m[34mSELECT `tweets`.* FROM `tweets` LIMIT 11[0m
+  [1m[36mCACHE Tweet Load (0.0ms)[0m  [1m[34mSELECT `tweets`.* FROM `tweets` LIMIT 11[0m
+  [1m[36mCACHE Tweet Load (0.0ms)[0m  [1m[34mSELECT `tweets`.* FROM `tweets` LIMIT 11[0m
+  [1m[36mCACHE Tweet Load (0.0ms)[0m  [1m[34mSELECT `tweets`.* FROM `tweets` LIMIT 11[0m
+  Rendered tweets/index.html.erb within layouts/application (Duration: 483.2ms | Allocations: 226691)
+Completed 500 Internal Server Error in 553ms (ActiveRecord: 16.5ms | Allocations: 241937)
+
+
+  
+ActionView::Template::Error (undefined local variable or method `tweets_new_path' for #<#<Class:0x000000000a908bc0>:0x000000000a911068>
+Did you mean?  tweets_path
+               tweets_top_path):
+    1: 
+    2: <li><%= link_to "新規投稿", tweets_new_path %></li>
+    3: 
+    4: <%= stylesheet_link_tag 'index', :media => "all" %>
+    5: <h3>投稿を検索</h3>
+  
+app/views/tweets/index.html.erb:2
+Started GET "/" for ::1 at 2020-10-31 22:55:46 +0900
+Processing by TweetsController#index as HTML
+  [1m[36mTweet Load (0.7ms)[0m  [1m[34mSELECT `tweets`.* FROM `tweets`[0m
+  ↳ app/controllers/tweets_controller.rb:10:in `sort'
+  Rendering tweets/index.html.erb within layouts/application
+  [1m[36mTag Load (5.3ms)[0m  [1m[34mSELECT `tags`.* FROM `tags`[0m
+  ↳ app/views/tweets/index.html.erb:12
+  [1m[36mCACHE Tweet Load (0.0ms)[0m  [1m[34mSELECT `tweets`.* FROM `tweets`[0m
+  ↳ app/views/tweets/index.html.erb:22
+  [1m[36mUser Load (1.1ms)[0m  [1m[34mSELECT `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1[0m
+  ↳ app/views/tweets/index.html.erb:38
+  [1m[35m (3.0ms)[0m  [1m[34mSELECT COUNT(*) FROM `likes` WHERE `likes`.`tweet_id` = 1[0m
+  ↳ app/views/tweets/index.html.erb:59
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/tweets/index.html.erb:88
+  [1m[35mCACHE  (0.0ms)[0m  [1m[34mSELECT COUNT(*) FROM `likes` WHERE `likes`.`tweet_id` = 1[0m
+  ↳ app/views/tweets/index.html.erb:109
+  Rendered tweets/index.html.erb within layouts/application (Duration: 207.2ms | Allocations: 37095)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 268ms (Views: 232.4ms | ActiveRecord: 28.9ms | Allocations: 44567)
+
+
+Started GET "/tweets/1" for ::1 at 2020-10-31 22:55:48 +0900
+Processing by TweetsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mTweet Load (0.4ms)[0m  [1m[34mSELECT `tweets`.* FROM `tweets` WHERE `tweets`.`id` = 1 LIMIT 1[0m
+  ↳ app/controllers/tweets_controller.rb:28:in `show'
+DEPRECATION WARNING: ActionDispatch::Http::ParameterFilter is deprecated and will be removed from Rails 6.1. Use ActiveSupport::ParameterFilter instead. (called from show at C:/Users/naren/Desktop/sample/app/controllers/tweets_controller.rb:29)
+  [1m[36mImpression Exists? (2.1ms)[0m  [1m[34mSELECT 1 AS one FROM `impressions` WHERE `impressions`.`impressionable_id` = 1 AND `impressions`.`impressionable_type` = 'Tweet' AND `impressions`.`ip_address` = '::1' LIMIT 1[0m
+  ↳ app/controllers/tweets_controller.rb:29:in `show'
+DEPRECATION WARNING: ActionDispatch::Http::ParameterFilter is deprecated and will be removed from Rails 6.1. Use ActiveSupport::ParameterFilter instead. (called from show at C:/Users/naren/Desktop/sample/app/controllers/tweets_controller.rb:29)
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/tweets_controller.rb:29:in `show'
+  [1m[36mImpression Create (4.9ms)[0m  [1m[32mINSERT INTO `impressions` (`impressionable_type`, `impressionable_id`, `controller_name`, `action_name`, `request_hash`, `ip_address`, `session_hash`, `referrer`, `created_at`, `updated_at`) VALUES ('Tweet', 1, 'tweets', 'show', '11c5e0671864020727c50d1fb3774c98ca7f0cb2eaac9fed6457c642b7a99ecf', '::1', '5db35a3d417d58ced6031db56e102f9a', 'http://localhost:3000/', '2020-10-31 13:55:48.574782', '2020-10-31 13:55:48.574782')[0m
+  ↳ app/controllers/tweets_controller.rb:29:in `show'
+  [1m[36mTweet Load (0.4ms)[0m  [1m[34mSELECT `tweets`.* FROM `tweets` WHERE `tweets`.`id` = 1 LIMIT 1[0m
+  ↳ app/controllers/tweets_controller.rb:29:in `show'
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT COUNT(*) FROM `impressions` WHERE `impressions`.`impressionable_id` = 1 AND `impressions`.`impressionable_type` = 'Tweet'[0m
+  ↳ app/controllers/tweets_controller.rb:29:in `show'
+  [1m[36mTweet Update All (3.4ms)[0m  [1m[33mUPDATE `tweets` SET `tweets`.`impressions_count` = COALESCE(`tweets`.`impressions_count`, 0) + 1 WHERE `tweets`.`id` = 1[0m
+  ↳ app/controllers/tweets_controller.rb:29:in `show'
+  [1m[35m (1.8ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/tweets_controller.rb:29:in `show'
+  Rendering tweets/show.html.erb within layouts/application
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1[0m
+  ↳ app/views/tweets/show.html.erb:5
+  [1m[35m (0.6ms)[0m  [1m[34mSELECT COUNT(*) FROM `likes` WHERE `likes`.`tweet_id` = 1[0m
+  ↳ app/views/tweets/show.html.erb:29
+  [1m[36mTag Load (1.6ms)[0m  [1m[34mSELECT `tags`.* FROM `tags` INNER JOIN `tweet_tag_relations` ON `tags`.`id` = `tweet_tag_relations`.`tag_id` WHERE `tweet_tag_relations`.`tweet_id` = 1[0m
+  ↳ app/views/tweets/show.html.erb:34
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT `users`.* FROM `users` INNER JOIN `likes` ON `users`.`id` = `likes`.`user_id` WHERE `likes`.`tweet_id` = 1[0m
+  ↳ app/views/tweets/show.html.erb:39
+  [1m[36mComment Load (0.8ms)[0m  [1m[34mSELECT `comments`.* FROM `comments` WHERE `comments`.`tweet_id` = 1[0m
+  ↳ app/views/tweets/show.html.erb:45
+  Rendered tweets/show.html.erb within layouts/application (Duration: 55.3ms | Allocations: 12111)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 213ms (Views: 94.4ms | ActiveRecord: 38.7ms | Allocations: 50427)
+
+
+Started GET "/users/sign_in" for ::1 at 2020-10-31 22:56:07 +0900
+Processing by Devise::SessionsController#new as HTML
+  Rendering users/sessions/new.html.erb within layouts/application
+  Rendered users/shared/_links.html.erb (Duration: 3.5ms | Allocations: 724)
+  Rendered users/sessions/new.html.erb within layouts/application (Duration: 34.4ms | Allocations: 2772)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 98ms (Views: 91.0ms | ActiveRecord: 0.0ms | Allocations: 10614)
+
+
+Started GET "/users/auth/google_oauth2" for ::1 at 2020-10-31 22:56:08 +0900
+Started GET "/users/auth/google_oauth2" for ::1 at 2020-10-31 22:56:08 +0900
+Started GET "/users/auth/google_oauth2/callback?state=2d9d84567dca0d496a0ef4c8fdcebe922249557e15ba3acd&code=4/5wFPRis7zUIKcJrUtcOLSX_dPmHXx_Ym9sGy748fBUyh71hdwrEwb6allFdJn4Rsk5MdZJEvISUSaptMnH0PYvQ&scope=email%20profile%20https://www.googleapis.com/auth/userinfo.email%20https://www.googleapis.com/auth/userinfo.profile%20openid&authuser=1&hd=keio.jp&prompt=none" for ::1 at 2020-10-31 22:56:10 +0900
+Processing by Users::OmniauthCallbacksController#google_oauth2 as HTML
+  Parameters: {"state"=>"2d9d84567dca0d496a0ef4c8fdcebe922249557e15ba3acd", "code"=>"4/5wFPRis7zUIKcJrUtcOLSX_dPmHXx_Ym9sGy748fBUyh71hdwrEwb6allFdJn4Rsk5MdZJEvISUSaptMnH0PYvQ", "scope"=>"email profile https://www.googleapis.com/auth/userinfo.email https://www.googleapis.com/auth/userinfo.profile openid", "authuser"=>"1", "hd"=>"keio.jp", "prompt"=>"none"}
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT `users`.* FROM `users` WHERE `users`.`provider` = 'google_oauth2' AND `users`.`uid` = '106409334398779068043' ORDER BY `users`.`id` ASC LIMIT 1[0m
+  ↳ app/models/user.rb:10:in `from_omniauth'
+Redirected to http://localhost:3000/
+Completed 302 Found in 31ms (ActiveRecord: 0.5ms | Allocations: 6316)
+
+
+Started GET "/" for ::1 at 2020-10-31 22:56:11 +0900
+Processing by TweetsController#index as HTML
+  [1m[36mTweet Load (0.6ms)[0m  [1m[34mSELECT `tweets`.* FROM `tweets`[0m
+  ↳ app/controllers/tweets_controller.rb:10:in `sort'
+  Rendering tweets/index.html.erb within layouts/application
+  [1m[36mTag Load (0.6ms)[0m  [1m[34mSELECT `tags`.* FROM `tags`[0m
+  ↳ app/views/tweets/index.html.erb:12
+  [1m[36mCACHE Tweet Load (0.0ms)[0m  [1m[34mSELECT `tweets`.* FROM `tweets`[0m
+  ↳ app/views/tweets/index.html.erb:22
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1[0m
+  ↳ app/views/tweets/index.html.erb:38
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT `users`.* FROM `users` WHERE `users`.`id` = 3 ORDER BY `users`.`id` ASC LIMIT 1[0m
+  ↳ app/views/tweets/index.html.erb:41
+  [1m[36mLike Exists? (2.0ms)[0m  [1m[34mSELECT 1 AS one FROM `likes` WHERE `likes`.`user_id` = 3 AND `likes`.`tweet_id` = 1 LIMIT 1[0m
+  ↳ app/models/user.rb:27:in `already_liked?'
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT COUNT(*) FROM `likes` WHERE `likes`.`tweet_id` = 1[0m
+  ↳ app/views/tweets/index.html.erb:55
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/tweets/index.html.erb:88
+  [1m[36mCACHE Like Exists? (0.0ms)[0m  [1m[34mSELECT 1 AS one FROM `likes` WHERE `likes`.`user_id` = 3 AND `likes`.`tweet_id` = 1 LIMIT 1[0m
+  ↳ app/models/user.rb:27:in `already_liked?'
+  [1m[35mCACHE  (0.0ms)[0m  [1m[34mSELECT COUNT(*) FROM `likes` WHERE `likes`.`tweet_id` = 1[0m
+  ↳ app/views/tweets/index.html.erb:105
+  Rendered tweets/index.html.erb within layouts/application (Duration: 29.7ms | Allocations: 9660)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 69ms (Views: 61.9ms | ActiveRecord: 4.4ms | Allocations: 16055)
+
+
+Started GET "/tweets/1" for ::1 at 2020-10-31 22:56:13 +0900
+Processing by TweetsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mTweet Load (0.5ms)[0m  [1m[34mSELECT `tweets`.* FROM `tweets` WHERE `tweets`.`id` = 1 LIMIT 1[0m
+  ↳ app/controllers/tweets_controller.rb:28:in `show'
+DEPRECATION WARNING: ActionDispatch::Http::ParameterFilter is deprecated and will be removed from Rails 6.1. Use ActiveSupport::ParameterFilter instead. (called from show at C:/Users/naren/Desktop/sample/app/controllers/tweets_controller.rb:29)
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT `users`.* FROM `users` WHERE `users`.`id` = 3 ORDER BY `users`.`id` ASC LIMIT 1[0m
+  ↳ app/controllers/tweets_controller.rb:29:in `show'
+  [1m[36mImpression Exists? (0.4ms)[0m  [1m[34mSELECT 1 AS one FROM `impressions` WHERE `impressions`.`impressionable_id` = 1 AND `impressions`.`impressionable_type` = 'Tweet' AND `impressions`.`ip_address` = '::1' LIMIT 1[0m
+  ↳ app/controllers/tweets_controller.rb:29:in `show'
+  Rendering tweets/show.html.erb within layouts/application
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1[0m
+  ↳ app/views/tweets/show.html.erb:5
+  [1m[36mLike Exists? (0.3ms)[0m  [1m[34mSELECT 1 AS one FROM `likes` WHERE `likes`.`user_id` = 3 AND `likes`.`tweet_id` = 1 LIMIT 1[0m
+  ↳ app/models/user.rb:27:in `already_liked?'
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT COUNT(*) FROM `likes` WHERE `likes`.`tweet_id` = 1[0m
+  ↳ app/views/tweets/show.html.erb:25
+  [1m[36mTag Load (0.6ms)[0m  [1m[34mSELECT `tags`.* FROM `tags` INNER JOIN `tweet_tag_relations` ON `tags`.`id` = `tweet_tag_relations`.`tag_id` WHERE `tweet_tag_relations`.`tweet_id` = 1[0m
+  ↳ app/views/tweets/show.html.erb:34
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT `users`.* FROM `users` INNER JOIN `likes` ON `users`.`id` = `likes`.`user_id` WHERE `likes`.`tweet_id` = 1[0m
+  ↳ app/views/tweets/show.html.erb:39
+  [1m[36mComment Load (0.3ms)[0m  [1m[34mSELECT `comments`.* FROM `comments` WHERE `comments`.`tweet_id` = 1[0m
+  ↳ app/views/tweets/show.html.erb:45
+  Rendered tweets/show.html.erb within layouts/application (Duration: 18.5ms | Allocations: 5918)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 65ms (Views: 52.0ms | ActiveRecord: 3.8ms | Allocations: 14495)
+
+
+Started POST "/tweets/1/comments" for ::1 at 2020-10-31 22:56:17 +0900
+Processing by CommentsController#create as HTML
+  Parameters: {"authenticity_token"=>"E5w+A1HSjhRtKR1MUDuqIytyPDRh4R1I+KFPepjUiytAmwYN2WCy+VDMkZLRPSz8whI2C6oiwfjOB7DTTC86Yw==", "comment"=>{"content"=>"aaa"}, "button"=>"", "tweet_id"=>"1"}
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT `users`.* FROM `users` WHERE `users`.`id` = 3 ORDER BY `users`.`id` ASC LIMIT 1[0m
+  [1m[36mTweet Load (0.3ms)[0m  [1m[34mSELECT `tweets`.* FROM `tweets` WHERE `tweets`.`id` = 1 LIMIT 1[0m
+  ↳ app/controllers/comments_controller.rb:5:in `create'
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/comments_controller.rb:8:in `create'
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT `users`.* FROM `users` WHERE `users`.`id` = 3 LIMIT 1[0m
+  ↳ app/controllers/comments_controller.rb:8:in `create'
+  [1m[36mComment Create (0.9ms)[0m  [1m[32mINSERT INTO `comments` (`content`, `user_id`, `tweet_id`, `created_at`, `updated_at`) VALUES ('aaa', 3, 1, '2020-10-31 13:56:17.089872', '2020-10-31 13:56:17.089872')[0m
+  ↳ app/controllers/comments_controller.rb:8:in `create'
+  [1m[35m (4.5ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/comments_controller.rb:8:in `create'
+Redirected to http://localhost:3000/tweets/1
+Completed 302 Found in 24ms (ActiveRecord: 6.8ms | Allocations: 7842)
+
+
+Started GET "/tweets/1" for ::1 at 2020-10-31 22:56:17 +0900
+Processing by TweetsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mTweet Load (0.5ms)[0m  [1m[34mSELECT `tweets`.* FROM `tweets` WHERE `tweets`.`id` = 1 LIMIT 1[0m
+  ↳ app/controllers/tweets_controller.rb:28:in `show'
+DEPRECATION WARNING: ActionDispatch::Http::ParameterFilter is deprecated and will be removed from Rails 6.1. Use ActiveSupport::ParameterFilter instead. (called from show at C:/Users/naren/Desktop/sample/app/controllers/tweets_controller.rb:29)
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT `users`.* FROM `users` WHERE `users`.`id` = 3 ORDER BY `users`.`id` ASC LIMIT 1[0m
+  ↳ app/controllers/tweets_controller.rb:29:in `show'
+  [1m[36mImpression Exists? (0.5ms)[0m  [1m[34mSELECT 1 AS one FROM `impressions` WHERE `impressions`.`impressionable_id` = 1 AND `impressions`.`impressionable_type` = 'Tweet' AND `impressions`.`ip_address` = '::1' LIMIT 1[0m
+  ↳ app/controllers/tweets_controller.rb:29:in `show'
+  Rendering tweets/show.html.erb within layouts/application
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1[0m
+  ↳ app/views/tweets/show.html.erb:5
+  [1m[36mLike Exists? (0.4ms)[0m  [1m[34mSELECT 1 AS one FROM `likes` WHERE `likes`.`user_id` = 3 AND `likes`.`tweet_id` = 1 LIMIT 1[0m
+  ↳ app/models/user.rb:27:in `already_liked?'
+  [1m[35m (0.6ms)[0m  [1m[34mSELECT COUNT(*) FROM `likes` WHERE `likes`.`tweet_id` = 1[0m
+  ↳ app/views/tweets/show.html.erb:25
+  [1m[36mTag Load (0.5ms)[0m  [1m[34mSELECT `tags`.* FROM `tags` INNER JOIN `tweet_tag_relations` ON `tags`.`id` = `tweet_tag_relations`.`tag_id` WHERE `tweet_tag_relations`.`tweet_id` = 1[0m
+  ↳ app/views/tweets/show.html.erb:34
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT `users`.* FROM `users` INNER JOIN `likes` ON `users`.`id` = `likes`.`user_id` WHERE `likes`.`tweet_id` = 1[0m
+  ↳ app/views/tweets/show.html.erb:39
+  [1m[36mComment Load (0.5ms)[0m  [1m[34mSELECT `comments`.* FROM `comments` WHERE `comments`.`tweet_id` = 1[0m
+  ↳ app/views/tweets/show.html.erb:45
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT `users`.* FROM `users` WHERE `users`.`id` = 3 LIMIT 1[0m
+  ↳ app/views/tweets/show.html.erb:47
+  Rendered tweets/show.html.erb within layouts/application (Duration: 24.9ms | Allocations: 6532)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 74ms (Views: 59.2ms | ActiveRecord: 5.1ms | Allocations: 15109)
+
+
+Started GET "/tweets/1" for ::1 at 2020-10-31 22:57:04 +0900
+Processing by TweetsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mTweet Load (0.4ms)[0m  [1m[34mSELECT `tweets`.* FROM `tweets` WHERE `tweets`.`id` = 1 LIMIT 1[0m
+  ↳ app/controllers/tweets_controller.rb:28:in `show'
+DEPRECATION WARNING: ActionDispatch::Http::ParameterFilter is deprecated and will be removed from Rails 6.1. Use ActiveSupport::ParameterFilter instead. (called from show at C:/Users/naren/Desktop/sample/app/controllers/tweets_controller.rb:29)
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT `users`.* FROM `users` WHERE `users`.`id` = 3 ORDER BY `users`.`id` ASC LIMIT 1[0m
+  ↳ app/controllers/tweets_controller.rb:29:in `show'
+  [1m[36mImpression Exists? (0.5ms)[0m  [1m[34mSELECT 1 AS one FROM `impressions` WHERE `impressions`.`impressionable_id` = 1 AND `impressions`.`impressionable_type` = 'Tweet' AND `impressions`.`ip_address` = '::1' LIMIT 1[0m
+  ↳ app/controllers/tweets_controller.rb:29:in `show'
+  Rendering tweets/show.html.erb within layouts/application
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1[0m
+  ↳ app/views/tweets/show.html.erb:5
+  [1m[36mLike Exists? (0.5ms)[0m  [1m[34mSELECT 1 AS one FROM `likes` WHERE `likes`.`user_id` = 3 AND `likes`.`tweet_id` = 1 LIMIT 1[0m
+  ↳ app/models/user.rb:27:in `already_liked?'
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT COUNT(*) FROM `likes` WHERE `likes`.`tweet_id` = 1[0m
+  ↳ app/views/tweets/show.html.erb:25
+  [1m[36mTag Load (0.5ms)[0m  [1m[34mSELECT `tags`.* FROM `tags` INNER JOIN `tweet_tag_relations` ON `tags`.`id` = `tweet_tag_relations`.`tag_id` WHERE `tweet_tag_relations`.`tweet_id` = 1[0m
+  ↳ app/views/tweets/show.html.erb:34
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT `users`.* FROM `users` INNER JOIN `likes` ON `users`.`id` = `likes`.`user_id` WHERE `likes`.`tweet_id` = 1[0m
+  ↳ app/views/tweets/show.html.erb:39
+  [1m[36mComment Load (0.4ms)[0m  [1m[34mSELECT `comments`.* FROM `comments` WHERE `comments`.`tweet_id` = 1[0m
+  ↳ app/views/tweets/show.html.erb:45
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT `users`.* FROM `users` WHERE `users`.`id` = 3 LIMIT 1[0m
+  ↳ app/views/tweets/show.html.erb:47
+  Rendered tweets/show.html.erb within layouts/application (Duration: 20.1ms | Allocations: 7324)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 86ms (Views: 71.3ms | ActiveRecord: 4.4ms | Allocations: 17186)
+
+
+Started GET "/tweets" for ::1 at 2020-10-31 23:03:14 +0900
+  [1m[35m (2.5ms)[0m  [1m[35mSET NAMES utf8mb4,  @@SESSION.sql_mode = CONCAT(CONCAT(@@sql_mode, ',STRICT_ALL_TABLES'), ',NO_AUTO_VALUE_ON_ZERO'),  @@SESSION.sql_auto_is_null = 0, @@SESSION.wait_timeout = 2147483[0m
+Processing by TweetsController#index as HTML
+  [1m[36mTweet Load (1.8ms)[0m  [1m[34mSELECT `tweets`.* FROM `tweets`[0m
+  ↳ app/controllers/tweets_controller.rb:10:in `sort'
+  Rendering tweets/index.html.erb within layouts/application
+  [1m[36mTag Load (0.4ms)[0m  [1m[34mSELECT `tags`.* FROM `tags`[0m
+  ↳ app/views/tweets/index.html.erb:12
+  [1m[36mCACHE Tweet Load (0.0ms)[0m  [1m[34mSELECT `tweets`.* FROM `tweets`[0m
+  ↳ app/views/tweets/index.html.erb:22
+  [1m[36mUser Load (0.8ms)[0m  [1m[34mSELECT `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1[0m
+  ↳ app/views/tweets/index.html.erb:38
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT `users`.* FROM `users` WHERE `users`.`id` = 3 ORDER BY `users`.`id` ASC LIMIT 1[0m
+  ↳ app/views/tweets/index.html.erb:41
+  [1m[36mLike Exists? (1.0ms)[0m  [1m[34mSELECT 1 AS one FROM `likes` WHERE `likes`.`user_id` = 3 AND `likes`.`tweet_id` = 1 LIMIT 1[0m
+  ↳ app/models/user.rb:27:in `already_liked?'
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT COUNT(*) FROM `likes` WHERE `likes`.`tweet_id` = 1[0m
+  ↳ app/views/tweets/index.html.erb:55
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/tweets/index.html.erb:88
+  [1m[36mCACHE Like Exists? (0.0ms)[0m  [1m[34mSELECT 1 AS one FROM `likes` WHERE `likes`.`user_id` = 3 AND `likes`.`tweet_id` = 1 LIMIT 1[0m
+  ↳ app/models/user.rb:27:in `already_liked?'
+  [1m[35mCACHE  (0.0ms)[0m  [1m[34mSELECT COUNT(*) FROM `likes` WHERE `likes`.`tweet_id` = 1[0m
+  ↳ app/views/tweets/index.html.erb:105
+  Rendered tweets/index.html.erb within layouts/application (Duration: 35.0ms | Allocations: 10927)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 79ms (Views: 70.2ms | ActiveRecord: 4.9ms | Allocations: 17475)
+
+
+Started GET "/maps" for ::1 at 2020-10-31 23:03:16 +0900
+Processing by MapsController#index as HTML
+  Rendering maps/index.html.erb within layouts/application
+  [1m[36mMap Load (1.0ms)[0m  [1m[34mSELECT `maps`.* FROM `maps`[0m
+  ↳ app/views/maps/index.html.erb:62
+  Rendered maps/index.html.erb within layouts/application (Duration: 15.0ms | Allocations: 3034)
+[Webpacker] Everything's up-to-date. Nothing to do
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT `users`.* FROM `users` WHERE `users`.`id` = 3 ORDER BY `users`.`id` ASC LIMIT 1[0m
+  ↳ app/views/layouts/application.html.erb:17
+Completed 200 OK in 91ms (Views: 55.7ms | ActiveRecord: 8.8ms | Allocations: 17213)
+
+
+  [1m[35m (4.9ms)[0m  [1m[35mSET NAMES utf8mb4,  @@SESSION.sql_mode = CONCAT(CONCAT(@@sql_mode, ',STRICT_ALL_TABLES'), ',NO_AUTO_VALUE_ON_ZERO'),  @@SESSION.sql_auto_is_null = 0, @@SESSION.wait_timeout = 2147483[0m
+  [1m[35m (10.5ms)[0m  [1m[34mSELECT `schema_migrations`.`version` FROM `schema_migrations` ORDER BY `schema_migrations`.`version` ASC[0m
+  [1m[35m (0.6ms)[0m  [1m[34mSELECT `ar_internal_metadata`.`value` FROM `ar_internal_metadata` WHERE `ar_internal_metadata`.`key` = 'environment'[0m
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT `schema_migrations`.`version` FROM `schema_migrations` ORDER BY `schema_migrations`.`version` ASC[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT `ar_internal_metadata`.`value` FROM `ar_internal_metadata` WHERE `ar_internal_metadata`.`key` = 'environment'[0m
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT `schema_migrations`.`version` FROM `schema_migrations` ORDER BY `schema_migrations`.`version` ASC[0m
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT `ar_internal_metadata`.`value` FROM `ar_internal_metadata` WHERE `ar_internal_metadata`.`key` = 'environment'[0m
+  [1m[35m (0.3ms)[0m  [1m[35mSET NAMES utf8mb4,  @@SESSION.sql_mode = CONCAT(CONCAT(@@sql_mode, ',STRICT_ALL_TABLES'), ',NO_AUTO_VALUE_ON_ZERO'),  @@SESSION.sql_auto_is_null = 0, @@SESSION.wait_timeout = 2147483[0m
+  [1m[35m (72.8ms)[0m  [1m[35mDROP DATABASE IF EXISTS `sample_development`[0m
+  [1m[35m (0.3ms)[0m  [1m[35mSET NAMES utf8mb4,  @@SESSION.sql_mode = CONCAT(CONCAT(@@sql_mode, ',STRICT_ALL_TABLES'), ',NO_AUTO_VALUE_ON_ZERO'),  @@SESSION.sql_auto_is_null = 0, @@SESSION.wait_timeout = 2147483[0m
+  [1m[35m (0.8ms)[0m  [1m[35mDROP DATABASE IF EXISTS `sample_test`[0m
+  [1m[35m (0.4ms)[0m  [1m[35mSET NAMES utf8mb4,  @@SESSION.sql_mode = CONCAT(CONCAT(@@sql_mode, ',STRICT_ALL_TABLES'), ',NO_AUTO_VALUE_ON_ZERO'),  @@SESSION.sql_auto_is_null = 0, @@SESSION.wait_timeout = 2147483[0m
+  [1m[35m (1.1ms)[0m  [1m[35mCREATE DATABASE `sample_development` DEFAULT CHARACTER SET `utf8mb4`[0m
+  [1m[35m (0.4ms)[0m  [1m[35mSET NAMES utf8mb4,  @@SESSION.sql_mode = CONCAT(CONCAT(@@sql_mode, ',STRICT_ALL_TABLES'), ',NO_AUTO_VALUE_ON_ZERO'),  @@SESSION.sql_auto_is_null = 0, @@SESSION.wait_timeout = 2147483[0m
+  [1m[35m (1.1ms)[0m  [1m[35mCREATE DATABASE `sample_test` DEFAULT CHARACTER SET `utf8mb4`[0m
+  [1m[35m (0.3ms)[0m  [1m[35mSET NAMES utf8mb4,  @@SESSION.sql_mode = CONCAT(CONCAT(@@sql_mode, ',STRICT_ALL_TABLES'), ',NO_AUTO_VALUE_ON_ZERO'),  @@SESSION.sql_auto_is_null = 0, @@SESSION.wait_timeout = 2147483[0m
+  [1m[35m (12.0ms)[0m  [1m[35mCREATE TABLE `schema_migrations` (`version` varchar(255) NOT NULL PRIMARY KEY)[0m
+  [1m[35m (9.7ms)[0m  [1m[35mCREATE TABLE `ar_internal_metadata` (`key` varchar(255) NOT NULL PRIMARY KEY, `value` varchar(255), `created_at` datetime(6) NOT NULL, `updated_at` datetime(6) NOT NULL)[0m
+  [1m[35m (0.5ms)[0m  [1m[35mSET NAMES utf8mb4,  @@SESSION.sql_mode = CONCAT(CONCAT(@@sql_mode, ',STRICT_ALL_TABLES'), ',NO_AUTO_VALUE_ON_ZERO'),  @@SESSION.sql_auto_is_null = 0, @@SESSION.wait_timeout = 2147483[0m
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT GET_LOCK('7395633852180811650', 0)[0m
+  [1m[35m (0.6ms)[0m  [1m[34mSELECT `schema_migrations`.`version` FROM `schema_migrations` ORDER BY `schema_migrations`.`version` ASC[0m
+Migrating to DeviseCreateUsers (20200920090000)
+  [1m[35m (11.2ms)[0m  [1m[35mCREATE TABLE `users` (`id` bigint NOT NULL AUTO_INCREMENT PRIMARY KEY, `email` varchar(255) DEFAULT '' NOT NULL, `encrypted_password` varchar(255) DEFAULT '' NOT NULL, `reset_password_token` varchar(255), `reset_password_sent_at` datetime, `remember_created_at` datetime, `created_at` datetime(6) NOT NULL, `updated_at` datetime(6) NOT NULL)[0m
+  [1m[35m (15.0ms)[0m  [1m[35mCREATE UNIQUE INDEX `index_users_on_email`  ON `users` (`email`) [0m
+  [1m[35m (9.8ms)[0m  [1m[35mCREATE UNIQUE INDEX `index_users_on_reset_password_token`  ON `users` (`reset_password_token`) [0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mprimary::SchemaMigration Create (0.3ms)[0m  [1m[32mINSERT INTO `schema_migrations` (`version`) VALUES ('20200920090000')[0m
+  [1m[35m (1.4ms)[0m  [1m[35mCOMMIT[0m
+Migrating to CreateTweets (20200920091716)
+  [1m[35m (13.5ms)[0m  [1m[35mCREATE TABLE `tweets` (`id` bigint NOT NULL AUTO_INCREMENT PRIMARY KEY, `body` text, `created_at` datetime(6) NOT NULL, `updated_at` datetime(6) NOT NULL)[0m
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mprimary::SchemaMigration Create (0.3ms)[0m  [1m[32mINSERT INTO `schema_migrations` (`version`) VALUES ('20200920091716')[0m
+  [1m[35m (1.3ms)[0m  [1m[35mCOMMIT[0m
+Migrating to AddUserIdToTweets (20200920093206)
+  [1m[35m (6.4ms)[0m  [1m[35mALTER TABLE `tweets` ADD `user_id` int[0m
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mprimary::SchemaMigration Create (0.3ms)[0m  [1m[32mINSERT INTO `schema_migrations` (`version`) VALUES ('20200920093206')[0m
+  [1m[35m (1.3ms)[0m  [1m[35mCOMMIT[0m
+Migrating to CreateComments (20200920093207)
+  [1m[35m (12.0ms)[0m  [1m[35mCREATE TABLE `comments` (`id` bigint NOT NULL AUTO_INCREMENT PRIMARY KEY, `content` varchar(255), `user_id` bigint NOT NULL, `tweet_id` bigint NOT NULL, `created_at` datetime(6) NOT NULL, `updated_at` datetime(6) NOT NULL,  INDEX `index_comments_on_user_id`  (`user_id`),  INDEX `index_comments_on_tweet_id`  (`tweet_id`), CONSTRAINT `fk_rails_03de2dc08c`
+FOREIGN KEY (`user_id`)
+  REFERENCES `users` (`id`)
+, CONSTRAINT `fk_rails_bea193dd32`
+FOREIGN KEY (`tweet_id`)
+  REFERENCES `tweets` (`id`)
+)[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mprimary::SchemaMigration Create (0.3ms)[0m  [1m[32mINSERT INTO `schema_migrations` (`version`) VALUES ('20200920093207')[0m
+  [1m[35m (1.2ms)[0m  [1m[35mCOMMIT[0m
+Migrating to AddDetailsToUsers (20200920094233)
+  [1m[35m (5.7ms)[0m  [1m[35mALTER TABLE `users` ADD `name` varchar(255)[0m
+  [1m[35m (5.2ms)[0m  [1m[35mALTER TABLE `users` ADD `profile` text[0m
+  [1m[35m (0.4ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mprimary::SchemaMigration Create (0.4ms)[0m  [1m[32mINSERT INTO `schema_migrations` (`version`) VALUES ('20200920094233')[0m
+  [1m[35m (1.3ms)[0m  [1m[35mCOMMIT[0m
+Migrating to CreateLikes (20200930151624)
+  [1m[35m (14.6ms)[0m  [1m[35mCREATE TABLE `likes` (`id` bigint NOT NULL AUTO_INCREMENT PRIMARY KEY, `tweet_id` bigint NOT NULL, `user_id` bigint NOT NULL, `created_at` datetime(6) NOT NULL, `updated_at` datetime(6) NOT NULL,  INDEX `index_likes_on_tweet_id`  (`tweet_id`),  INDEX `index_likes_on_user_id`  (`user_id`), CONSTRAINT `fk_rails_d994727f92`
+FOREIGN KEY (`tweet_id`)
+  REFERENCES `tweets` (`id`)
+, CONSTRAINT `fk_rails_1e09b5dabf`
+FOREIGN KEY (`user_id`)
+  REFERENCES `users` (`id`)
+)[0m
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mprimary::SchemaMigration Create (0.3ms)[0m  [1m[32mINSERT INTO `schema_migrations` (`version`) VALUES ('20200930151624')[0m
+  [1m[35m (1.6ms)[0m  [1m[35mCOMMIT[0m
+Migrating to CreateTags (20201010012052)
+  [1m[35m (11.2ms)[0m  [1m[35mCREATE TABLE `tags` (`id` bigint NOT NULL AUTO_INCREMENT PRIMARY KEY, `name` varchar(255), `created_at` datetime(6) NOT NULL, `updated_at` datetime(6) NOT NULL)[0m
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mprimary::SchemaMigration Create (0.3ms)[0m  [1m[32mINSERT INTO `schema_migrations` (`version`) VALUES ('20201010012052')[0m
+  [1m[35m (1.5ms)[0m  [1m[35mCOMMIT[0m
+Migrating to CreateTweetTagRelations (20201010012118)
+  [1m[35m (13.2ms)[0m  [1m[35mCREATE TABLE `tweet_tag_relations` (`id` bigint NOT NULL AUTO_INCREMENT PRIMARY KEY, `tweet_id` bigint NOT NULL, `tag_id` bigint NOT NULL, `created_at` datetime(6) NOT NULL, `updated_at` datetime(6) NOT NULL,  INDEX `index_tweet_tag_relations_on_tweet_id`  (`tweet_id`),  INDEX `index_tweet_tag_relations_on_tag_id`  (`tag_id`), CONSTRAINT `fk_rails_19889c5fd7`
+FOREIGN KEY (`tweet_id`)
+  REFERENCES `tweets` (`id`)
+, CONSTRAINT `fk_rails_cf169fc615`
+FOREIGN KEY (`tag_id`)
+  REFERENCES `tags` (`id`)
+)[0m
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mprimary::SchemaMigration Create (0.4ms)[0m  [1m[32mINSERT INTO `schema_migrations` (`version`) VALUES ('20201010012118')[0m
+  [1m[35m (1.4ms)[0m  [1m[35mCOMMIT[0m
+Migrating to AddStarToTweets (20201022122132)
+  [1m[35m (5.7ms)[0m  [1m[35mALTER TABLE `tweets` ADD `star` int[0m
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mprimary::SchemaMigration Create (0.3ms)[0m  [1m[32mINSERT INTO `schema_migrations` (`version`) VALUES ('20201022122132')[0m
+  [1m[35m (1.8ms)[0m  [1m[35mCOMMIT[0m
+Migrating to AddAdminToUsers (20201022123329)
+  [1m[35m (6.7ms)[0m  [1m[35mALTER TABLE `users` ADD `admin` tinyint(1) DEFAULT FALSE[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mprimary::SchemaMigration Create (0.3ms)[0m  [1m[32mINSERT INTO `schema_migrations` (`version`) VALUES ('20201022123329')[0m
+  [1m[35m (1.3ms)[0m  [1m[35mCOMMIT[0m
+Migrating to CreateImpressionsTable (20201025105313)
+  [1m[35m (0.7ms)[0m  [1m[35mDROP TABLE IF EXISTS `impressions`[0m
+  [1m[35m (11.3ms)[0m  [1m[35mCREATE TABLE `impressions` (`id` bigint NOT NULL AUTO_INCREMENT PRIMARY KEY, `impressionable_type` varchar(255), `impressionable_id` int, `user_id` int, `controller_name` varchar(255), `action_name` varchar(255), `view_name` varchar(255), `request_hash` varchar(255), `ip_address` varchar(255), `session_hash` varchar(255), `message` text, `referrer` text, `params` text, `created_at` datetime(6) NOT NULL, `updated_at` datetime(6) NOT NULL)[0m
+  [1m[35m (11.1ms)[0m  [1m[35mCREATE  INDEX `impressionable_type_message_index`  ON `impressions` (`impressionable_type`, `message`(255), `impressionable_id`) [0m
+  [1m[35m (10.2ms)[0m  [1m[35mCREATE  INDEX `poly_request_index`  ON `impressions` (`impressionable_type`, `impressionable_id`, `request_hash`) [0m
+  [1m[35m (10.1ms)[0m  [1m[35mCREATE  INDEX `poly_ip_index`  ON `impressions` (`impressionable_type`, `impressionable_id`, `ip_address`) [0m
+  [1m[35m (11.9ms)[0m  [1m[35mCREATE  INDEX `poly_session_index`  ON `impressions` (`impressionable_type`, `impressionable_id`, `session_hash`) [0m
+  [1m[35m (11.3ms)[0m  [1m[35mCREATE  INDEX `controlleraction_request_index`  ON `impressions` (`controller_name`, `action_name`, `request_hash`) [0m
+  [1m[35m (11.0ms)[0m  [1m[35mCREATE  INDEX `controlleraction_ip_index`  ON `impressions` (`controller_name`, `action_name`, `ip_address`) [0m
+  [1m[35m (11.1ms)[0m  [1m[35mCREATE  INDEX `controlleraction_session_index`  ON `impressions` (`controller_name`, `action_name`, `session_hash`) [0m
+  [1m[35m (10.3ms)[0m  [1m[35mCREATE  INDEX `poly_params_request_index`  ON `impressions` (`impressionable_type`, `impressionable_id`, `params`(255)) [0m
+  [1m[35m (11.7ms)[0m  [1m[35mCREATE  INDEX `index_impressions_on_user_id`  ON `impressions` (`user_id`) [0m
+  [1m[35m (0.5ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mprimary::SchemaMigration Create (0.4ms)[0m  [1m[32mINSERT INTO `schema_migrations` (`version`) VALUES ('20201025105313')[0m
+  [1m[35m (1.4ms)[0m  [1m[35mCOMMIT[0m
+Migrating to AddImpressionsCountToTweets (20201025105847)
+  [1m[35m (6.2ms)[0m  [1m[35mALTER TABLE `tweets` ADD `impressions_count` int DEFAULT 0[0m
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mprimary::SchemaMigration Create (0.4ms)[0m  [1m[32mINSERT INTO `schema_migrations` (`version`) VALUES ('20201025105847')[0m
+  [1m[35m (1.5ms)[0m  [1m[35mCOMMIT[0m
+Migrating to AddAudioToTweets (20201026144139)
+  [1m[35m (6.0ms)[0m  [1m[35mALTER TABLE `tweets` ADD `audio` varchar(255)[0m
+  [1m[35m (0.5ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mprimary::SchemaMigration Create (0.5ms)[0m  [1m[32mINSERT INTO `schema_migrations` (`version`) VALUES ('20201026144139')[0m
+  [1m[35m (1.8ms)[0m  [1m[35mCOMMIT[0m
+Migrating to AddOmniauthToUsers (20201029131642)
+  [1m[35m (5.4ms)[0m  [1m[35mALTER TABLE `users` ADD `provider` varchar(255)[0m
+  [1m[35m (7.0ms)[0m  [1m[35mALTER TABLE `users` ADD `uid` varchar(255)[0m
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mprimary::SchemaMigration Create (0.2ms)[0m  [1m[32mINSERT INTO `schema_migrations` (`version`) VALUES ('20201029131642')[0m
+  [1m[35m (1.2ms)[0m  [1m[35mCOMMIT[0m
+Migrating to CreateMaps (20201030130236)
+  [1m[35m (10.3ms)[0m  [1m[35mCREATE TABLE `maps` (`id` bigint NOT NULL AUTO_INCREMENT PRIMARY KEY, `address` varchar(255), `latitude` float(24), `longitude` float(24), `created_at` datetime(6) NOT NULL, `updated_at` datetime(6) NOT NULL)[0m
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mprimary::SchemaMigration Create (0.5ms)[0m  [1m[32mINSERT INTO `schema_migrations` (`version`) VALUES ('20201030130236')[0m
+  [1m[35m (1.5ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mActiveRecord::InternalMetadata Load (2.1ms)[0m  [1m[34mSELECT `ar_internal_metadata`.* FROM `ar_internal_metadata` WHERE `ar_internal_metadata`.`key` = 'environment' LIMIT 1[0m
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mActiveRecord::InternalMetadata Create (0.3ms)[0m  [1m[32mINSERT INTO `ar_internal_metadata` (`key`, `value`, `created_at`, `updated_at`) VALUES ('environment', 'development', '2020-11-02 11:56:09.167719', '2020-11-02 11:56:09.167719')[0m
+  [1m[35m (1.2ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT RELEASE_LOCK('7395633852180811650')[0m
+  [1m[35m (0.4ms)[0m  [1m[35mSET NAMES utf8mb4,  @@SESSION.sql_mode = CONCAT(CONCAT(@@sql_mode, ',STRICT_ALL_TABLES'), ',NO_AUTO_VALUE_ON_ZERO'),  @@SESSION.sql_auto_is_null = 0, @@SESSION.wait_timeout = 2147483[0m
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT `schema_migrations`.`version` FROM `schema_migrations` ORDER BY `schema_migrations`.`version` ASC[0m
+  [1m[35m (0.6ms)[0m  [1m[35mSET NAMES utf8mb4,  @@SESSION.sql_mode = CONCAT(CONCAT(@@sql_mode, ',STRICT_ALL_TABLES'), ',NO_AUTO_VALUE_ON_ZERO'),  @@SESSION.sql_auto_is_null = 0, @@SESSION.wait_timeout = 2147483[0m
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT `schema_migrations`.`version` FROM `schema_migrations` ORDER BY `schema_migrations`.`version` ASC[0m
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT `ar_internal_metadata`.`value` FROM `ar_internal_metadata` WHERE `ar_internal_metadata`.`key` = 'environment'[0m
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT `schema_migrations`.`version` FROM `schema_migrations` ORDER BY `schema_migrations`.`version` ASC[0m
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT `ar_internal_metadata`.`value` FROM `ar_internal_metadata` WHERE `ar_internal_metadata`.`key` = 'environment'[0m
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT `schema_migrations`.`version` FROM `schema_migrations` ORDER BY `schema_migrations`.`version` ASC[0m
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT `ar_internal_metadata`.`value` FROM `ar_internal_metadata` WHERE `ar_internal_metadata`.`key` = 'environment'[0m
+  [1m[35m (0.6ms)[0m  [1m[35mSET NAMES utf8mb4,  @@SESSION.sql_mode = CONCAT(CONCAT(@@sql_mode, ',STRICT_ALL_TABLES'), ',NO_AUTO_VALUE_ON_ZERO'),  @@SESSION.sql_auto_is_null = 0, @@SESSION.wait_timeout = 2147483[0m
+  [1m[35m (89.8ms)[0m  [1m[35mDROP DATABASE IF EXISTS `sample_development`[0m
+  [1m[35m (0.4ms)[0m  [1m[35mSET NAMES utf8mb4,  @@SESSION.sql_mode = CONCAT(CONCAT(@@sql_mode, ',STRICT_ALL_TABLES'), ',NO_AUTO_VALUE_ON_ZERO'),  @@SESSION.sql_auto_is_null = 0, @@SESSION.wait_timeout = 2147483[0m
+  [1m[35m (0.9ms)[0m  [1m[35mDROP DATABASE IF EXISTS `sample_test`[0m
+  [1m[35m (0.5ms)[0m  [1m[35mSET NAMES utf8mb4,  @@SESSION.sql_mode = CONCAT(CONCAT(@@sql_mode, ',STRICT_ALL_TABLES'), ',NO_AUTO_VALUE_ON_ZERO'),  @@SESSION.sql_auto_is_null = 0, @@SESSION.wait_timeout = 2147483[0m
+  [1m[35m (1.1ms)[0m  [1m[35mCREATE DATABASE `sample_development` DEFAULT CHARACTER SET `utf8mb4`[0m
+  [1m[35m (0.4ms)[0m  [1m[35mSET NAMES utf8mb4,  @@SESSION.sql_mode = CONCAT(CONCAT(@@sql_mode, ',STRICT_ALL_TABLES'), ',NO_AUTO_VALUE_ON_ZERO'),  @@SESSION.sql_auto_is_null = 0, @@SESSION.wait_timeout = 2147483[0m
+  [1m[35m (1.5ms)[0m  [1m[35mCREATE DATABASE `sample_test` DEFAULT CHARACTER SET `utf8mb4`[0m
+  [1m[35m (0.4ms)[0m  [1m[35mSET NAMES utf8mb4,  @@SESSION.sql_mode = CONCAT(CONCAT(@@sql_mode, ',STRICT_ALL_TABLES'), ',NO_AUTO_VALUE_ON_ZERO'),  @@SESSION.sql_auto_is_null = 0, @@SESSION.wait_timeout = 2147483[0m
+  [1m[35m (13.1ms)[0m  [1m[35mCREATE TABLE `schema_migrations` (`version` varchar(255) NOT NULL PRIMARY KEY)[0m
+  [1m[35m (11.6ms)[0m  [1m[35mCREATE TABLE `ar_internal_metadata` (`key` varchar(255) NOT NULL PRIMARY KEY, `value` varchar(255), `created_at` datetime(6) NOT NULL, `updated_at` datetime(6) NOT NULL)[0m
+  [1m[35m (0.4ms)[0m  [1m[35mSET NAMES utf8mb4,  @@SESSION.sql_mode = CONCAT(CONCAT(@@sql_mode, ',STRICT_ALL_TABLES'), ',NO_AUTO_VALUE_ON_ZERO'),  @@SESSION.sql_auto_is_null = 0, @@SESSION.wait_timeout = 2147483[0m
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT GET_LOCK('7395633852180811650', 0)[0m
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT `schema_migrations`.`version` FROM `schema_migrations` ORDER BY `schema_migrations`.`version` ASC[0m
+Migrating to DeviseCreateUsers (20200920090000)
+  [1m[35m (13.1ms)[0m  [1m[35mCREATE TABLE `users` (`id` bigint NOT NULL AUTO_INCREMENT PRIMARY KEY, `email` varchar(255) DEFAULT '' NOT NULL, `encrypted_password` varchar(255) DEFAULT '' NOT NULL, `reset_password_token` varchar(255), `reset_password_sent_at` datetime, `remember_created_at` datetime, `created_at` datetime(6) NOT NULL, `updated_at` datetime(6) NOT NULL)[0m
+  [1m[35m (11.2ms)[0m  [1m[35mCREATE UNIQUE INDEX `index_users_on_email`  ON `users` (`email`) [0m
+  [1m[35m (11.9ms)[0m  [1m[35mCREATE UNIQUE INDEX `index_users_on_reset_password_token`  ON `users` (`reset_password_token`) [0m
+  [1m[35m (0.4ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mprimary::SchemaMigration Create (0.6ms)[0m  [1m[32mINSERT INTO `schema_migrations` (`version`) VALUES ('20200920090000')[0m
+  [1m[35m (1.5ms)[0m  [1m[35mCOMMIT[0m
+Migrating to CreateTweets (20200920091716)
+  [1m[35m (11.2ms)[0m  [1m[35mCREATE TABLE `tweets` (`id` bigint NOT NULL AUTO_INCREMENT PRIMARY KEY, `body` text, `created_at` datetime(6) NOT NULL, `updated_at` datetime(6) NOT NULL)[0m
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mprimary::SchemaMigration Create (0.7ms)[0m  [1m[32mINSERT INTO `schema_migrations` (`version`) VALUES ('20200920091716')[0m
+  [1m[35m (2.0ms)[0m  [1m[35mCOMMIT[0m
+Migrating to AddUseridToTweets (20200920093206)
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT RELEASE_LOCK('7395633852180811650')[0m
+  [1m[35m (0.5ms)[0m  [1m[35mSET NAMES utf8mb4,  @@SESSION.sql_mode = CONCAT(CONCAT(@@sql_mode, ',STRICT_ALL_TABLES'), ',NO_AUTO_VALUE_ON_ZERO'),  @@SESSION.sql_auto_is_null = 0, @@SESSION.wait_timeout = 2147483[0m
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT `schema_migrations`.`version` FROM `schema_migrations` ORDER BY `schema_migrations`.`version` ASC[0m
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT `ar_internal_metadata`.`value` FROM `ar_internal_metadata` WHERE `ar_internal_metadata`.`key` = 'environment'[0m
+  [1m[35m (0.5ms)[0m  [1m[35mSET NAMES utf8mb4,  @@SESSION.sql_mode = CONCAT(CONCAT(@@sql_mode, ',STRICT_ALL_TABLES'), ',NO_AUTO_VALUE_ON_ZERO'),  @@SESSION.sql_auto_is_null = 0, @@SESSION.wait_timeout = 2147483[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.4ms)[0m  [1m[34mSELECT `ar_internal_metadata`.* FROM `ar_internal_metadata` WHERE `ar_internal_metadata`.`key` = 'environment' LIMIT 1[0m
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mActiveRecord::InternalMetadata Create (0.7ms)[0m  [1m[32mINSERT INTO `ar_internal_metadata` (`key`, `value`, `created_at`, `updated_at`) VALUES ('environment', 'development', '2020-11-02 11:58:01.441531', '2020-11-02 11:58:01.441531')[0m
+  [1m[35m (1.9ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.8ms)[0m  [1m[35mSET NAMES utf8mb4,  @@SESSION.sql_mode = CONCAT(CONCAT(@@sql_mode, ',STRICT_ALL_TABLES'), ',NO_AUTO_VALUE_ON_ZERO'),  @@SESSION.sql_auto_is_null = 0, @@SESSION.wait_timeout = 2147483[0m
+  [1m[35m (0.7ms)[0m  [1m[34mSELECT `schema_migrations`.`version` FROM `schema_migrations` ORDER BY `schema_migrations`.`version` ASC[0m
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT `ar_internal_metadata`.`value` FROM `ar_internal_metadata` WHERE `ar_internal_metadata`.`key` = 'environment'[0m
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT `schema_migrations`.`version` FROM `schema_migrations` ORDER BY `schema_migrations`.`version` ASC[0m
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT `ar_internal_metadata`.`value` FROM `ar_internal_metadata` WHERE `ar_internal_metadata`.`key` = 'environment'[0m
+  [1m[35m (1.0ms)[0m  [1m[34mSELECT `schema_migrations`.`version` FROM `schema_migrations` ORDER BY `schema_migrations`.`version` ASC[0m
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT `ar_internal_metadata`.`value` FROM `ar_internal_metadata` WHERE `ar_internal_metadata`.`key` = 'environment'[0m
+  [1m[35m (0.3ms)[0m  [1m[35mSET NAMES utf8mb4,  @@SESSION.sql_mode = CONCAT(CONCAT(@@sql_mode, ',STRICT_ALL_TABLES'), ',NO_AUTO_VALUE_ON_ZERO'),  @@SESSION.sql_auto_is_null = 0, @@SESSION.wait_timeout = 2147483[0m
+  [1m[35m (25.5ms)[0m  [1m[35mDROP DATABASE IF EXISTS `sample_development`[0m
+  [1m[35m (0.4ms)[0m  [1m[35mSET NAMES utf8mb4,  @@SESSION.sql_mode = CONCAT(CONCAT(@@sql_mode, ',STRICT_ALL_TABLES'), ',NO_AUTO_VALUE_ON_ZERO'),  @@SESSION.sql_auto_is_null = 0, @@SESSION.wait_timeout = 2147483[0m
+  [1m[35m (2.6ms)[0m  [1m[35mDROP DATABASE IF EXISTS `sample_test`[0m
+  [1m[35m (0.3ms)[0m  [1m[35mSET NAMES utf8mb4,  @@SESSION.sql_mode = CONCAT(CONCAT(@@sql_mode, ',STRICT_ALL_TABLES'), ',NO_AUTO_VALUE_ON_ZERO'),  @@SESSION.sql_auto_is_null = 0, @@SESSION.wait_timeout = 2147483[0m
+  [1m[35m (0.8ms)[0m  [1m[35mCREATE DATABASE `sample_development` DEFAULT CHARACTER SET `utf8mb4`[0m
+  [1m[35m (0.3ms)[0m  [1m[35mSET NAMES utf8mb4,  @@SESSION.sql_mode = CONCAT(CONCAT(@@sql_mode, ',STRICT_ALL_TABLES'), ',NO_AUTO_VALUE_ON_ZERO'),  @@SESSION.sql_auto_is_null = 0, @@SESSION.wait_timeout = 2147483[0m
+  [1m[35m (0.7ms)[0m  [1m[35mCREATE DATABASE `sample_test` DEFAULT CHARACTER SET `utf8mb4`[0m
+  [1m[35m (0.3ms)[0m  [1m[35mSET NAMES utf8mb4,  @@SESSION.sql_mode = CONCAT(CONCAT(@@sql_mode, ',STRICT_ALL_TABLES'), ',NO_AUTO_VALUE_ON_ZERO'),  @@SESSION.sql_auto_is_null = 0, @@SESSION.wait_timeout = 2147483[0m
+  [1m[35m (10.2ms)[0m  [1m[35mCREATE TABLE `schema_migrations` (`version` varchar(255) NOT NULL PRIMARY KEY)[0m
+  [1m[35m (10.4ms)[0m  [1m[35mCREATE TABLE `ar_internal_metadata` (`key` varchar(255) NOT NULL PRIMARY KEY, `value` varchar(255), `created_at` datetime(6) NOT NULL, `updated_at` datetime(6) NOT NULL)[0m
+  [1m[35m (0.4ms)[0m  [1m[35mSET NAMES utf8mb4,  @@SESSION.sql_mode = CONCAT(CONCAT(@@sql_mode, ',STRICT_ALL_TABLES'), ',NO_AUTO_VALUE_ON_ZERO'),  @@SESSION.sql_auto_is_null = 0, @@SESSION.wait_timeout = 2147483[0m
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT GET_LOCK('7395633852180811650', 0)[0m
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT `schema_migrations`.`version` FROM `schema_migrations` ORDER BY `schema_migrations`.`version` ASC[0m
+Migrating to DeviseCreateUsers (20200920090000)
+  [1m[35m (10.5ms)[0m  [1m[35mCREATE TABLE `users` (`id` bigint NOT NULL AUTO_INCREMENT PRIMARY KEY, `email` varchar(255) DEFAULT '' NOT NULL, `encrypted_password` varchar(255) DEFAULT '' NOT NULL, `reset_password_token` varchar(255), `reset_password_sent_at` datetime, `remember_created_at` datetime, `created_at` datetime(6) NOT NULL, `updated_at` datetime(6) NOT NULL)[0m
+  [1m[35m (14.7ms)[0m  [1m[35mCREATE UNIQUE INDEX `index_users_on_email`  ON `users` (`email`) [0m
+  [1m[35m (16.3ms)[0m  [1m[35mCREATE UNIQUE INDEX `index_users_on_reset_password_token`  ON `users` (`reset_password_token`) [0m
+  [1m[35m (0.5ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mprimary::SchemaMigration Create (0.7ms)[0m  [1m[32mINSERT INTO `schema_migrations` (`version`) VALUES ('20200920090000')[0m
+  [1m[35m (1.4ms)[0m  [1m[35mCOMMIT[0m
+Migrating to CreateTweets (20200920091716)
+  [1m[35m (11.9ms)[0m  [1m[35mCREATE TABLE `tweets` (`id` bigint NOT NULL AUTO_INCREMENT PRIMARY KEY, `body` text, `created_at` datetime(6) NOT NULL, `updated_at` datetime(6) NOT NULL)[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mprimary::SchemaMigration Create (0.6ms)[0m  [1m[32mINSERT INTO `schema_migrations` (`version`) VALUES ('20200920091716')[0m
+  [1m[35m (1.3ms)[0m  [1m[35mCOMMIT[0m
+Migrating to AddUserIdToTweets (20200920093206)
+  [1m[35m (9.4ms)[0m  [1m[35mALTER TABLE `tweets` ADD `user_id` int[0m
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mprimary::SchemaMigration Create (0.5ms)[0m  [1m[32mINSERT INTO `schema_migrations` (`version`) VALUES ('20200920093206')[0m
+  [1m[35m (1.4ms)[0m  [1m[35mCOMMIT[0m
+Migrating to CreateComments (20200920093207)
+  [1m[35m (19.6ms)[0m  [1m[35mCREATE TABLE `comments` (`id` bigint NOT NULL AUTO_INCREMENT PRIMARY KEY, `content` varchar(255), `user_id` bigint NOT NULL, `tweet_id` bigint NOT NULL, `created_at` datetime(6) NOT NULL, `updated_at` datetime(6) NOT NULL,  INDEX `index_comments_on_user_id`  (`user_id`),  INDEX `index_comments_on_tweet_id`  (`tweet_id`), CONSTRAINT `fk_rails_03de2dc08c`
+FOREIGN KEY (`user_id`)
+  REFERENCES `users` (`id`)
+, CONSTRAINT `fk_rails_bea193dd32`
+FOREIGN KEY (`tweet_id`)
+  REFERENCES `tweets` (`id`)
+)[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mprimary::SchemaMigration Create (0.6ms)[0m  [1m[32mINSERT INTO `schema_migrations` (`version`) VALUES ('20200920093207')[0m
+  [1m[35m (1.3ms)[0m  [1m[35mCOMMIT[0m
+Migrating to AddDetailsToUsers (20200920094233)
+  [1m[35m (8.1ms)[0m  [1m[35mALTER TABLE `users` ADD `name` varchar(255)[0m
+  [1m[35m (25.0ms)[0m  [1m[35mALTER TABLE `users` ADD `profile` text[0m
+  [1m[35m (0.4ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mprimary::SchemaMigration Create (1.1ms)[0m  [1m[32mINSERT INTO `schema_migrations` (`version`) VALUES ('20200920094233')[0m
+  [1m[35m (1.6ms)[0m  [1m[35mCOMMIT[0m
+Migrating to CreateLikes (20200930151624)
+  [1m[35m (14.0ms)[0m  [1m[35mCREATE TABLE `likes` (`id` bigint NOT NULL AUTO_INCREMENT PRIMARY KEY, `tweet_id` bigint NOT NULL, `user_id` bigint NOT NULL, `created_at` datetime(6) NOT NULL, `updated_at` datetime(6) NOT NULL,  INDEX `index_likes_on_tweet_id`  (`tweet_id`),  INDEX `index_likes_on_user_id`  (`user_id`), CONSTRAINT `fk_rails_d994727f92`
+FOREIGN KEY (`tweet_id`)
+  REFERENCES `tweets` (`id`)
+, CONSTRAINT `fk_rails_1e09b5dabf`
+FOREIGN KEY (`user_id`)
+  REFERENCES `users` (`id`)
+)[0m
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mprimary::SchemaMigration Create (0.5ms)[0m  [1m[32mINSERT INTO `schema_migrations` (`version`) VALUES ('20200930151624')[0m
+  [1m[35m (1.8ms)[0m  [1m[35mCOMMIT[0m
+Migrating to CreateTags (20201010012052)
+  [1m[35m (13.8ms)[0m  [1m[35mCREATE TABLE `tags` (`id` bigint NOT NULL AUTO_INCREMENT PRIMARY KEY, `name` varchar(255), `created_at` datetime(6) NOT NULL, `updated_at` datetime(6) NOT NULL)[0m
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mprimary::SchemaMigration Create (0.9ms)[0m  [1m[32mINSERT INTO `schema_migrations` (`version`) VALUES ('20201010012052')[0m
+  [1m[35m (2.2ms)[0m  [1m[35mCOMMIT[0m
+Migrating to CreateTweetTagRelations (20201010012118)
+  [1m[35m (16.8ms)[0m  [1m[35mCREATE TABLE `tweet_tag_relations` (`id` bigint NOT NULL AUTO_INCREMENT PRIMARY KEY, `tweet_id` bigint NOT NULL, `tag_id` bigint NOT NULL, `created_at` datetime(6) NOT NULL, `updated_at` datetime(6) NOT NULL,  INDEX `index_tweet_tag_relations_on_tweet_id`  (`tweet_id`),  INDEX `index_tweet_tag_relations_on_tag_id`  (`tag_id`), CONSTRAINT `fk_rails_19889c5fd7`
+FOREIGN KEY (`tweet_id`)
+  REFERENCES `tweets` (`id`)
+, CONSTRAINT `fk_rails_cf169fc615`
+FOREIGN KEY (`tag_id`)
+  REFERENCES `tags` (`id`)
+)[0m
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mprimary::SchemaMigration Create (1.3ms)[0m  [1m[32mINSERT INTO `schema_migrations` (`version`) VALUES ('20201010012118')[0m
+  [1m[35m (3.2ms)[0m  [1m[35mCOMMIT[0m
+Migrating to AddStarToTweets (20201022122132)
+  [1m[35m (6.7ms)[0m  [1m[35mALTER TABLE `tweets` ADD `star` int[0m
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mprimary::SchemaMigration Create (0.8ms)[0m  [1m[32mINSERT INTO `schema_migrations` (`version`) VALUES ('20201022122132')[0m
+  [1m[35m (1.7ms)[0m  [1m[35mCOMMIT[0m
+Migrating to AddAdminToUsers (20201022123329)
+  [1m[35m (9.5ms)[0m  [1m[35mALTER TABLE `users` ADD `admin` tinyint(1) DEFAULT FALSE[0m
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mprimary::SchemaMigration Create (0.9ms)[0m  [1m[32mINSERT INTO `schema_migrations` (`version`) VALUES ('20201022123329')[0m
+  [1m[35m (2.4ms)[0m  [1m[35mCOMMIT[0m
+Migrating to CreateImpressionsTable (20201025105313)
+  [1m[35m (1.1ms)[0m  [1m[35mDROP TABLE IF EXISTS `impressions`[0m
+  [1m[35m (9.4ms)[0m  [1m[35mCREATE TABLE `impressions` (`id` bigint NOT NULL AUTO_INCREMENT PRIMARY KEY, `impressionable_type` varchar(255), `impressionable_id` int, `user_id` int, `controller_name` varchar(255), `action_name` varchar(255), `view_name` varchar(255), `request_hash` varchar(255), `ip_address` varchar(255), `session_hash` varchar(255), `message` text, `referrer` text, `params` text, `created_at` datetime(6) NOT NULL, `updated_at` datetime(6) NOT NULL)[0m
+  [1m[35m (10.6ms)[0m  [1m[35mCREATE  INDEX `impressionable_type_message_index`  ON `impressions` (`impressionable_type`, `message`(255), `impressionable_id`) [0m
+  [1m[35m (9.0ms)[0m  [1m[35mCREATE  INDEX `poly_request_index`  ON `impressions` (`impressionable_type`, `impressionable_id`, `request_hash`) [0m
+  [1m[35m (13.1ms)[0m  [1m[35mCREATE  INDEX `poly_ip_index`  ON `impressions` (`impressionable_type`, `impressionable_id`, `ip_address`) [0m
+  [1m[35m (11.6ms)[0m  [1m[35mCREATE  INDEX `poly_session_index`  ON `impressions` (`impressionable_type`, `impressionable_id`, `session_hash`) [0m
+  [1m[35m (11.5ms)[0m  [1m[35mCREATE  INDEX `controlleraction_request_index`  ON `impressions` (`controller_name`, `action_name`, `request_hash`) [0m
+  [1m[35m (11.5ms)[0m  [1m[35mCREATE  INDEX `controlleraction_ip_index`  ON `impressions` (`controller_name`, `action_name`, `ip_address`) [0m
+  [1m[35m (11.2ms)[0m  [1m[35mCREATE  INDEX `controlleraction_session_index`  ON `impressions` (`controller_name`, `action_name`, `session_hash`) [0m
+  [1m[35m (20.8ms)[0m  [1m[35mCREATE  INDEX `poly_params_request_index`  ON `impressions` (`impressionable_type`, `impressionable_id`, `params`(255)) [0m
+  [1m[35m (11.6ms)[0m  [1m[35mCREATE  INDEX `index_impressions_on_user_id`  ON `impressions` (`user_id`) [0m
+  [1m[35m (0.4ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mprimary::SchemaMigration Create (0.4ms)[0m  [1m[32mINSERT INTO `schema_migrations` (`version`) VALUES ('20201025105313')[0m
+  [1m[35m (1.9ms)[0m  [1m[35mCOMMIT[0m
+Migrating to AddImpressionsCountToTweets (20201025105847)
+  [1m[35m (5.9ms)[0m  [1m[35mALTER TABLE `tweets` ADD `impressions_count` int DEFAULT 0[0m
+  [1m[35m (0.4ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mprimary::SchemaMigration Create (0.6ms)[0m  [1m[32mINSERT INTO `schema_migrations` (`version`) VALUES ('20201025105847')[0m
+  [1m[35m (1.3ms)[0m  [1m[35mCOMMIT[0m
+Migrating to AddAudioToTweets (20201026144139)
+  [1m[35m (7.3ms)[0m  [1m[35mALTER TABLE `tweets` ADD `audio` varchar(255)[0m
+  [1m[35m (0.4ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mprimary::SchemaMigration Create (0.6ms)[0m  [1m[32mINSERT INTO `schema_migrations` (`version`) VALUES ('20201026144139')[0m
+  [1m[35m (1.3ms)[0m  [1m[35mCOMMIT[0m
+Migrating to AddOmniauthToUsers (20201029131642)
+  [1m[35m (7.4ms)[0m  [1m[35mALTER TABLE `users` ADD `provider` varchar(255)[0m
+  [1m[35m (6.3ms)[0m  [1m[35mALTER TABLE `users` ADD `uid` varchar(255)[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mprimary::SchemaMigration Create (0.3ms)[0m  [1m[32mINSERT INTO `schema_migrations` (`version`) VALUES ('20201029131642')[0m
+  [1m[35m (1.4ms)[0m  [1m[35mCOMMIT[0m
+Migrating to CreateMaps (20201030130236)
+  [1m[35m (10.3ms)[0m  [1m[35mCREATE TABLE `maps` (`id` bigint NOT NULL AUTO_INCREMENT PRIMARY KEY, `address` varchar(255), `latitude` float(24), `longitude` float(24), `created_at` datetime(6) NOT NULL, `updated_at` datetime(6) NOT NULL)[0m
+  [1m[35m (0.4ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mprimary::SchemaMigration Create (0.4ms)[0m  [1m[32mINSERT INTO `schema_migrations` (`version`) VALUES ('20201030130236')[0m
+  [1m[35m (1.4ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mActiveRecord::InternalMetadata Load (1.6ms)[0m  [1m[34mSELECT `ar_internal_metadata`.* FROM `ar_internal_metadata` WHERE `ar_internal_metadata`.`key` = 'environment' LIMIT 1[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mActiveRecord::InternalMetadata Create (0.2ms)[0m  [1m[32mINSERT INTO `ar_internal_metadata` (`key`, `value`, `created_at`, `updated_at`) VALUES ('environment', 'development', '2020-11-02 11:58:24.836733', '2020-11-02 11:58:24.836733')[0m
+  [1m[35m (1.7ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT RELEASE_LOCK('7395633852180811650')[0m
+  [1m[35m (0.3ms)[0m  [1m[35mSET NAMES utf8mb4,  @@SESSION.sql_mode = CONCAT(CONCAT(@@sql_mode, ',STRICT_ALL_TABLES'), ',NO_AUTO_VALUE_ON_ZERO'),  @@SESSION.sql_auto_is_null = 0, @@SESSION.wait_timeout = 2147483[0m
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT `schema_migrations`.`version` FROM `schema_migrations` ORDER BY `schema_migrations`.`version` ASC[0m
+  [1m[35m (7.4ms)[0m  [1m[35mSET NAMES utf8mb4,  @@SESSION.sql_mode = CONCAT(CONCAT(@@sql_mode, ',STRICT_ALL_TABLES'), ',NO_AUTO_VALUE_ON_ZERO'),  @@SESSION.sql_auto_is_null = 0, @@SESSION.wait_timeout = 2147483[0m
+  [1m[35m (2.4ms)[0m  [1m[34mSELECT `schema_migrations`.`version` FROM `schema_migrations` ORDER BY `schema_migrations`.`version` ASC[0m
+  [1m[35m (0.6ms)[0m  [1m[35mSET NAMES utf8mb4,  @@SESSION.sql_mode = CONCAT(CONCAT(@@sql_mode, ',STRICT_ALL_TABLES'), ',NO_AUTO_VALUE_ON_ZERO'),  @@SESSION.sql_auto_is_null = 0, @@SESSION.wait_timeout = 2147483[0m
+  [1m[35m (0.8ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mMap Create (7.9ms)[0m  [1m[32mINSERT INTO `maps` (`address`, `latitude`, `longitude`, `created_at`, `updated_at`) VALUES ('GeekSalon東京', 35.6458437, 139.7046171, '2020-11-02 13:31:40.659194', '2020-11-02 13:31:40.659194')[0m
+  [1m[35m (3.1ms)[0m  [1m[35mCOMMIT[0m
