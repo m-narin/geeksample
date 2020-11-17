@@ -35,7 +35,7 @@
             <% end %>
 
             <div class="right-container">
-                <%= t.user.name %>
+                <a href="/users/<%= t.user.id %>"><%= t.user.name %></a>
                 <%= link_to "詳細", tweet_path(t.id) %>
 
                 <% if user_signed_in? %>
@@ -85,7 +85,7 @@
             <% end %>
 
             <div class="right-container">
-                <%= t.user.name %>
+                <a href="/users/<%= t.user.id %>"><%= t.user.name %></a>
                 <%= link_to "詳細", tweet_path(t.id) %>
 
                 <% if user_signed_in? %>

@@ -2,7 +2,7 @@
 <h2>Tweet詳細</h2>
 
 <div class="tweet">
-    <p><%= @tweet.user.email %></p>
+    <p><a href="/users/<%= @tweet.user.id %>"><%= @tweet.user.name %></a></p>
     <h3><%= @tweet.body %></h3>
     <p><%= @tweet.created_at %></p>
     <p>閲覧数 = <%= @tweet.impressions_count %></p>

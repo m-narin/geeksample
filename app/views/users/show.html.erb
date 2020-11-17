@@ -7,9 +7,19 @@
     <%= link_to "編集する", edit_user_registration_path %>
 <% end %><br>
 
-<% @user.tweets.each do |t| %>
+<h2>投稿一覧</h2>
+<% @user_tweets.each do |t| %>
     <%= t.user.name %>
     <%= t.body %><br><hr>
+<% end %>
+
+
+<h2>いいねした投稿一覧</h2>
+
+<% @user.liked_tweets.each do |t| %>
+
+    <%= t.body %><br><hr>
+
 <% end %>
 
 <%= link_to "Tweet一覧に戻る", tweets_path %>
