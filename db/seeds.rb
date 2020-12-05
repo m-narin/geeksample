@@ -5,13 +5,13 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
-# Tag.create([
-#   { name: 'タグ1' },
-#   { name: 'タグ2' },
-#   { name: 'タグ3' },
-#   { name: 'タグ4' },
-#   { name: 'タグ5' }
-# ])
+Tag.create([
+  { name: 'タグ1' },
+  { name: 'タグ2' },
+  { name: 'タグ3' },
+  { name: 'タグ4' },
+  { name: 'タグ5' }
+])
 
 # User.create!(name:  "管理者",
 #             email: "y2pgftpe@gmail.com",
@@ -20,6 +20,6 @@
 #             admin: true)
 
 
-Map.create!(address: "GeekSalon東京",
-            latitude: 35.6454,
-            longitude: 139.7020)
+# Map.create!(address: "GeekSalon東京",
+#             latitude: 35.6454,
+#             longitude: 139.7020)

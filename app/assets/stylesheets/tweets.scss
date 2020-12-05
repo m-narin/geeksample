@@ -1,3 +1,32 @@
 // Place all the styles related to the tweets controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: https://sass-lang.com/
+
+
+.main-container h1{
+    width: 300px;
+    margin: 30px auto 30px;
+    text-align: center;
+}
+
+.container{
+    display: flex;
+    justify-content: space-around;
+}
+
+.content{
+    width: 30%;
+    border: solid 2px; // 枠線の設定
+    border-radius: 30px; // 角を丸くする
+}
+
+.title{
+    margin: 10px 30px;
+    text-align: center;
+    transition: 0.2s;
+}
+
+.title:hover{
+    color: red;
+    transform: scale(1.1, 1.1);
+}

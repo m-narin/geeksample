@@ -2,7 +2,7 @@ class TweetsController < ApplicationController
 
     before_action :authenticate_user!, only: [:new, :create, :edit, :update, :destroy]
 
-    def top
+    def about
     end
     
     def index
