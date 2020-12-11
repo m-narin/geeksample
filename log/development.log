@@ -30384,3 +30384,209 @@ Processing by MapsController#index as HTML
 Completed 200 OK in 91ms (Views: 55.4ms | ActiveRecord: 8.7ms | Allocations: 16317)
 
 
+Started GET "/" for ::1 at 2020-12-06 21:59:06 +0900
+  [1m[35m (9.8ms)[0m  [1m[35mSET NAMES utf8mb4,  @@SESSION.sql_mode = CONCAT(CONCAT(@@sql_mode, ',STRICT_ALL_TABLES'), ',NO_AUTO_VALUE_ON_ZERO'),  @@SESSION.sql_auto_is_null = 0, @@SESSION.wait_timeout = 2147483[0m
+  [1m[35m (12.0ms)[0m  [1m[34mSELECT `schema_migrations`.`version` FROM `schema_migrations` ORDER BY `schema_migrations`.`version` ASC[0m
+Processing by TweetsController#index as HTML
+  [1m[36mTweet Load (4.3ms)[0m  [1m[34mSELECT `tweets`.* FROM `tweets`[0m
+  ↳ app/controllers/tweets_controller.rb:10:in `sort'
+  Rendering tweets/index.html.erb within layouts/application
+  [1m[36mTag Load (6.3ms)[0m  [1m[34mSELECT `tags`.* FROM `tags`[0m
+  ↳ app/views/tweets/index.html.erb:12
+  [1m[36mCACHE Tweet Load (0.0ms)[0m  [1m[34mSELECT `tweets`.* FROM `tweets`[0m
+  ↳ app/views/tweets/index.html.erb:22
+  Rendered tweets/index.html.erb within layouts/application (Duration: 150.5ms | Allocations: 18408)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 325ms (Views: 238.0ms | ActiveRecord: 26.1ms | Allocations: 33987)
+
+
+Started GET "/users/sign_in" for ::1 at 2020-12-06 21:59:10 +0900
+Processing by Devise::SessionsController#new as HTML
+  Rendering users/sessions/new.html.erb within layouts/application
+  Rendered users/shared/_links.html.erb (Duration: 5.1ms | Allocations: 723)
+  Rendered users/sessions/new.html.erb within layouts/application (Duration: 56.6ms | Allocations: 2783)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 217ms (Views: 151.0ms | ActiveRecord: 12.3ms | Allocations: 19768)
+
+
+Started POST "/users/sign_in" for ::1 at 2020-12-06 21:59:13 +0900
+Processing by Devise::SessionsController#create as HTML
+  Parameters: {"authenticity_token"=>"zkz280xPR3tf3E1lCnnmm0jkNqXlCZsEaChPnGpEYybijZGKwurJpGQdJb9S5gviYdQY4nszrWQgyNQmjFkr1Q==", "user"=>{"email"=>"y2pgftpe@gmail.com", "password"=>"[FILTERED]", "remember_me"=>"0"}, "commit"=>"Log in"}
+  [1m[36mUser Load (2.0ms)[0m  [1m[34mSELECT `users`.* FROM `users` WHERE `users`.`email` = 'y2pgftpe@gmail.com' ORDER BY `users`.`id` ASC LIMIT 1[0m
+Completed 401 Unauthorized in 488ms (ActiveRecord: 2.0ms | Allocations: 3875)
+
+
+Processing by Devise::SessionsController#new as HTML
+  Parameters: {"authenticity_token"=>"zkz280xPR3tf3E1lCnnmm0jkNqXlCZsEaChPnGpEYybijZGKwurJpGQdJb9S5gviYdQY4nszrWQgyNQmjFkr1Q==", "user"=>{"email"=>"y2pgftpe@gmail.com", "password"=>"[FILTERED]", "remember_me"=>"0"}, "commit"=>"Log in"}
+  Rendering users/sessions/new.html.erb within layouts/application
+  Rendered users/shared/_links.html.erb (Duration: 0.5ms | Allocations: 213)
+  Rendered users/sessions/new.html.erb within layouts/application (Duration: 2.7ms | Allocations: 697)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 396ms (Views: 50.9ms | ActiveRecord: 0.0ms | Allocations: 6806)
+
+
+Started GET "/users/auth/google_oauth2" for ::1 at 2020-12-06 21:59:16 +0900
+Started GET "/users/auth/google_oauth2" for ::1 at 2020-12-06 21:59:16 +0900
+Started GET "/users/auth/google_oauth2/callback?state=e48aba6b045813b4d3363fe1b1d80e9aa781193fedd4d778&code=4/0AY0e-g7Ezvp8dXRicuqO-tORIE7V7yjeGFSmEcHUlFGJt4Db9hrS0nnZKfYWANJJeYvI0g&scope=email%20profile%20https://www.googleapis.com/auth/userinfo.profile%20openid%20https://www.googleapis.com/auth/userinfo.email&authuser=1&hd=keio.jp&prompt=none" for ::1 at 2020-12-06 21:59:18 +0900
+Processing by Users::OmniauthCallbacksController#google_oauth2 as HTML
+  Parameters: {"state"=>"e48aba6b045813b4d3363fe1b1d80e9aa781193fedd4d778", "code"=>"4/0AY0e-g7Ezvp8dXRicuqO-tORIE7V7yjeGFSmEcHUlFGJt4Db9hrS0nnZKfYWANJJeYvI0g", "scope"=>"email profile https://www.googleapis.com/auth/userinfo.profile openid https://www.googleapis.com/auth/userinfo.email", "authuser"=>"1", "hd"=>"keio.jp", "prompt"=>"none"}
+  [1m[36mUser Load (0.9ms)[0m  [1m[34mSELECT `users`.* FROM `users` WHERE `users`.`provider` = 'google_oauth2' AND `users`.`uid` = '106409334398779068043' ORDER BY `users`.`id` ASC LIMIT 1[0m
+  ↳ app/models/user.rb:10:in `from_omniauth'
+  [1m[35m (0.4ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/models/user.rb:10:in `from_omniauth'
+  [1m[36mUser Exists? (3.7ms)[0m  [1m[34mSELECT 1 AS one FROM `users` WHERE `users`.`email` = BINARY 'y2pgftpe@keio.jp' LIMIT 1[0m
+  ↳ app/models/user.rb:10:in `from_omniauth'
+  [1m[36mUser Create (2.7ms)[0m  [1m[32mINSERT INTO `users` (`email`, `encrypted_password`, `created_at`, `updated_at`, `name`, `provider`, `uid`) VALUES ('y2pgftpe@keio.jp', '$2a$12$yG/Q4E2.4hjES9wMe37dCeX3Pb41IulpNqqbELiv49WZkeg3OGVXK', '2020-12-06 12:59:20.033812', '2020-12-06 12:59:20.033812', '那仁満徳', 'google_oauth2', '106409334398779068043')[0m
+  ↳ app/models/user.rb:10:in `from_omniauth'
+  [1m[35m (2.0ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/models/user.rb:10:in `from_omniauth'
+Redirected to http://localhost:3000/
+Completed 302 Found in 437ms (ActiveRecord: 9.7ms | Allocations: 6021)
+
+
+Started GET "/" for ::1 at 2020-12-06 21:59:20 +0900
+Processing by TweetsController#index as HTML
+  [1m[36mTweet Load (0.7ms)[0m  [1m[34mSELECT `tweets`.* FROM `tweets`[0m
+  ↳ app/controllers/tweets_controller.rb:10:in `sort'
+  Rendering tweets/index.html.erb within layouts/application
+  [1m[36mTag Load (0.9ms)[0m  [1m[34mSELECT `tags`.* FROM `tags`[0m
+  ↳ app/views/tweets/index.html.erb:12
+  [1m[36mCACHE Tweet Load (0.0ms)[0m  [1m[34mSELECT `tweets`.* FROM `tweets`[0m
+  ↳ app/views/tweets/index.html.erb:22
+  Rendered tweets/index.html.erb within layouts/application (Duration: 18.6ms | Allocations: 3413)
+[Webpacker] Everything's up-to-date. Nothing to do
+  [1m[36mUser Load (2.6ms)[0m  [1m[34mSELECT `users`.* FROM `users` WHERE `users`.`id` = 2 ORDER BY `users`.`id` ASC LIMIT 1[0m
+  ↳ app/views/layouts/application.html.erb:17
+Completed 200 OK in 85ms (Views: 75.4ms | ActiveRecord: 4.1ms | Allocations: 10822)
+
+
+Started GET "/tweets/new" for ::1 at 2020-12-06 21:59:22 +0900
+Processing by TweetsController#new as HTML
+  [1m[36mUser Load (1.1ms)[0m  [1m[34mSELECT `users`.* FROM `users` WHERE `users`.`id` = 2 ORDER BY `users`.`id` ASC LIMIT 1[0m
+  Rendering tweets/new.html.erb within layouts/application
+  [1m[36mTag Load (0.5ms)[0m  [1m[34mSELECT `tags`.* FROM `tags`[0m
+  ↳ app/views/tweets/new.html.erb:29
+  Rendered tweets/new.html.erb within layouts/application (Duration: 164.1ms | Allocations: 14242)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 240ms (Views: 200.9ms | ActiveRecord: 9.3ms | Allocations: 26658)
+
+
+Started POST "/tweets" for ::1 at 2020-12-06 21:59:27 +0900
+Processing by TweetsController#create as HTML
+  Parameters: {"authenticity_token"=>"vfKO6O/O278t3Lg030SvSM5fIEpjb3yWFKqVRinHtuHOFzDFGBKkmo4BfeAnYn/vtc0nwBTnUAFKPAuJ+X0wnA==", "tweet"=>{"body"=>"aaaaa", "tag_ids"=>[""]}, "commit"=>"送信"}
+  [1m[36mUser Load (0.8ms)[0m  [1m[34mSELECT `users`.* FROM `users` WHERE `users`.`id` = 2 ORDER BY `users`.`id` ASC LIMIT 1[0m
+  [1m[36mTag Load (0.6ms)[0m  [1m[34mSELECT `tags`.* FROM `tags` WHERE 1=0[0m
+  ↳ app/controllers/tweets_controller.rb:18:in `create'
+  [1m[35m (0.5ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/tweets_controller.rb:20:in `create'
+  [1m[36mUser Load (1.0ms)[0m  [1m[34mSELECT `users`.* FROM `users` WHERE `users`.`id` = 2 LIMIT 1[0m
+  ↳ app/controllers/tweets_controller.rb:20:in `create'
+  [1m[36mTweet Create (0.9ms)[0m  [1m[32mINSERT INTO `tweets` (`body`, `created_at`, `updated_at`, `user_id`) VALUES ('aaaaa', '2020-12-06 12:59:27.231858', '2020-12-06 12:59:27.231858', 2)[0m
+  ↳ app/controllers/tweets_controller.rb:20:in `create'
+  [1m[35m (2.2ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/tweets_controller.rb:20:in `create'
+Redirected to http://localhost:3000/tweets
+Completed 302 Found in 60ms (ActiveRecord: 5.9ms | Allocations: 8627)
+
+
+Started GET "/tweets" for ::1 at 2020-12-06 21:59:27 +0900
+Processing by TweetsController#index as HTML
+  [1m[36mTweet Load (0.5ms)[0m  [1m[34mSELECT `tweets`.* FROM `tweets`[0m
+  ↳ app/controllers/tweets_controller.rb:10:in `sort'
+  Rendering tweets/index.html.erb within layouts/application
+  [1m[36mTag Load (0.9ms)[0m  [1m[34mSELECT `tags`.* FROM `tags`[0m
+  ↳ app/views/tweets/index.html.erb:12
+  [1m[36mCACHE Tweet Load (0.0ms)[0m  [1m[34mSELECT `tweets`.* FROM `tweets`[0m
+  ↳ app/views/tweets/index.html.erb:22
+  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT `users`.* FROM `users` WHERE `users`.`id` = 2 LIMIT 1[0m
+  ↳ app/views/tweets/index.html.erb:38
+  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT `users`.* FROM `users` WHERE `users`.`id` = 2 ORDER BY `users`.`id` ASC LIMIT 1[0m
+  ↳ app/views/tweets/index.html.erb:41
+  [1m[36mLike Exists? (2.4ms)[0m  [1m[34mSELECT 1 AS one FROM `likes` WHERE `likes`.`user_id` = 2 AND `likes`.`tweet_id` = 5 LIMIT 1[0m
+  ↳ app/models/user.rb:27:in `already_liked?'
+  [1m[35m (2.1ms)[0m  [1m[34mSELECT COUNT(*) FROM `likes` WHERE `likes`.`tweet_id` = 5[0m
+  ↳ app/views/tweets/index.html.erb:55
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT `users`.* FROM `users` WHERE `users`.`id` = 2 LIMIT 1[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/views/tweets/index.html.erb:88
+  [1m[36mCACHE Like Exists? (0.0ms)[0m  [1m[34mSELECT 1 AS one FROM `likes` WHERE `likes`.`user_id` = 2 AND `likes`.`tweet_id` = 5 LIMIT 1[0m
+  ↳ app/models/user.rb:27:in `already_liked?'
+  [1m[35mCACHE  (0.0ms)[0m  [1m[34mSELECT COUNT(*) FROM `likes` WHERE `likes`.`tweet_id` = 5[0m
+  ↳ app/views/tweets/index.html.erb:105
+  Rendered tweets/index.html.erb within layouts/application (Duration: 82.2ms | Allocations: 11632)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 144ms (Views: 121.6ms | ActiveRecord: 17.1ms | Allocations: 17986)
+
+
+Started GET "/tweets/new" for ::1 at 2020-12-06 21:59:55 +0900
+Processing by TweetsController#new as HTML
+  [1m[36mUser Load (0.8ms)[0m  [1m[34mSELECT `users`.* FROM `users` WHERE `users`.`id` = 2 ORDER BY `users`.`id` ASC LIMIT 1[0m
+  Rendering tweets/new.html.erb within layouts/application
+  [1m[36mTag Load (0.6ms)[0m  [1m[34mSELECT `tags`.* FROM `tags`[0m
+  ↳ app/views/tweets/new.html.erb:29
+  Rendered tweets/new.html.erb within layouts/application (Duration: 16.2ms | Allocations: 4306)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 73ms (Views: 67.1ms | ActiveRecord: 1.4ms | Allocations: 11607)
+
+
+Started POST "/tweets" for ::1 at 2020-12-06 22:00:00 +0900
+Processing by TweetsController#create as HTML
+  Parameters: {"authenticity_token"=>"sv8jDZBdMijCAeA7zVq8RXrdrTuXob8lTLP/3h5FDXrBGp0gZ4FNDWHcJe81fGziAU+qseApk7ISJWERzv+LBw==", "tweet"=>{"body"=>"bbb", "tag_ids"=>[""]}, "commit"=>"送信"}
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT `users`.* FROM `users` WHERE `users`.`id` = 2 ORDER BY `users`.`id` ASC LIMIT 1[0m
+  [1m[36mTag Load (1.4ms)[0m  [1m[34mSELECT `tags`.* FROM `tags` WHERE 1=0[0m
+  ↳ app/controllers/tweets_controller.rb:18:in `create'
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/tweets_controller.rb:20:in `create'
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT `users`.* FROM `users` WHERE `users`.`id` = 2 LIMIT 1[0m
+  ↳ app/controllers/tweets_controller.rb:20:in `create'
+  [1m[36mTweet Create (0.7ms)[0m  [1m[32mINSERT INTO `tweets` (`body`, `created_at`, `updated_at`, `user_id`) VALUES ('bbb', '2020-12-06 13:00:00.381313', '2020-12-06 13:00:00.381313', 2)[0m
+  ↳ app/controllers/tweets_controller.rb:20:in `create'
+  [1m[35m (2.3ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/tweets_controller.rb:20:in `create'
+Redirected to http://localhost:3000/tweets
+Completed 302 Found in 38ms (ActiveRecord: 5.9ms | Allocations: 6889)
+
+
+Started GET "/tweets" for ::1 at 2020-12-06 22:00:00 +0900
+Processing by TweetsController#index as HTML
+  [1m[36mTweet Load (0.7ms)[0m  [1m[34mSELECT `tweets`.* FROM `tweets`[0m
+  ↳ app/controllers/tweets_controller.rb:10:in `sort'
+  [1m[35m (0.8ms)[0m  [1m[34mSELECT COUNT(*) FROM `users` INNER JOIN `likes` ON `users`.`id` = `likes`.`user_id` WHERE `likes`.`tweet_id` = 5[0m
+  ↳ app/controllers/tweets_controller.rb:10:in `block in index'
+  [1m[35m (0.9ms)[0m  [1m[34mSELECT COUNT(*) FROM `users` INNER JOIN `likes` ON `users`.`id` = `likes`.`user_id` WHERE `likes`.`tweet_id` = 6[0m
+  ↳ app/controllers/tweets_controller.rb:10:in `block in index'
+  Rendering tweets/index.html.erb within layouts/application
+  [1m[36mTag Load (0.6ms)[0m  [1m[34mSELECT `tags`.* FROM `tags`[0m
+  ↳ app/views/tweets/index.html.erb:12
+  [1m[36mCACHE Tweet Load (0.0ms)[0m  [1m[34mSELECT `tweets`.* FROM `tweets`[0m
+  ↳ app/views/tweets/index.html.erb:22
+  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT `users`.* FROM `users` WHERE `users`.`id` = 2 LIMIT 1[0m
+  ↳ app/views/tweets/index.html.erb:38
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT `users`.* FROM `users` WHERE `users`.`id` = 2 ORDER BY `users`.`id` ASC LIMIT 1[0m
+  ↳ app/views/tweets/index.html.erb:41
+  [1m[36mLike Exists? (0.7ms)[0m  [1m[34mSELECT 1 AS one FROM `likes` WHERE `likes`.`user_id` = 2 AND `likes`.`tweet_id` = 5 LIMIT 1[0m
+  ↳ app/models/user.rb:27:in `already_liked?'
+  [1m[35m (1.1ms)[0m  [1m[34mSELECT COUNT(*) FROM `likes` WHERE `likes`.`tweet_id` = 5[0m
+  ↳ app/views/tweets/index.html.erb:55
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT `users`.* FROM `users` WHERE `users`.`id` = 2 LIMIT 1[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/views/tweets/index.html.erb:38
+  [1m[36mLike Exists? (1.4ms)[0m  [1m[34mSELECT 1 AS one FROM `likes` WHERE `likes`.`user_id` = 2 AND `likes`.`tweet_id` = 6 LIMIT 1[0m
+  ↳ app/models/user.rb:27:in `already_liked?'
+  [1m[35m (0.8ms)[0m  [1m[34mSELECT COUNT(*) FROM `likes` WHERE `likes`.`tweet_id` = 6[0m
+  ↳ app/views/tweets/index.html.erb:55
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT `users`.* FROM `users` WHERE `users`.`id` = 2 LIMIT 1[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/views/tweets/index.html.erb:88
+  [1m[36mCACHE Like Exists? (0.0ms)[0m  [1m[34mSELECT 1 AS one FROM `likes` WHERE `likes`.`user_id` = 2 AND `likes`.`tweet_id` = 6 LIMIT 1[0m
+  ↳ app/models/user.rb:27:in `already_liked?'
+  [1m[35mCACHE  (0.0ms)[0m  [1m[34mSELECT COUNT(*) FROM `likes` WHERE `likes`.`tweet_id` = 6[0m
+  ↳ app/views/tweets/index.html.erb:105
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT `users`.* FROM `users` WHERE `users`.`id` = 2 LIMIT 1[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/views/tweets/index.html.erb:88
+  [1m[36mCACHE Like Exists? (0.0ms)[0m  [1m[34mSELECT 1 AS one FROM `likes` WHERE `likes`.`user_id` = 2 AND `likes`.`tweet_id` = 5 LIMIT 1[0m
+  ↳ app/models/user.rb:27:in `already_liked?'
+  [1m[35mCACHE  (0.0ms)[0m  [1m[34mSELECT COUNT(*) FROM `likes` WHERE `likes`.`tweet_id` = 5[0m
+  ↳ app/views/tweets/index.html.erb:105
+  Rendered tweets/index.html.erb within layouts/application (Duration: 99.6ms | Allocations: 14327)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 188ms (Views: 145.2ms | ActiveRecord: 8.5ms | Allocations: 24146)
+
+
