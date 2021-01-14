@@ -62,6 +62,8 @@ gem 'audiojs-rails'
 gem 'omniauth'
 gem 'omniauth-google-oauth2'
 gem 'geocoder'
+gem "chartkick"
+gem "groupdate"
 
 group :production do
   gem 'pg'

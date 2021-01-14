@@ -5,6 +5,8 @@
 <%= submit_tag '検索する'  %>
 <% end %>
 
+<%= pie_chart Tweet.group(:body).count %>
+
 <p><%= link_to "Google map", maps_path %></p>
 
 <%= form_tag tweets_path, method: :get, class: 'boards__searchForm' do %>
@@ -23,7 +25,7 @@
     <div class="tweet">
         <div class="main-box">
             <div class="left-container">
-                <%= audio_tag t.audio_url, :autoplay => true, :controls => true if t.audio? %>
+                <%= image_tag t.image_url, size: "250x200" if t.image? %>
                 <%= t.body %>
             </div>
             <% if t.star? %>
@@ -65,6 +67,8 @@
     </div>
     <% end %>
 </div>
+
+<%= paginate @tweets %>
 
 <br><br><br>
 

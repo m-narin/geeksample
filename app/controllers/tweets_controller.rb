@@ -6,7 +6,8 @@ class TweetsController < ApplicationController
     end
     
     def index
-        @tweets = params[:tag_id].present? ? Tag.find(params[:tag_id]).tweets : Tweet.all
+        # @tweets = params[:tag_id].present? ? Tag.find(params[:tag_id]).tweets : Tweet.all.page(params[:page]).per(2)
+        @tweets = Tweet.where("body LIKE ? ", "%" + "aaa" + "%").or(Tweet.where("body LIKE ? ", "%" + "bbb" + "%")).page(params[:page]).per(1)
         @rank_tweets = Tweet.all.sort {|a,b| b.liked_users.count <=> a.liked_users.count}
     end
 
@@ -22,6 +23,7 @@ class TweetsController < ApplicationController
         else
             redirect_to :action => "new"
         end
+        
     end
 
     def show
@@ -38,7 +40,7 @@ class TweetsController < ApplicationController
     def update
         tweet = Tweet.find(params[:id])
         if tweet.update(tweet_params)
-            redirect_to :action => "show", :id => @tweet.id
+            redirect_to :action => "show", :id => tweet.id
         else
             redirect_to :action => "new"
         end
@@ -52,7 +54,7 @@ class TweetsController < ApplicationController
     
     private
     def tweet_params
-    params.require(:tweet).permit(:body, :image, :audio, :star, tag_ids: [])
+    params.require(:tweet).permit(:body, :image, :star, tag_ids: [])
     end
     
 end

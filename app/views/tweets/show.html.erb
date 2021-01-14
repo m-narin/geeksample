@@ -15,20 +15,19 @@
         </div>
     <% end %>
 
-<% if user_signed_in? %>
-    <% if current_user.already_liked?(@tweet) %>
-        <%= link_to tweet_like_path(@tweet), method: :delete do %>
-            <i class="fas fa-heart"></i><%= @tweet.likes.count %>
+    <% if user_signed_in? %>
+        <% if current_user.already_liked?(@tweet) %>
+            <%= link_to tweet_like_path(@tweet), method: :delete do %>
+                <i class="fas fa-heart"></i><%= @tweet.likes.count %>
+            <% end %>
+        <% else %>
+            <%= link_to tweet_likes_path(@tweet), method: :post do %>
+                <i class="far fa-heart"></i><%= @tweet.likes.count %>
+            <% end %>
         <% end %>
     <% else %>
-        <%= link_to tweet_likes_path(@tweet), method: :post do %>
-            <i class="far fa-heart"></i><%= @tweet.likes.count %>
-        <% end %>
+        <i class="far fa-heart"></i><%= @tweet.likes.count %>
     <% end %>
-<% else %>
-    <i class="far fa-heart"></i><%= @tweet.likes.count %>
-<% end %>
-
 </div>
 
 <% @tweet.tags.each do |tag| %>

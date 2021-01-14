@@ -87,7 +87,7 @@ ActiveRecord::Schema.define(version: 2020_10_30_130236) do
     t.integer "user_id"
     t.integer "star"
     t.integer "impressions_count", default: 0
-    t.string "audio"
+    t.string "image"
   end
 
   create_table "users", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4", force: :cascade do |t|
